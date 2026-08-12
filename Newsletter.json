@@ -162,7 +162,7 @@
           "parameters": [
             {
               "name": "X-Api-Key",
-              "value": "069c26cec5454ecf90ec55896f7e7ac5"
+              "value": "Api key"
             }
           ]
         },
@@ -257,10 +257,10 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.telegram.org/bot8811783270:AAH7vJxwwCYrFceBzvScUy8l1vEyj03hWa8/sendMessage",
+        "url": "https://api.telegram.org/botID/sendMessage",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"chat_id\": \"-1004395948781\",\n  \"text\": \"<b>Newsletter - No New Content</b>\\n\\nKeyword: <b>{{ $json.keyword }}</b>\\nDate: {{ $json.message }}\\n\\n<i>No articles found in the last 24 hours from any monitored source.</i>\\n\\nTry a broader keyword or check back later.\",\n  \"parse_mode\": \"HTML\"\n}",
+        "jsonBody": "={\n  \"chat_id\": \"Channel ID\",\n  \"text\": \"<b>Newsletter - No New Content</b>\\n\\nKeyword: <b>{{ $json.keyword }}</b>\\nDate: {{ $json.message }}\\n\\n<i>No articles found in the last 24 hours from any monitored source.</i>\\n\\nTry a broader keyword or check back later.\",\n  \"parse_mode\": \"HTML\"\n}",
         "options": {
           "timeout": 15000
         }
