@@ -1,5 +1,4 @@
 {
-  "name": "Newsletter",
   "nodes": [
     {
       "parameters": {
@@ -11,13 +10,13 @@
           ]
         }
       },
-      "id": "605697fc-14aa-4983-8be9-bc03eb63a244",
+      "id": "e892737b-7bb0-40cb-a7d5-596a038dcfc2",
       "name": "Schedule Trigger (8AM Daily)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -864,
-        512
+        864,
+        976
       ]
     },
     {
@@ -64,13 +63,13 @@
         },
         "options": {}
       },
-      "id": "5d4bacff-f812-47ee-890e-cbfc41ccea14",
+      "id": "e3db2dc7-7bf6-4ce5-9be5-baf1e472d496",
       "name": "Set Config Variables",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -640,
-        416
+        1088,
+        880
       ]
     },
     {
@@ -80,13 +79,13 @@
           "timeout": 15000
         }
       },
-      "id": "8ddef788-432f-4b94-8ed2-aa820b627742",
+      "id": "3373d249-24ff-4901-8dfd-20a926e2a3a6",
       "name": "Fetch arXiv Papers",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -416,
-        32
+        1312,
+        496
       ],
       "continueOnFail": true
     },
@@ -97,13 +96,13 @@
           "timeout": 10000
         }
       },
-      "id": "fd821b6e-7935-4b9b-a7bb-131eb40df5c2",
+      "id": "dfaeb780-2c6a-455e-8e42-4f5b77ebe538",
       "name": "Fetch Hacker News",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -416,
-        224
+        1312,
+        688
       ],
       "continueOnFail": true
     },
@@ -127,13 +126,13 @@
           "timeout": 10000
         }
       },
-      "id": "c2670fa9-3661-4e4d-9fe0-03e09dbc5ca9",
+      "id": "4d5359a6-15f7-4a84-9670-55c470b242e9",
       "name": "Fetch GitHub Repos",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -416,
-        416
+        1312,
+        880
       ],
       "continueOnFail": true
     },
@@ -144,13 +143,13 @@
           "timeout": 10000
         }
       },
-      "id": "3793b414-ca88-4863-bf8b-480a37e92fb1",
+      "id": "7616974a-516f-4e6f-92ef-bb96cbb3601d",
       "name": "Fetch Google News RSS",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -416,
-        608
+        1312,
+        1072
       ],
       "continueOnFail": true
     },
@@ -170,13 +169,13 @@
           "timeout": 10000
         }
       },
-      "id": "d1aacb1f-d90f-472f-ba44-8962239c6d3b",
+      "id": "2be8dc43-2852-40e8-9ccb-3bb30abb0ad2",
       "name": "Fetch NewsAPI",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        32,
-        752
+        1312,
+        1264
       ],
       "continueOnFail": true
     },
@@ -184,13 +183,13 @@
       "parameters": {
         "jsCode": "const config = $('Set Config Variables').first().json;\nconst keyword = config.keyword.toLowerCase();\nconst sinceUnix = config.since_unix;\nconst sinceMs = sinceUnix * 1000;\n\nlet items = [];\n\nconst isRecent = (dateStr) => {\n  if (!dateStr) return false;\n  const ms = new Date(dateStr).getTime();\n  return !isNaN(ms) && ms >= sinceMs;\n};\n\n// --- 1. arXiv ---\ntry {\n  const raw = $('Fetch arXiv Papers').first().json;\n  const xmlStr = raw.data || raw.body || JSON.stringify(raw);\n  const entries = xmlStr.match(/<entry>(.*?)<\\/entry>/gs) || [];\n  entries.forEach(entry => {\n    const title = (entry.match(/<title>(.*?)<\\/title>/s)?.[1] || '').replace(/\\n/g,' ').trim();\n    const url = (entry.match(/<id>(.*?)<\\/id>/s)?.[1] || '').trim();\n    const excerpt = (entry.match(/<summary>(.*?)<\\/summary>/s)?.[1] || '').replace(/\\n/g,' ').trim().slice(0,500);\n    const pubDate = (entry.match(/<published>(.*?)<\\/published>/s)?.[1] || '').trim();\n    if (title && url && isRecent(pubDate)) {\n      items.push({ title, url, excerpt, source: 'arXiv', published_at: pubDate, source_weight: 90, engagement: 0 });\n    }\n  });\n} catch(e) { console.log('arXiv err:', e.message); }\n\n// --- 2. Hacker News ---\ntry {\n  const hnData = $('Fetch Hacker News').first().json;\n  (hnData.hits || []).forEach(h => {\n    items.push({\n      title: h.title || '',\n      url: h.url || ('https://news.ycombinator.com/item?id=' + h.objectID),\n      excerpt: (h.story_text || h.title || '').replace(/<[^>]+>/g,'').slice(0,400),\n      source: 'HackerNews',\n      published_at: new Date(h.created_at_i * 1000).toISOString(),\n      source_weight: 75,\n      engagement: h.points || 0\n    });\n  });\n} catch(e) { console.log('HN err:', e.message); }\n\n// --- 3. GitHub ---\ntry {\n  const ghData = $('Fetch GitHub Repos').first().json;\n  (ghData.items || []).forEach(r => {\n    if (!isRecent(r.created_at)) return;\n    items.push({\n      title: '[GitHub] ' + r.full_name + ': ' + (r.description || ''),\n      url: r.html_url || '',\n      excerpt: r.description || ('New GitHub repo about ' + keyword),\n      source: 'GitHub',\n      published_at: r.created_at,\n      source_weight: 80,\n      engagement: r.stargazers_count || 0\n    });\n  });\n} catch(e) { console.log('GitHub err:', e.message); }\n\n// --- 4. Google News ---\ntry {\n  const gnData = $('Fetch Google News RSS').first().json;\n  const xmlStr = gnData.data || gnData.body || JSON.stringify(gnData);\n  const itemMatches = xmlStr.match(/<item>(.*?)<\\/item>/gs) || [];\n  itemMatches.forEach(item => {\n    const titleM = item.match(/<title>(?:<!\\[CDATA\\[)?(.*?)(?:\\]\\]>)?<\\/title>/s);\n    const linkM = item.match(/<link>(.*?)<\\/link>/s);\n    const descM = item.match(/<description>(?:<!\\[CDATA\\[)?(.*?)(?:\\]\\]>)?<\\/description>/s);\n    const dateM = item.match(/<pubDate>(.*?)<\\/pubDate>/s);\n    const title = (titleM && titleM[1] ? titleM[1] : '').trim();\n    const url = (linkM && linkM[1] ? linkM[1] : '').trim();\n    const excerpt = (descM && descM[1] ? descM[1] : '').replace(/<[^>]+>/g,'').trim().slice(0,400);\n    const pubDate = dateM ? new Date(dateM[1].trim()).toISOString() : '';\n    if (title && url && isRecent(pubDate)) {\n      items.push({ title, url, excerpt, source: 'GoogleNews', published_at: pubDate, source_weight: 60, engagement: 0 });\n    }\n  });\n} catch(e) { console.log('GNews err:', e.message); }\n\n// --- 5. NewsAPI ---\ntry {\n  const naData = $('Fetch NewsAPI').first().json;\n  (naData.articles || []).forEach(a => {\n    if (!isRecent(a.publishedAt) || a.title === '[Removed]') return;\n    items.push({\n      title: a.title || '',\n      url: a.url || '',\n      excerpt: a.description || (a.content || '').slice(0,400),\n      source: 'NewsAPI',\n      published_at: a.publishedAt,\n      source_weight: 70,\n      engagement: 0\n    });\n  });\n} catch(e) { console.log('NewsAPI err:', e.message); }\n\n// --- DEDUPLICATE ---\nconst seen = new Set();\nconst deduped = items.filter(i => {\n  if (!i.url || seen.has(i.url)) return false;\n  seen.add(i.url);\n  return true;\n});\n\n// --- KEYWORD FILTER ---\nconst kws = keyword.split(' ').filter(k => k.length > 0);\nconst relevant = deduped.filter(i => {\n  const text = (i.title + ' ' + i.excerpt).toLowerCase();\n  return kws.some(kw => text.includes(kw));\n});\n\nconsole.log('Items after dedup+filter: ' + relevant.length);\n\nif (relevant.length === 0) {\n  return [{ json: { __empty: true, keyword: config.keyword, now_display: config.now_display } }];\n}\n\nreturn relevant.map(i => ({ json: Object.assign({}, i, { keyword: config.keyword, now_display: config.now_display }) }));"
       },
-      "id": "5dda756a-88bc-4b8e-9019-ef507a3d90f9",
+      "id": "0e1a402e-6e1b-4a77-af1e-fe51a439aca5",
       "name": "Normalize & Deduplicate All Sources",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        480,
-        320
+        1760,
+        784
       ]
     },
     {
@@ -219,39 +218,39 @@
         "looseTypeValidation": true,
         "options": {}
       },
-      "id": "58998a5c-f2bc-41cd-94a3-fbed12e129d7",
+      "id": "f547c568-e90a-4169-bb88-c424185d0398",
       "name": "Has Results?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        704,
-        320
+        1984,
+        784
       ]
     },
     {
       "parameters": {
         "jsCode": "const items = $input.all();\nconst outputItems = [];\n\nfor (const item of items) {\n  // 1. DEBUG: Let's see what the actual structure looks like\n  console.log(\"Full Item JSON:\", JSON.stringify(item.json, null, 2));\n  \n  // 2. Try multiple possible locations for the content\n  // Location A: Standard OpenAI format (choices -> message -> content)\n  let rawContent = item.json.choices?.[0]?.message?.content;\n  \n  // Location B: Some nodes put it directly in 'content' or 'output'\n  if (!rawContent) rawContent = item.json.content;\n  \n  // Location C: If the Groq node returns the JSON object directly in 'output'\n  if (!rawContent) rawContent = item.json.output;\n\n  let jsonData = {};\n\n  if (!rawContent) {\n    console.log(\"WARNING: No content found in any expected location!\");\n    outputItems.push({\n      json: {\n        title: \"No content received\",\n        summary: \"\",\n        score: 0,\n        source: item.json.source || \"Unknown\",\n        link: item.json.link || item.json.url || \"\"\n      }\n    });\n    continue;\n  }\n\n  try {\n    // 3. Clean and Parse\n    let cleanContent = rawContent.trim();\n    \n    // Remove markdown if present\n    if (cleanContent.startsWith('```json')) {\n      cleanContent = cleanContent.replace(/^```json\\s*\\n/, '').replace(/\\n```$/, '');\n    } else if (cleanContent.startsWith('```')) {\n      cleanContent = cleanContent.replace(/^```\\s*\\n/, '').replace(/\\n```$/, '');\n    }\n\n    const parsed = JSON.parse(cleanContent);\n\n    jsonData = {\n      title: parsed.title || \"Untitled\",\n      summary: parsed.summary || \"No summary available.\",\n      score: parsed.score || 0,\n      source: parsed.source || item.json.source || \"Unknown\",\n      link: parsed.link || item.json.link || item.json.url || \"#\"\n    };\n\n  } catch (e) {\n    console.error(\"Parse Error:\", e);\n    console.log(\"Raw content that failed:\", rawContent);\n    outputItems.push({\n      json: {\n        title: \"Parse Error\",\n        summary: \"Could not parse AI response.\",\n        score: 0,\n        source: item.json.source || \"Unknown\",\n        link: item.json.url || \"\"\n      }\n    });\n  }\n\n  outputItems.push({ json: jsonData });\n}\n\nreturn outputItems;"
       },
-      "id": "3ea91d0e-9f52-49d3-a86e-a90c26936699",
+      "id": "8491fad2-be75-41b7-b597-04f063bf0459",
       "name": "Attach AI Summary",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1280,
-        176
+        2560,
+        688
       ]
     },
     {
       "parameters": {
         "jsCode": "const items = $input.all();\nif (!items || items.length === 0) return [];\n\nconst keyword = (items[0] && items[0].json.keyword ? items[0].json.keyword : '').toLowerCase();\nconst now = Date.now();\n\nconst scored = items.map(item => {\n  const j = item.json;\n  let score = j.source_weight || 50;\n\n  // 1. Recency Score (with safety check)\n  let ageHrs = 999; // Default to old if date is missing\n  const pubTime = new Date(j.published_at).getTime();\n  if (!isNaN(pubTime)) {\n    ageHrs = (now - pubTime) / 3600000;\n  }\n\n  if (ageHrs <= 3) score += 20;\n  else if (ageHrs <= 6) score += 15;\n  else if (ageHrs <= 12) score += 10;\n  else if (ageHrs <= 18) score += 5;\n\n  // 2. Keyword Score\n  const titleLower = (j.title || '').toLowerCase();\n  const keywords = keyword.split(' ').filter(k => k.length > 0);\n  \n  // Check full phrase first (if keyword has multiple words)\n  if (keyword.length > 0 && titleLower.includes(keyword)) {\n    score += 15;\n  }\n\n  // Check individual words\n  keywords.forEach(kw => { \n    if (titleLower.includes(kw)) score += 8; \n  });\n\n  // 3. Engagement Score\n  const eng = Math.min(j.engagement || 0, 10000);\n  score += Math.floor((eng / 10000) * 20);\n\n  // Cap score\n  const finalScore = Math.min(score, 150);\n\n  return { json: Object.assign({}, j, { score: finalScore, age_hours: parseFloat(ageHrs.toFixed(2)) }) };\n});\n\n// Sort Descending\nscored.sort((a, b) => b.json.score - a.json.score);\n\n// DEBUG: Log top 3 items to verify scoring logic\nconsole.log('--- SCORING DEBUG ---');\nconsole.log('Keyword:', keyword);\nconsole.log('Total items processed:', items.length);\n\nif (scored.length > 0) {\n  const topItem = scored[0].json;\n  const safeTitle = topItem.title ? String(topItem.title).substring(0, 40) : '(No Title)';\n  \n  console.log('Top Item:', {\n    title: safeTitle,\n    source: topItem.source || 'Unknown',\n    score: topItem.score,\n    age_hours: topItem.age_hours,\n    raw_title_type: typeof topItem.title\n  });\n} else {\n  console.log('No items to score after processing.');\n}\n\nreturn scored.slice(0, 20);"
       },
-      "id": "4b3428c4-8283-4ba8-8da3-36d99f9201af",
+      "id": "83f8da26-3761-463e-92c1-b8b8d246a208",
       "name": "Score & Sort by Relevance",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1504,
-        176
+        2784,
+        688
       ]
     },
     {
@@ -265,71 +264,28 @@
           "timeout": 15000
         }
       },
-      "id": "0d06f698-a92a-4504-95f9-f49820399d71",
+      "id": "61d346f8-6d0b-432d-9a83-12a9eddd7963",
       "name": "Send No-Results Notice",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        992,
-        464
+        2272,
+        992
       ],
       "continueOnFail": true
     },
     {
-      "parameters": {},
+      "parameters": {
+        "numberInputs": 5
+      },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        -192,
-        32
+        1536,
+        736
       ],
-      "id": "4fbb01db-ef22-4f7b-af56-c4773adf30ce",
-      "name": "Merge"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        -192,
-        416
-      ],
-      "id": "2f3082e3-e2b3-468a-9777-44c7b3150291",
-      "name": "Merge1"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        256,
-        320
-      ],
-      "id": "906d3d52-5e91-4f5b-aab3-029d7aa93308",
+      "id": "a886795f-d87a-4550-a28a-818f864a8dfb",
       "name": "Merge4"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        32,
-        224
-      ],
-      "id": "d98dbf23-b81f-46f5-a39d-aeebd8ea1623",
-      "name": "Merge5"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        -640,
-        608
-      ],
-      "id": "d2dee406-e300-4435-b709-9cdd9bf415e0",
-      "name": "Wait",
-      "webhookId": "5dbe5492-f901-46a6-b209-24e5fc68fd51"
     },
     {
       "parameters": {
@@ -342,15 +298,15 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1728,
-        176
+        3008,
+        688
       ],
-      "id": "abafeb6c-7416-427b-be14-a67d173e1b29",
+      "id": "ef5ee50f-d5f8-418b-8bd7-8ae8a891b074",
       "name": "Send a text message",
       "webhookId": "6595a5e9-5bf0-447b-9e6f-5148e7b160df",
       "credentials": {
         "telegramApi": {
-          "id": "eAfqYxbQBMp2P8PR",
+          "id": "4xQ814CxC9kpUhij",
           "name": "Telegram account"
         }
       }
@@ -366,10 +322,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        928,
-        64
+        2208,
+        592
       ],
-      "id": "c503a96f-bc1d-4206-af58-42be9ee54954",
+      "id": "962b433e-5b3a-4c17-a5bd-23999e7cbb97",
       "name": "AI Agent"
     },
     {
@@ -382,31 +338,19 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        1008,
-        304
+        2280,
+        808
       ],
-      "id": "e573861d-ea97-42ab-b694-36d1c93440ec",
-      "name": "Groq Chat Model",
-      "credentials": {
-        "groqApi": {
-          "id": "bMDOx0pdxMFSy7ga",
-          "name": "Groq account"
-        }
-      }
+      "id": "659cf987-cac4-4486-85f8-3f38c68d6e6a",
+      "name": "Groq Chat Model"
     }
   ],
-  "pinData": {},
   "connections": {
     "Schedule Trigger (8AM Daily)": {
       "main": [
         [
           {
             "node": "Set Config Variables",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -448,7 +392,7 @@
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge4",
             "type": "main",
             "index": 0
           }
@@ -459,7 +403,7 @@
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge4",
             "type": "main",
             "index": 1
           }
@@ -470,9 +414,9 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Merge4",
             "type": "main",
-            "index": 0
+            "index": 2
           }
         ]
       ]
@@ -481,9 +425,9 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Merge4",
             "type": "main",
-            "index": 1
+            "index": 3
           }
         ]
       ]
@@ -494,7 +438,7 @@
           {
             "node": "Merge4",
             "type": "main",
-            "index": 1
+            "index": 4
           }
         ]
       ]
@@ -550,39 +494,6 @@
         ]
       ]
     },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "Merge5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge1": {
-      "main": [
-        [
-          {
-            "node": "Merge5",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Merge5": {
-      "main": [
-        [
-          {
-            "node": "Merge4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Merge4": {
       "main": [
         [
@@ -617,34 +528,9 @@
       ]
     }
   },
-  "active": true,
-  "settings": {
-    "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "saveExecutionProgress": false,
-    "callerPolicy": "workflowsFromSameOwner"
-  },
-  "versionId": "b90b8c4c-3885-4dd3-a2d6-5037bf9e7cde",
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "5c09533e48fab352b8a9adedc5b9a88b587fcdba35c947d5e1f8d13dd1a8377a"
-  },
-  "nodeGroups": [],
-  "id": "ONZ4xWmFCnXaQDPb",
-  "tags": [
-    {
-      "updatedAt": "2026-08-11T14:52:07.431Z",
-      "createdAt": "2026-08-11T14:52:07.431Z",
-      "id": "1RN1EyzI2FmZLKjg",
-      "name": "Automation"
-    },
-    {
-      "updatedAt": "2026-08-11T14:52:07.457Z",
-      "createdAt": "2026-08-11T14:52:07.457Z",
-      "id": "MFyZemgN1f37mcSz",
-      "name": "Newsletter"
-    }
-  ]
+    "instanceId": "31f86fc6c692ea12f7c2d7db9d99a4131728c9a1afafa5d3a5118c76eda6d371"
+  }
 }
