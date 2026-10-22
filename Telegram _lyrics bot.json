@@ -1,0 +1,778 @@
+{
+  "name": "Telegram /lyrics bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "channel_post"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        1088
+      ],
+      "id": "09446268-7c4f-4d40-b433-0e8be393c092",
+      "name": "Telegram Trigger",
+      "webhookId": "6595a5e9-5bf0-447b-9e6f-5148e7b160df",
+      "credentials": {
+        "telegramApi": {
+          "id": "4xQ814CxC9kpUhij",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── Only react to \"/lyrics <title or part of the lyrics>\" (also \"/lyrics@YourBot ...\"). Anything else stops here. ──\nconst BOT_TOKEN = 'PASTE_BOT_TOKEN';        // from @BotFather\nconst GENIUS_TOKEN = 'PASTE_GENIUS_TOKEN';  // free: genius.com/api-clients (optional, needed to search by part of the lyrics)\n\nconst u = $input.first().json;\nconst m = u.message || u.channel_post;\nif (!m || typeof m.text !== 'string') return [];\nconst mt = m.text.trim().match(/^\\/lyrics(?:@\\w+)?(?:\\s+([\\s\\S]*))?$/i);\nif (!mt) return [];\n\nconst enc = encodeURIComponent;\nconst raw = (mt[1] || '').trim();\nconst parts = raw.split(/\\s+[-–—]\\s+/);\nconst explicit = parts.length >= 2;\nconst title = (explicit ? parts[0] : raw).trim();\nconst artist = explicit ? parts.slice(1).join(' ').trim() : '';\nconst plain = raw.replace(/\\s+[-–—]\\s+/g, ' ');\n\nreturn [{\n  json: {\n    raw,\n    explicit,\n    title,\n    artist,\n    query: enc(raw),\n    qPlain: enc(plain),\n    keyword: plain.replace(/[^\\w\\s-]/g, '').replace(/\\s+/g, '+'),\n    lookupUrl: 'https://lrclib.net/api/search?track_name=' + enc(title) + (artist ? '&artist_name=' + enc(artist) : ''),\n    chatId: m.chat.id,\n    // reply inside the same topic (sub-channel) when the command came from one\n    threadId: m.is_topic_message ? m.message_thread_id : null,\n    botToken: BOT_TOKEN,\n    geniusToken: GENIUS_TOKEN\n  }\n}];\n"
+      },
+      "id": "96eafb68-dce9-430f-ab93-bca9da2f7626",
+      "name": "Parse Query",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        736,
+        1088
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.genius.com/search?q={{ $json.qPlain }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.geniusToken }}"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "df4d1325-714e-4bfc-8e0f-5401b25de477",
+      "name": "Genius",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        896
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "executeOnce": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://africangospellyrics.com/?s={{ $json.keyword }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "id": "fc7828d1-66b1-43fc-980e-2873c234a443",
+      "name": "AfricanGospellyrics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        1088
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "executeOnce": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://lrclib.net/api/search?q={{ $json.qPlain }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "7ff5c247-434a-4d42-ad52-a158c0dbe547",
+      "name": "LRCLIB Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        1280
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "executeOnce": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0000001-0000-4000-8000-000000000001-a1",
+              "name": "source",
+              "value": "Genius",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "afe10084-83cd-484f-a936-d5b269694787",
+      "name": "Set source: Genius",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1184,
+        896
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0000001-0000-4000-8000-000000000002-a1",
+              "name": "source",
+              "value": "AfricanGospel",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "03634089-3c2c-4dc9-9639-e5dd27a4b6d6",
+      "name": "Set source: AfricanGospel",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1184,
+        1088
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0000001-0000-4000-8000-000000000003-a1",
+              "name": "source",
+              "value": "LRCLIB",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "6c96e3f9-bd7e-4210-bf14-54c0859dba50",
+      "name": "Set source: LRCLIB",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1184,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1408,
+        1072
+      ],
+      "id": "246b3d39-091e-4688-a6e6-07f0cb299043",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── CODE 1: extractLinks(html, source) -> one item per candidate page: { source, title, artist, url } ──\nconst decode = (s) => s\n  .replace(/&#(\\d+);/g, (_, n) => String.fromCharCode(+n))\n  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))\n  .replace(/&nbsp;/g, ' ').replace(/&rsquo;|&lsquo;/g, \"'\").replace(/&hellip;/g, '...')\n  .replace(/&quot;/g, '\"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');\n\nfunction extractLinks(body, source) {\n  const out = [];\n  if (source === 'Genius') {                       // Genius API (JSON): hits -> genius.com song pages\n    let o; try { o = JSON.parse(body); } catch (e) { return out; }\n    for (const h of ((o.response && o.response.hits) || []).filter((h) => h.type === 'song').slice(0, 4)) {\n      out.push({ source, title: h.result.title, artist: (h.result.primary_artist || {}).name || '', url: h.result.url });\n    }\n  } else if (source === 'LRCLIB') {                // LRCLIB search (JSON): each hit has an id -> /api/get/{id}\n    let o; try { o = JSON.parse(body); } catch (e) { return out; }\n    for (const x of (Array.isArray(o) ? o : []).filter((x) => x && x.id && x.trackName && x.plainLyrics).slice(0, 6)) {\n      out.push({ source, title: x.trackName, artist: x.artistName || '', url: 'https://lrclib.net/api/get/' + x.id });\n    }\n  } else if (source === 'AfricanGospel') {         // AfricanGospelLyrics search page (HTML)\n    if (body.length < 300 || /cf-browser-verification|attention required|captcha|access denied|just a moment/i.test(body)) return out;\n    for (const l of [...body.matchAll(/<h[1-4][^>]*class=\"[^\"]*title[^\"]*\"[^>]*>\\s*<a[^>]+href=\"([^\"]+)\"[^>]*>([\\s\\S]*?)<\\/a>/gi)].slice(0, 3)) {\n      out.push({ source, title: decode(l[2].replace(/<[^>]+>/g, '')).replace(/\\s+lyrics.*$/i, '').trim(), artist: '', url: l[1] });\n    }\n  }\n  return out;\n}\n\nconst all = [];\nfor (const item of $input.all()) {\n  const j = item.json || {};\n  const body = typeof j.data === 'string' ? j.data.trim() : '';\n  if (body.length < 2) continue;                   // failed / empty branch\n  all.push(...extractLinks(body, j.source || ''));\n}\n\n// Nothing found anywhere: send a harmless marker so the run still reaches the \"no results\" reply\nif (!all.length) return [{ json: { source: 'none', title: '', artist: '', url: 'https://lrclib.net/api/search?q=%20', none: true } }];\nreturn all.map((json) => ({ json }));\n"
+      },
+      "id": "ea68a08e-e07d-41a9-a70a-7cea556d4b49",
+      "name": "Extract Links",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1632,
+        1088
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── CODE 2: deduplicate links (same source + same title/artist, or same URL) ──\nconst norm = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9\\s]/g, ' ').replace(/\\s+/g, ' ').trim();\nconst seen = new Set();\nconst out = [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  if (!j || !j.url) continue;\n  const k1 = j.source + '|' + norm(j.title) + '|' + norm(j.artist);\n  if (seen.has(k1) || seen.has(j.url)) continue;\n  seen.add(k1); seen.add(j.url);\n  out.push({ json: j });\n}\nreturn out.length ? out : [{ json: { source: 'none', title: '', artist: '', url: 'https://lrclib.net/api/search?q=%20', none: true } }];\n"
+      },
+      "id": "2aa55ed2-7f64-498d-8f6d-0d7bdc7b1f9d",
+      "name": "Deduplicate Links",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1856,
+        1088
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "69b5e9b1-ea86-40a7-ba17-7928f47d70eb",
+      "name": "Fetch Lyrics Page",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        1088
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── CODE 3: parseLyrics(html, source) -> { source, title, artist, url, lyrics, lyricsLength } ──\n// The HTTP node drops title/source, so we re-attach them from \"Deduplicate Links\" (same order, one-to-one).\nconst links = $('Deduplicate Links').all();\nconst decode = (s) => s\n  .replace(/&#(\\d+);/g, (_, n) => String.fromCharCode(+n))\n  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))\n  .replace(/&nbsp;/g, ' ').replace(/&rsquo;|&lsquo;/g, \"'\").replace(/&hellip;/g, '...')\n  .replace(/&quot;/g, '\"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');\nconst htmlToText = (h) => decode(h\n  .replace(/<script[\\s\\S]*?<\\/script>|<style[\\s\\S]*?<\\/style>/gi, '')\n  .replace(/<br\\s*\\/?>/gi, '\\n').replace(/<\\/p>/gi, '\\n\\n').replace(/<[^>]+>/g, ''));\nconst blocked = (h) => /cf-browser-verification|attention required|captcha|access denied|just a moment/i.test(h);\n\nfunction parseLyrics(body, source) {\n  if (source === 'LRCLIB') {\n    try { const o = JSON.parse(body); return o.plainLyrics || ''; } catch (e) { return ''; }\n  }\n  if (blocked(body)) return '';\n  if (source === 'Genius') {\n    const parts = body.split(/data-lyrics-container=\"true\"[^>]*>/i).slice(1);\n    return parts.map((p) => htmlToText(p.split(/Lyrics__Footer|LyricsFooter|<\\/main>/)[0]).trim()).filter(Boolean).join('\\n\\n');\n  }\n  if (source === 'AfricanGospel') {\n    const i = body.search(/class=\"[^\"]*entry-content/i);\n    if (i < 0) return '';\n    let seg = body.slice(i);\n    seg = seg.slice(seg.indexOf('>') + 1).split(/<\\/article>|<footer|class=\"[^\"]*(?:sharedaddy|post-navigation|related)/i)[0];\n    return htmlToText(seg).trim();\n  }\n  return '';\n}\n\nconst out = [];\n$input.all().forEach((item, i) => {\n  const meta = ((links[i] || {}).json) || {};\n  const j = item.json || {};\n  if (meta.none || j.error) return;\n  const body = typeof j.data === 'string' ? j.data : (typeof j.body === 'string' ? j.body : (j && typeof j === 'object' && j.plainLyrics ? JSON.stringify(j) : ''));\n  if (!body) return;\n  let lyrics = '';\n  try { lyrics = parseLyrics(body, meta.source); } catch (e) { return; }\n  lyrics = lyrics.replace(/\\r/g, '').trim();\n  if (lyrics.length < 80) return;\n  out.push({ json: { source: meta.source, title: meta.title, artist: meta.artist, url: meta.url, lyrics, lyricsLength: lyrics.length } });\n});\nreturn out;   // may be empty -> \"Pick Best Lyrics\" still runs (Always Output Data) and sends the no-results notice\n"
+      },
+      "id": "2ad4314c-b4b3-46ef-b65b-8496d2b025d7",
+      "name": "Parse Lyrics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2304,
+        1088
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── CODE 4: deduplicate by title + lyrics, pick the best match -> { title, artist, lyrics, source, url } ──\nconst P = $('Parse Query').first().json;\nconst esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nconst norm = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9\\s]/g, ' ').replace(/\\s+/g, ' ').trim();\nconst hasGenius = P.geniusToken && !/PASTE_|YOUR_/i.test(P.geniusToken);\n\nconst marker = (msg, error) => [{ json: {\n  title: null, source: 'none', error,\n  payload: { chat_id: P.chatId, ...(P.threadId ? { message_thread_id: P.threadId } : {}), text: msg, parse_mode: 'HTML', disable_web_page_preview: true }\n} }];\n\nif (!P.raw) return marker('Usage: <code>/lyrics song title or part of the lyrics</code>\\nExample: <code>/lyrics Way Maker - Sinach</code>', 'empty query');\n\nconst tokens = norm(P.raw).split(' ').filter((w) => w.length > 1);\nconst useTokens = tokens.length ? tokens : norm(P.raw).split(' ').filter(Boolean);\n\n// dedupe: same title + same opening of the lyrics\nconst seen = new Set();\nconst uniq = [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  if (!j || !j.lyrics) continue;\n  const k = norm(j.title) + '|' + norm(j.lyrics).slice(0, 160);\n  if (seen.has(k)) continue;\n  seen.add(k);\n  uniq.push(j);\n}\n\nlet best = null;\nfor (const j of uniq) {\n  const hay = new Set(norm(j.title + ' ' + j.artist + ' ' + j.lyrics).split(' '));\n  const s = useTokens.filter((t) => hay.has(t)).length / useTokens.length;\n  if (!best || s > best.s) best = { j, s };\n}\nif (!best || best.s < (P.explicit ? 0.3 : 0.6)) {\n  let msg = 'No lyrics found for <b>' + esc(P.raw) + '</b>.\\nTry: <code>/lyrics Title - Artist</code>';\n  if (!hasGenius) msg += '\\n\\n<i>Searching by a part of the lyrics works best with a Genius API token (Parse Query node).</i>';\n  return marker(msg, 'all sources blocked or empty');\n}\nconst { title, artist, lyrics, source, url } = best.j;\nreturn [{ json: { title, artist, lyrics, source, url } }];\n"
+      },
+      "id": "615405c7-3a27-48ce-bae0-7eada3a7fc12",
+      "name": "Pick Best Lyrics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2528,
+        1088
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "not-empty",
+              "leftValue": "={{ $json.title }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "c4e21eb2-8ccc-4da8-be28-7289f3c2e975",
+      "name": "Has Results?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2752,
+        1088
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Reformat these lyrics. Output ONLY plain text: first line = Title, then a blank line, then the lyric lines grouped in pairs with a blank line between each pair. Do not rewrite, translate, summarize or add commentary.\n\nSource: {{ $json.source }}\nTitle: {{ $json.title }}\nArtist: {{ $json.artist }}\n\nLYRICS:\n{{ ($json.lyrics || '').slice(0, 8000) }}",
+        "options": {
+          "systemMessage": "You are a formatter only. Never invent lyrics. Never add markdown fences. Return plain text exactly as instructed."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2976,
+        832
+      ],
+      "id": "d9859986-b878-47ca-bfa3-7819fac2b547",
+      "name": "AI Agent",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {
+          "maxTokensToSample": 4096
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        3048,
+        1064
+      ],
+      "id": "73cf1f2f-3b31-4c97-bee8-205d2bf9524c",
+      "name": "Groq Chat Model"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── AI output -> checked -> split into Telegram-sized messages. If the AI failed or changed the lyrics, format in code instead. ──\nconst P = $('Parse Query').first().json;\nconst N = $('Pick Best Lyrics').first().json;\nconst ai = $input.first().json || {};\n\nconst esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nconst norm = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9\\s]/g, ' ').replace(/\\s+/g, ' ').trim();\n\nconst clean = (t) => String(t || '')\n  .replace(/\\r/g, '')\n  .replace(/^Paroles de la chanson.*$/gim, '')\n  .replace(/^\\s*\\[[^\\]\\n]*\\]\\s*$/gm, '')\n  .replace(/^\\s*(verse|chorus|pre-?chorus|bridge|intro|outro|refrain|tag|interlude)\\s*\\d*\\s*:?\\s*$/gim, '')\n  .slice(0, 20000);\n\n// Deterministic 2-lines-per-slide formatter (safety net)\nfunction pairUp(text) {\n  const stanzas = text.split(/\\n\\s*\\n/).map((s) => s.split('\\n').map((l) => l.trim()).filter(Boolean)).filter((a) => a.length);\n  const blocks = [];\n  for (const st of stanzas) for (let i = 0; i < st.length; i += 2) blocks.push(st.slice(i, i + 2).join('\\n'));\n  return blocks;\n}\n\nconst source = clean(N.lyrics);\nlet blocks = pairUp(source);\nlet usedAI = false;\n\n// Accept the AI version only if it kept the lyrics intact\nlet out = typeof ai.output === 'string' ? ai.output.trim() : '';\nout = out.replace(/^```[a-z]*\\n?/i, '').replace(/\\n?```$/, '').trim();\nif (out) {\n  const lines = out.split('\\n');\n  if (norm(lines[0]) === norm(N.title) || norm(lines[0]) === norm(N.title + ' ' + N.artist)) lines.shift();\n  const body = lines.join('\\n').trim();\n  const srcWords = norm(source).split(' ').filter(Boolean);\n  const aiWords = norm(body).split(' ').filter(Boolean);\n  const srcSet = new Set(srcWords);\n  const inSrc = aiWords.filter((w) => srcSet.has(w)).length;\n  if (aiWords.length >= srcWords.length * 0.85 && aiWords.length <= srcWords.length * 1.15 && inSrc / aiWords.length >= 0.97) {\n    const aiBlocks = body.split(/\\n\\s*\\n/).map((b) => b.trim()).filter(Boolean);\n    if (aiBlocks.length) { blocks = aiBlocks; usedAI = true; }\n  }\n}\n\nconst head = '<b>' + esc(N.title) + '</b>' + (N.artist ? '\\n<i>' + esc(N.artist) + '</i>' : '');\nconst chunks = [];\nlet cur = head;\nfor (const b of blocks.map(esc)) {\n  if ((cur + '\\n\\n' + b).length > 3800) { chunks.push(cur); cur = b; } else { cur += '\\n\\n' + b; }\n}\nchunks.push(cur);\n\nreturn chunks.map((text) => ({\n  json: {\n    formattedBy: usedAI ? 'ai' : 'code',\n    payload: { chat_id: P.chatId, ...(P.threadId ? { message_thread_id: P.threadId } : {}), text, parse_mode: 'HTML', disable_web_page_preview: true }\n  }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3328,
+        944
+      ],
+      "id": "7b6c8b79-ffe3-475c-9c8b-e4a9cb0e7c89",
+      "name": "Prepare Message"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot{{ $('Parse Query').first().json.botToken }}/sendMessage",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.payload) }}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "c66e35e9-e0df-4952-83c8-1df2d1a0d982",
+      "name": "Send a text message",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3552,
+        944
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot{{ $('Parse Query').first().json.botToken }}/sendMessage",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.payload) }}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "6ea03ffd-0323-469a-b78c-315f7759acd2",
+      "name": "Send No-Results Notice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3040,
+        1232
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "content": "## Setup\n1. **Parse Query** → paste BOT_TOKEN (from @BotFather).\n2. Optional: GENIUS_TOKEN (free, genius.com/api-clients) to search by *part of the lyrics*.\n3. **Groq Chat Model** → pick your Groq credential.\n4. Local test: Telegram Trigger is pinned with a sample message. Change `chat.id` to your own chat id, then Execute workflow.\n5. Hosted on HTTPS → activate.\n\nUse: `/lyrics Title - Artist` or `/lyrics part of the lyrics`. Replies in the same Telegram topic.",
+        "height": 330,
+        "width": 520,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        720,
+        416
+      ],
+      "id": "5ff4d26e-d5e5-442b-9788-e3707e5e4ff4",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Two-step flow\nSearch (3 sources) → Set source → **Merge (Append, 3 inputs)** → Extract Links → Deduplicate Links → **Fetch Lyrics Page** → Parse Lyrics → Pick Best Lyrics.\nThe *Set source* nodes sit AFTER each HTTP node, because an HTTP node replaces its input item and a source set before it would be lost.\nAZLyrics / Ceenaija are left out: Cloudflare blocks plain HTTP requests (free tier).",
+        "height": 260,
+        "width": 520,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        496
+      ],
+      "id": "be9a8333-f524-40c2-90e5-ff7b6ea1c33a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## AI formatting only\nTitle, blank line, lyrics in pairs. **Prepare Message** checks the AI kept the lyrics intact; if not (or Groq fails) it formats in code.",
+        "height": 150,
+        "width": 340,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3232,
+        656
+      ],
+      "id": "6e80c864-0ad5-4351-a390-d4caa2cd36bc",
+      "name": "Sticky Note4"
+    }
+  ],
+  "pinData": {
+    "Telegram Trigger": [
+      {
+        "json": {
+          "update_id": 100000001,
+          "message": {
+            "message_id": 10,
+            "message_thread_id": 5,
+            "is_topic_message": true,
+            "from": {
+              "id": 111111111,
+              "is_bot": false,
+              "first_name": "Test"
+            },
+            "chat": {
+              "id": -1001234567890,
+              "title": "Church Media",
+              "is_forum": true,
+              "type": "supergroup"
+            },
+            "date": 1760000000,
+            "text": "/lyrics bless the lord oh my soul",
+            "entities": [
+              {
+                "offset": 0,
+                "length": 7,
+                "type": "bot_command"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parse Query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Query": {
+      "main": [
+        [
+          {
+            "node": "Genius",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AfricanGospellyrics",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "LRCLIB Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Genius": {
+      "main": [
+        [
+          {
+            "node": "Set source: Genius",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AfricanGospellyrics": {
+      "main": [
+        [
+          {
+            "node": "Set source: AfricanGospel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LRCLIB Search": {
+      "main": [
+        [
+          {
+            "node": "Set source: LRCLIB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set source: Genius": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set source: AfricanGospel": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set source: LRCLIB": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Extract Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Links": {
+      "main": [
+        [
+          {
+            "node": "Deduplicate Links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicate Links": {
+      "main": [
+        [
+          {
+            "node": "Fetch Lyrics Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Lyrics Page": {
+      "main": [
+        [
+          {
+            "node": "Parse Lyrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Lyrics": {
+      "main": [
+        [
+          {
+            "node": "Pick Best Lyrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick Best Lyrics": {
+      "main": [
+        [
+          {
+            "node": "Has Results?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Results?": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send No-Results Notice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Prepare Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Message": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "85cd2e6e-867b-4d9c-a44e-d5000a015051",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "31f86fc6c692ea12f7c2d7db9d99a4131728c9a1afafa5d3a5118c76eda6d371"
+  },
+  "nodeGroups": [],
+  "id": "nY4EZ06kUUtF658B",
+  "tags": []
+}
