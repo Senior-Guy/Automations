@@ -39,7 +39,12 @@ NEWSAPI_KEY = os.getenv("NEWSAPI_KEY", "")
 GH_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN", "")
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+# Groq retires models regularly. The first one that works is used; set the GROQ_MODEL
+# variable to force a specific model. Check console.groq.com/docs/models for current names.
+GROQ_MODELS = [m for m in dict.fromkeys([os.getenv("GROQ_MODEL", "").strip(),
+                                         "openai/gpt-oss-120b", "openai/gpt-oss-20b",
+                                         "qwen/qwen3.6-27b"]) if m]
+_groq = {"idx": 0, "disabled": False}
 UA = "Mozilla/5.0 (compatible; daily-newsletter/2.0)"
 
 NOW = datetime.now(timezone.utc)
@@ -319,33 +324,74 @@ def parse_json(txt):
 
 
 def ai_summarize(j):
-    if not GROQ_KEY:
+    if not GROQ_KEY or _groq["disabled"]:
         return None
     prompt = (f"Newsletter keyword: {KEYWORD}\n\n"
               f"Source: {j['source']}{' (' + j['publisher'] + ')' if j['publisher'] else ''}\n"
               f"Title: {j['title']}\nSnippet: {j['excerpt'][:500]}\nURL: {j['url']}\n\n"
               "Return the JSON object now.")
-    body = {"model": GROQ_MODEL, "temperature": 0.3, "max_tokens": 500,
-            "response_format": {"type": "json_object"},
-            "messages": [{"role": "system", "content": SYSTEM_PROMPT},
-                         {"role": "user", "content": prompt}]}
-    for attempt in range(4):
+    json_mode = True
+    for attempt in range(8):
+        if _groq["idx"] >= len(GROQ_MODELS):
+            _groq["disabled"] = True
+            log("No working Groq model found. Continuing without AI summaries.")
+            return None
+        model = GROQ_MODELS[_groq["idx"]]
+        body = {"model": model, "temperature": 0.3, "max_completion_tokens": 1500,
+                "messages": [{"role": "system", "content": SYSTEM_PROMPT},
+                             {"role": "user", "content": prompt}]}
+        if json_mode:
+            body["response_format"] = {"type": "json_object"}
+        if "gpt-oss" in model:
+            body["reasoning_effort"] = "low"
         try:
             r = requests.post(GROQ_URL, headers={"Authorization": f"Bearer {GROQ_KEY}"},
-                              json=body, timeout=40)
-            if r.status_code == 429:
-                try:
-                    wait = float(r.headers.get("retry-after", 5 * (attempt + 1)))
-                except ValueError:
-                    wait = 5 * (attempt + 1)
-                time.sleep(min(wait, 30))
+                              json=body, timeout=60)
+        except Exception as e:
+            log(f"Groq request error: {e}")
+            time.sleep(3)
+            continue
+        if r.status_code == 429:
+            try:
+                wait = float(r.headers.get("retry-after", 5 * (attempt + 1)))
+            except ValueError:
+                wait = 5 * (attempt + 1)
+            time.sleep(min(wait, 30))
+            continue
+        if r.status_code == 404:  # model retired or not available to you
+            log(f"Groq model '{model}' not available ({r.text[:150]}). Trying the next one.")
+            _groq["idx"] += 1
+            continue
+        if r.status_code in (401, 403):
+            log(f"Groq rejected the API key ({r.status_code}). Check the GROQ_API_KEY secret. "
+                "Continuing without AI summaries.")
+            _groq["disabled"] = True
+            return None
+        if r.status_code == 400:
+            log(f"Groq 400 error: {r.text[:200]}")
+            if json_mode:
+                json_mode = False  # retry once without JSON mode
                 continue
-            r.raise_for_status()
+            return None
+        if not r.ok:
+            log(f"Groq error {r.status_code}: {r.text[:150]}")
+            time.sleep(3)
+            continue
+        try:
             return parse_json(r.json()["choices"][0]["message"]["content"])
         except Exception as e:
-            log(f"Groq error (attempt {attempt + 1}): {e}")
-            time.sleep(3)
+            log(f"Could not read Groq response: {e}")
+            return None
     return None
+
+
+def fallback_summary(j):
+    """Used when the AI is unavailable. Skips excerpts that just repeat the title."""
+    norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
+    ex, ti = norm(j["excerpt"]), norm(j["title"])
+    if not ex or ex.startswith(ti[:40]) or (ti[:40] in ex and len(ex) < len(ti) + 60):
+        return ""
+    return clip(j["excerpt"], 260)
 
 
 def apply_ai(candidates):
@@ -353,7 +399,7 @@ def apply_ai(candidates):
     default_cat = {"arXiv": "Research", "GitHub": "Open Source"}
     for n, j in enumerate(candidates):
         ai = ai_summarize(j)
-        if n < len(candidates) - 1 and GROQ_KEY:
+        if n < len(candidates) - 1 and GROQ_KEY and not _groq["disabled"]:
             time.sleep(1.5)  # stay under Groq free-tier rate limits
         score = None
         if ai:
@@ -374,7 +420,7 @@ def apply_ai(candidates):
 
         j.update(
             headline=txt("headline", 120) or j["title"],
-            summary=txt("summary", 400) or j["excerpt"][:260],
+            summary=txt("summary", 400) or fallback_summary(j),
             why_it_matters=txt("why_it_matters", 200),
             category=(ai or {}).get("category") if (ai or {}).get("category") in CATS
             else default_cat.get(j["source"], "Industry"),
@@ -509,9 +555,9 @@ def story_caption(j, i, with_why=True):
         "",
         f"{CAT_ICON.get(j['category'], '✨')} <i>{esc(j['category'])}</i>  •  {icon} {esc(outlet)}"
         + (f"  •  🕒 {when}" if when else ""),
-        "",
-        esc(clip(j["summary"], 300)),
     ]
+    if j["summary"]:
+        lines += ["", esc(clip(j["summary"], 300))]
     if with_why and j["why_it_matters"]:
         lines += ["", f"💡 <b>Why it matters:</b> {esc(clip(j['why_it_matters'], 160))}"]
     lines += ["", f"📊 <b>Impact</b>  {bar(impact)}  {impact}/10"]
