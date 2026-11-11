@@ -1,0 +1,47 @@
+name: Daily Newsletter
+
+on:
+  schedule:
+    # GitHub cron runs in UTC. 07:00 UTC = 8AM in UTC+1. Change the hour to suit you.
+    - cron: "0 7 * * *"
+  workflow_dispatch:          # lets you run it manually from the Actions tab
+    inputs:
+      keyword:
+        description: "Keyword (leave empty to use the KEYWORD variable)"
+        required: false
+      hours_back:
+        description: "Look back this many hours (leave empty for default)"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: newsletter/requirements.txt
+
+      - run: pip install -r newsletter/requirements.txt
+
+      - name: Build and send the newsletter
+        run: python newsletter/newsletter.py
+        env:
+          # Secrets: Settings -> Secrets and variables -> Actions -> Secrets
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional variables: Settings -> Secrets and variables -> Actions -> Variables
+          KEYWORD: ${{ inputs.keyword || vars.KEYWORD }}
+          HOURS_BACK: ${{ inputs.hours_back || vars.HOURS_BACK }}
+          TOP_N: ${{ vars.TOP_N }}
+          TIMEZONE: ${{ vars.TIMEZONE }}
