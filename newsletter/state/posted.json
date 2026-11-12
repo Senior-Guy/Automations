@@ -1,10 +1,52 @@
 {
  "items": {
+  "antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity": {
+   "label": "",
+   "status": "skipped",
+   "title": "Gemini 4 Hydrogen and Orchestrator",
+   "ts": 1794523251
+  },
+  "apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang resigns",
+   "ts": 1794523280
+  },
   "bbc.co.uk/news/live/c6zjry11v8w1t": {
    "label": "",
    "status": "skipped",
    "title": "Nvidia CEO Jensen Huang resigns after reports of second affair deepened scandal",
    "ts": 1794501955
+  },
+  "blog.cip.org/p/ai-models-know-what-women-peace-and": {
+   "label": "WPS AI Leaderboard",
+   "status": "posted",
+   "title": "AI Models Know What Women, Peace and Security Is. They Just Don't Bring It Up",
+   "ts": 1794523293
+  },
+  "blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen": {
+   "label": "Gemini 4 Hydrogen",
+   "status": "posted",
+   "title": "Gemini 4 Hydrogen",
+   "ts": 1794523243
+  },
+  "blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade": {
+   "label": "",
+   "status": "skipped",
+   "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+   "ts": 1794523283
+  },
+  "deepmind.google/blog/introducing-gemini-4-hydrogen": {
+   "label": "",
+   "status": "skipped",
+   "title": "Introducing Gemini 4 Hydrogen",
+   "ts": 1794523286
+  },
+  "forbes.com/sites/alisondurkee/2026/11/12/jensen-huang-had-a-third-affair-with-another-nvidia-employee-report-says": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang Third Affair Allegations Revealed",
+   "ts": 1794523261
   },
   "github.com/hyperionaidev/smolmaxxing": {
    "label": "smolmaxxing Edge LLM",
@@ -42,17 +84,47 @@
    "title": "Holiday Extras is rethinking what it can build with Codex",
    "ts": 1794502006
   },
+  "openai.com/index/amplitude": {
+   "label": "Amplitude Wave",
+   "status": "posted",
+   "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+   "ts": 1794523271
+  },
   "reuters.com/live/nvidia-live-board-meets-fate-ceo-jensen-huang-after-affair-reports-2026-11-12": {
    "label": "",
    "status": "skipped",
    "title": "Jensen Huang resigns as Nvidia CEO immediately",
    "ts": 1794501948
   },
+  "reuters.com/technology/former-nvidia-ceo-huang-had-relationship-with-second-employee-sources-say-2026-11-12": {
+   "label": "",
+   "status": "skipped",
+   "title": "Former Nvidia CEO Huang had a relationship with a second employee, sources say",
+   "ts": 1794523249
+  },
+  "synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html": {
+   "label": "Apple App Review AI",
+   "status": "posted",
+   "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+   "ts": 1794523265
+  },
   "theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator": {
    "label": "UK Higher Education AI Assessment",
    "status": "posted",
    "title": "AI makes it 'close to impossible' to assess university coursework,regulator says",
    "ts": 1794501979
+  },
+  "twitter.com/willdepue/status/2120992457630326841": {
+   "label": "",
+   "status": "skipped",
+   "title": "Top Chinese AI labs built their newest models on Nvidia's Blackwell chips",
+   "ts": 1794523278
+  },
+  "unemploymentlabs.com/checkpoint-forensics": {
+   "label": "Chinese AI Blackwell Access",
+   "status": "posted",
+   "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+   "ts": 1794523255
   },
   "wheresyoured.at/jensens-bizarre-adventure": {
    "label": "",
