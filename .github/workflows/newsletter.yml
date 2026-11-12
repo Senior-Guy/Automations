@@ -1,25 +1,28 @@
-name: Daily Newsletter
+name: Hourly AI News
 
 on:
   schedule:
-    # GitHub cron runs in UTC. 07:00 UTC = 8AM in UTC+1. Change the hour to suit you.
-    - cron: "0 7 * * *"
-  workflow_dispatch:          # lets you run it manually from the Actions tab
+    # Every hour at minute 7 (GitHub is busiest at minute 0, so this runs more reliably).
+    - cron: "7 * * * *"
+  workflow_dispatch:
     inputs:
-      keyword:
-        description: "Keyword (leave empty to use the KEYWORD variable)"
-        required: false
-      hours_back:
-        description: "Look back this many hours (leave empty for default)"
-        required: false
+      dry_run:
+        description: "Preview only: print the posts, send nothing, save nothing"
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
+  contents: write      # save the "already posted" history
+  actions: write       # keep the hourly schedule from being auto-disabled
+
+concurrency:
+  group: ai-news
+  cancel-in-progress: false
 
 jobs:
-  send:
+  post:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
 
@@ -31,7 +34,7 @@ jobs:
 
       - run: pip install -r newsletter/requirements.txt
 
-      - name: Build and send the newsletter
+      - name: Find and post new stories
         run: python newsletter/newsletter.py
         env:
           # Secrets: Settings -> Secrets and variables -> Actions -> Secrets
@@ -41,8 +44,37 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Optional variables: Settings -> Secrets and variables -> Actions -> Variables
-          KEYWORD: ${{ inputs.keyword || vars.KEYWORD }}
-          HOURS_BACK: ${{ inputs.hours_back || vars.HOURS_BACK }}
-          TOP_N: ${{ vars.TOP_N }}
+          KEYWORD: ${{ vars.KEYWORD }}
+          HOURS_BACK: ${{ vars.HOURS_BACK }}
+          MAX_POSTS: ${{ vars.MAX_POSTS }}
+          MIN_SCORE: ${{ vars.MIN_SCORE }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL }}
-          TIMEZONE: ${{ vars.TIMEZONE }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+
+      - name: Save posted history
+        if: ${{ always() && inputs.dry_run != true }}
+        run: |
+          git config user.name "ai-news-bot"
+          git config user.email "ai-news-bot@users.noreply.github.com"
+          git add newsletter/state 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No history changes to save."
+          else
+            git commit -m "chore: update posted history [skip ci]"
+            git pull --rebase --autostash
+            git push
+          fi
+
+      # GitHub switches off scheduled workflows in public repos after 60 days without
+      # activity. Re-enabling the workflow on every run resets that counter, so the
+      # hourly schedule keeps itself alive with no clicking.
+      - name: Keep the schedule alive
+        if: ${{ always() }}
+        continue-on-error: true
+        run: |
+          curl -fsS -X PUT \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/newsletter.yml/enable"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
