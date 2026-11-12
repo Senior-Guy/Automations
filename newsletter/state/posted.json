@@ -1,0 +1,64 @@
+{
+ "items": {
+  "bbc.co.uk/news/live/c6zjry11v8w1t": {
+   "label": "",
+   "status": "skipped",
+   "title": "Nvidia CEO Jensen Huang resigns after reports of second affair deepened scandal",
+   "ts": 1794501955
+  },
+  "github.com/hyperionaidev/smolmaxxing": {
+   "label": "smolmaxxing Edge LLM",
+   "status": "posted",
+   "title": "I'm making LLMs work on small and old devices",
+   "ts": 1794501963
+  },
+  "ipo.anthropic.com/us": {
+   "label": "Anthropic IPO",
+   "status": "posted",
+   "title": "Anthropic IPO",
+   "ts": 1794501952
+  },
+  "nbcnews.com/tech/tech-news/nvidia-ceo-jensen-huang-resigns-reports-extramarital-relationships-rcna608402": {
+   "label": "",
+   "status": "skipped",
+   "title": "Nvidia CEO Jensen Huang resigns after reports of extramarital relationships",
+   "ts": 1794501955
+  },
+  "nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": {
+   "label": "NVIDIA CEO Transition",
+   "status": "posted",
+   "title": "NVIDIA Announces CEO Transition",
+   "ts": 1794501943
+  },
+  "nytimes.com/live/2026/11/12/business/nvidia-jensen-huang-resigns": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang Resigns as Nvidia CEO After Affairs",
+   "ts": 1794501966
+  },
+  "openai.com/business/customer-stories/holidays-extras-codex": {
+   "label": "Holiday Extras Codex",
+   "status": "posted",
+   "title": "Holiday Extras is rethinking what it can build with Codex",
+   "ts": 1794502006
+  },
+  "reuters.com/live/nvidia-live-board-meets-fate-ceo-jensen-huang-after-affair-reports-2026-11-12": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang resigns as Nvidia CEO immediately",
+   "ts": 1794501948
+  },
+  "theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator": {
+   "label": "UK Higher Education AI Assessment",
+   "status": "posted",
+   "title": "AI makes it 'close to impossible' to assess university coursework,regulator says",
+   "ts": 1794501979
+  },
+  "wheresyoured.at/jensens-bizarre-adventure": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen's (Nvidia) Adventure",
+   "ts": 1794501985
+  }
+ }
+}
