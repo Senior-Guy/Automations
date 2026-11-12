@@ -52,8 +52,8 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 # variable to force one. Current names: console.groq.com/docs/models
 GROQ_MODELS = [m for m in dict.fromkeys([os.getenv("GROQ_MODEL", "").strip(),
                                          "openai/gpt-oss-120b", "openai/gpt-oss-20b",
-                                         "qwen/qwen3.6-27b"]) if m]
-_groq = {"idx": 0, "disabled": False}
+                                         "qwen/qwen3.8-27b"]) if m]
+_groq = {"idx": 0, "disabled": False, "discovered": False}
 
 UA = "Mozilla/5.0 (compatible; ai-news-bot/3.0)"
 NOW = datetime.now(timezone.utc)
@@ -481,6 +481,24 @@ def parse_json(txt):
         return None
 
 
+def discover_groq_models():
+    """Ask Groq which chat models this API key can use (used when the defaults are all gone)."""
+    try:
+        r = requests.get("https://api.groq.com/openai/v1/models",
+                         headers={"Authorization": f"Bearer {GROQ_KEY}"}, timeout=20)
+        r.raise_for_status()
+        ids = [m["id"] for m in r.json().get("data", []) if m.get("active", True)]
+    except Exception as e:
+        log(f"Could not list Groq models: {e}")
+        return []
+    log("Groq models available to your key: " + ", ".join(ids))
+    skip = ("whisper", "tts", "orpheus", "guard", "safeguard", "compound", "embed", "distil")
+    ok = [i for i in ids if not any(b in i.lower() for b in skip)]
+    prefer = ["gpt-oss-120b", "gpt-oss-20b", "qwen", "llama-3.3", "llama", "kimi"]
+    ok.sort(key=lambda i: next((n for n, p in enumerate(prefer) if p in i), 99))
+    return ok
+
+
 def ai_summarize(j, posted_labels):
     if not GROQ_KEY or _groq["disabled"]:
         return None
@@ -490,10 +508,13 @@ def ai_summarize(j, posted_labels):
               f"Published: {j['published_at'].strftime('%Y-%m-%d %H:%M UTC')}\nURL: {j['url']}\n"
               f"Text:\n{j['text'][:3500]}\n\nReturn the JSON object now.")
     json_mode = True
-    for attempt in range(8):
+    for attempt in range(14):
+        if _groq["idx"] >= len(GROQ_MODELS) and not _groq["discovered"]:
+            _groq["discovered"] = True               # defaults are gone: use whatever the key can access
+            GROQ_MODELS.extend(m for m in discover_groq_models() if m not in GROQ_MODELS)
         if _groq["idx"] >= len(GROQ_MODELS):
             _groq["disabled"] = True
-            log("No working Groq model found.")
+            log("No working Groq model found for this API key.")
             return None
         model = GROQ_MODELS[_groq["idx"]]
         body = {"model": model, "temperature": 0.3, "max_completion_tokens": 1500,
