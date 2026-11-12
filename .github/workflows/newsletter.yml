@@ -44,11 +44,12 @@ jobs:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Optional variables: Settings -> Secrets and variables -> Actions -> Variables
-          KEYWORD: ${{ vars.KEYWORD }}
+          KEYWORDS: ${{ vars.KEYWORDS }}
           HOURS_BACK: ${{ vars.HOURS_BACK }}
           MAX_POSTS: ${{ vars.MAX_POSTS }}
           MIN_SCORE: ${{ vars.MIN_SCORE }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+          REQUIRE_IMAGE: ${{ vars.REQUIRE_IMAGE }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
 
       - name: Save posted history
