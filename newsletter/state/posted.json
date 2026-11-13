@@ -527,6 +527,30 @@
    "status": "posted",
    "label": "OpenFold3 Preview on SageMaker",
    "title": "OpenFold3 on Amazon SageMaker JumpStart: Predict biomolecular structures"
+  },
+  "techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say": {
+   "ts": 1794610843,
+   "status": "posted",
+   "label": "Nvidia AI Funding Slows Post-Huang",
+   "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say"
+  },
+  "aws.amazon.com/blogs/machine-learning/route-coding-agent-requests-to-the-right-model-on-amazon-bedrock-with-nvidia-nemo-switchyard": {
+   "ts": 1794610849,
+   "status": "posted",
+   "label": "Routing Coding Agents with Switchyard",
+   "title": "Route coding agent requests to the right model on Amazon Bedrock with NVIDIA NeMo Switchyard"
+  },
+  "aws.amazon.com/blogs/machine-learning/architecture-patterns-for-fast-session-startup-on-amazon-bedrock-agentcore-runtime": {
+   "ts": 1794610856,
+   "status": "posted",
+   "label": "Bedrock AgentCore V2 Improves Startup",
+   "title": "Architecture patterns for fast session startup on Amazon Bedrock AgentCore runtime"
+  },
+  "developer.nvidia.com/blog/faster-scientific-simulations-with-new-fp64-algorithms-in-nvidia-cublas": {
+   "ts": 1794610868,
+   "status": "posted",
+   "label": "NVIDIA cuBLAS Accelerates Scientific GEMM",
+   "title": "Faster Scientific Simulations with New FP64 Algorithms in NVIDIA cuBLAS"
   }
  }
 }
