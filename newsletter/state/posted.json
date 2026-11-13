@@ -521,6 +521,12 @@
    "status": "posted",
    "label": "Challenges in Black Hole Imaging",
    "title": "Run GPU-Powered Black Hole Interferometry with NVIDIA cuPhoton"
+  },
+  "aws.amazon.com/blogs/machine-learning/openfold3-on-amazon-sagemaker-jumpstart-predict-biomolecular-structures": {
+   "ts": 1794607243,
+   "status": "posted",
+   "label": "OpenFold3 Preview on SageMaker",
+   "title": "OpenFold3 on Amazon SageMaker JumpStart: Predict biomolecular structures"
   }
  }
 }
