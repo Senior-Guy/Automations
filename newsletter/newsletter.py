@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hourly AI News -> Telegram (The Unstoppable Firehose Edition)"""
+"""Hourly AI News -> Telegram (Strict 1.5 Hour Window)"""
 
 import html as htmllib
 import io
@@ -22,17 +22,17 @@ except Exception:
     Image = None
 
 # ----------------------------------------------------------------------------
-# CONFIG (Firehose Mode)
+# CONFIG (Strict 1.5 Hour Window)
 # ----------------------------------------------------------------------------
 DEFAULT_KEYWORDS = ("artificial intelligence, AI, LLM, OpenAI, Anthropic, Gemini, Claude, ChatGPT, DeepSeek, Nvidia, AI agents, machine learning")
 KEYWORDS = [k.strip() for k in (os.getenv("KEYWORDS") or DEFAULT_KEYWORDS).split(",") if k.strip()]
 
-HOURS = int(os.getenv("HOURS_BACK") or 4)         # Look back 4 hours to ensure we catch everything
-MAX_POSTS = int(os.getenv("MAX_POSTS") or 100)    # Post up to 100 per run
-MIN_SCORE = int(os.getenv("MIN_SCORE") or 0)      # 0 = Accept everything
+HOURS = float(os.getenv("HOURS_BACK") or 1.5)     # STRICT: 1.5 hours max lookback
+MAX_POSTS = int(os.getenv("MAX_POSTS") or 100)    
+MIN_SCORE = int(os.getenv("MIN_SCORE") or 0)      
 MAX_EVAL = int(os.getenv("MAX_EVAL") or 200)      
 DRY_RUN = os.getenv("DRY_RUN") == "1"
-REQUIRE_IMAGE = False                             # FORCE FALSE: Never drop a story just because it lacks an image
+REQUIRE_IMAGE = False                             
 
 TG_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TG_CHAT = os.getenv("TELEGRAM_CHAT_ID", "")       
@@ -97,7 +97,10 @@ def parse_dt(s):
         return d.astimezone(timezone.utc)
     except: return None
 
-def recent(d): return d is not None and d >= SINCE
+def recent(d): 
+    # STRICT: Must be newer than SINCE
+    return d is not None and d >= SINCE
+
 def host(u):
     m = re.match(r"https?://(?:www\.)?([^/]+)", u or "")
     return m.group(1) if m else ""
@@ -181,7 +184,10 @@ def fetch_hackernews():
     if not r: return "Hacker News", out
     for h in r.json().get("hits", []):
         if h.get("title") and h.get("url"):
-            out.append(make_item(clean(h["title"]), h["url"], "", "HackerNews", host(h["url"]) or "Hacker News", datetime.fromtimestamp(h.get("created_at_i", 0), timezone.utc), 70, h.get("points") or 0))
+            pub = datetime.fromtimestamp(h.get("created_at_i", 0), timezone.utc)
+            # FIX: Double check date locally because HN API sometimes ignores the URL filter
+            if recent(pub):
+                out.append(make_item(clean(h["title"]), h["url"], "", "HackerNews", host(h["url"]) or "Hacker News", pub, 70, h.get("points") or 0))
     return "Hacker News", out
 
 def fetch_github():
@@ -338,8 +344,6 @@ def tg(method, **kw):
 def publish(j, label, summary):
     if DRY_RUN: return True
     caption = build_caption(label, j["url"], summary)
-    
-    # --- THE FIX: Passing chat_id to every request! ---
     if j.get("image_bytes") and tg("sendPhoto", chat_id=TG_CHAT, files={"photo": ("cover.jpg", j["image_bytes"])}, caption=caption, parse_mode="HTML"): return True
     if j.get("image") and tg("sendPhoto", chat_id=TG_CHAT, photo=j["image"], caption=caption, parse_mode="HTML"): return True
     return tg("sendMessage", chat_id=TG_CHAT, text=caption, parse_mode="HTML", link_preview_options={"is_disabled": True})
@@ -382,13 +386,16 @@ def main():
     for j in candidates:
         if posted >= MAX_POSTS: break
             
+        # --- THE ULTIMATE STRICT DATE CHECK ---
+        if not recent(j["published_at"]):
+            log(f" -> Skipping: Too old ({j['published_at']})")
+            continue
+
         log(f"Evaluating: {j['title'][:50]}...")
         res = ai_summarize(j, labels)
         
         if GROQ_KEY and not _groq["disabled"]: time.sleep(1.2) 
         
-        # --- THE FIREHOSE FALLBACK ---
-        # If AI fails, we STILL POST using the raw data!
         if not isinstance(res, dict):
             log(" -> AI failed. Falling back to raw RSS data.")
             label = j['title'][:70]
@@ -397,7 +404,6 @@ def main():
             label = re.sub(r"\s+", " ", str(res.get("title") or "")).strip().strip(".:;-")
             summary = re.sub(r"[*_`#]+", "", re.sub(r"\s+", " ", str(res.get("summary") or ""))).strip()
 
-        # Ensure no empty posts
         if not label: label = j['title'][:70]
         if len(summary) < 20: summary = j.get('excerpt', 'No summary available.')[:800]
             
