@@ -421,9 +421,17 @@ def main():
         else:
             log(f" -> FAILED: Could not publish to Telegram.")
 
-    with open(STATE_PATH, "w", encoding="utf-8") as f: json.dump(st, f, indent=1, ensure_ascii=False)
+        with open(STATE_PATH, "w", encoding="utf-8") as f: json.dump(st, f, indent=1, ensure_ascii=False)
     log(f"Done: {posted} posted.")
-    return 0
+    
+    # FORCE PYTHON TO EXIT IMMEDIATELY (Ignores stuck background threads)
+    os._exit(0)
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except SystemExit:
+        pass
+    except Exception as e:
+        log(f"Fatal crash: {e}")
+        sys.exit(1)
