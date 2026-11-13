@@ -126,6 +126,14 @@ def entry_link(e):
             if (c.text or "").strip(): return c.text.strip()
     return ""
 
+def entry_image(e, html_blob):
+    for c in e:
+        k = local(c.tag)
+        if k in ("content", "thumbnail") and c.get("url") and (k == "thumbnail" or "image" in (c.get("type", "") + c.get("medium", "image"))): return c.get("url")
+        if k == "enclosure" and c.get("url") and c.get("type", "").startswith("image"): return c.get("url")
+    m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', htmllib.unescape(html_blob or ""), re.I)
+    return m.group(1) if m else ""
+
 def http_get(url, **kwargs):
     headers = kwargs.pop("headers", {})
     headers.setdefault("User-Agent", UA)
