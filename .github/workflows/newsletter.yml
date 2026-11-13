@@ -17,12 +17,15 @@ permissions:
 
 concurrency:
   group: ai-news
+  # CRITICAL: Do not cancel in progress. If a heavy run takes 40 mins, 
+  # the next hour's run will wait politely instead of killing it halfway.
   cancel-in-progress: false
 
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # CRITICAL: Increased to 55 mins to allow the firehose to finish processing 150+ items
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v6
 
@@ -43,7 +46,9 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
           # Optional variables: Settings -> Secrets and variables -> Actions -> Variables
+          # Make sure these are set in GitHub if you want to override the defaults!
           KEYWORDS: ${{ vars.KEYWORDS }}
           HOURS_BACK: ${{ vars.HOURS_BACK }}
           MAX_POSTS: ${{ vars.MAX_POSTS }}
