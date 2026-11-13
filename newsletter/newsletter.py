@@ -338,18 +338,20 @@ def tg(method, **kw):
 def publish(j, label, summary):
     if DRY_RUN: return True
     caption = build_caption(label, j["url"], summary)
-    if j.get("image_bytes") and tg("sendPhoto", files={"photo": ("cover.jpg", j["image_bytes"])}, caption=caption, parse_mode="HTML"): return True
-    if j.get("image") and tg("sendPhoto", photo=j["image"], caption=caption, parse_mode="HTML"): return True
-    return tg("sendMessage", text=caption, parse_mode="HTML", link_preview_options={"is_disabled": True})
+    
+    # --- THE FIX: Passing chat_id to every request! ---
+    if j.get("image_bytes") and tg("sendPhoto", chat_id=TG_CHAT, files={"photo": ("cover.jpg", j["image_bytes"])}, caption=caption, parse_mode="HTML"): return True
+    if j.get("image") and tg("sendPhoto", chat_id=TG_CHAT, photo=j["image"], caption=caption, parse_mode="HTML"): return True
+    return tg("sendMessage", chat_id=TG_CHAT, text=caption, parse_mode="HTML", link_preview_options={"is_disabled": True})
 
 # ----------------------------------------------------------------------------
 # MAIN
 # ----------------------------------------------------------------------------
 def main():
     if not DRY_RUN and not (TG_TOKEN and TG_CHAT): 
-        log("Missing TG Tokens."); return 1
+        log("ERROR: Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID in GitHub Secrets."); return 1
     if not GROQ_KEY: 
-        log("Missing Groq Key."); return 1
+        log("ERROR: Missing GROQ_API_KEY in GitHub Secrets."); return 1
 
     try:
         with open(STATE_PATH, encoding="utf-8") as f: st = json.load(f); st.setdefault("items", {})
