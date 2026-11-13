@@ -42,6 +42,12 @@
    "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
    "ts": 1794523283
   },
+  "bloomberg.com/news/articles/2026-11-13/inside-jensen-huang-s-final-hours-as-the-ceo-of-nvidia": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang's Last Hours as Nvidia CEO",
+   "ts": 1794571479
+  },
   "cnbc.com/2026/11/12/alice-huang-jensen-huang-nvidia-huawei.html": {
    "label": "",
    "status": "skipped",
@@ -78,6 +84,12 @@
    "title": "Jensen Huang Third Affair Allegations Revealed",
    "ts": 1794523261
   },
+  "github.com/anthropics/claude-code/issues/109446": {
+   "label": "",
+   "status": "skipped",
+   "title": "Anthropic carelessly killed a Claude Code feature users built on, no warning",
+   "ts": 1794571485
+  },
   "github.com/hyperionaidev/smolmaxxing": {
    "label": "smolmaxxing Edge LLM",
    "status": "posted",
@@ -96,11 +108,35 @@
    "title": "Anthropic IPO",
    "ts": 1794501952
   },
+  "marktechpost.com/2026/11/13/google-tpu-sync-kv-cache-transfer-library": {
+   "label": "Google TPU Sync",
+   "status": "posted",
+   "title": "Google Releases TPU Sync: Open-Source KV Cache Transfer for TPUs",
+   "ts": 1794571534
+  },
+  "mlq.ai/news/tsmc-says-employee-personal-data-was-posted-online-from-a-cloud-providers-systems": {
+   "label": "TSMC Data Breach",
+   "status": "posted",
+   "title": "TSMC Has Been Hacked",
+   "ts": 1794571507
+  },
   "nbcnews.com/tech/tech-news/nvidia-ceo-jensen-huang-resigns-reports-extramarital-relationships-rcna608402": {
    "label": "",
    "status": "skipped",
    "title": "Nvidia CEO Jensen Huang resigns after reports of extramarital relationships",
    "ts": 1794501955
+  },
+  "news.mit.edu/2026/helping-robots-fit-into-human-workplace-1113": {
+   "label": "Robust AI Carter",
+   "status": "posted",
+   "title": "Helping robots fit into the human workplace",
+   "ts": 1794571521
+  },
+  "news.mit.edu/2026/new-ai-copilot-helps-engineers-design-better-structures-1113": {
+   "label": "MIT AI Copilot",
+   "status": "posted",
+   "title": "New AI “copilot” helps engineers design better structures",
+   "ts": 1794571514
   },
   "nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": {
    "label": "NVIDIA CEO Transition",
@@ -156,6 +192,12 @@
    "title": "Former Nvidia CEO Huang had a relationship with a second employee, sources say",
    "ts": 1794523249
   },
+  "status.claude.com/incidents/nn11wk485zfn": {
+   "label": "",
+   "status": "skipped",
+   "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+   "ts": 1794571477
+  },
   "synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html": {
    "label": "Apple App Review AI",
    "status": "posted",
@@ -173,6 +215,12 @@
    "status": "posted",
    "title": "Chicago schools to Google – we'd rather lose Search than be forced to accept AI",
    "ts": 1794540131
+  },
+  "theatlantic.com/international/2026/11/nvidia-affair-chips-china/689417": {
+   "label": "",
+   "status": "skipped",
+   "title": "The Jensen Huang Scandal Should Change Everything",
+   "ts": 1794571528
   },
   "theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator": {
    "label": "UK Higher Education AI Assessment",
@@ -210,11 +258,23 @@
    "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
    "ts": 1794523255
   },
+  "usediorama.com/rick-and-morty": {
+   "label": "",
+   "status": "skipped",
+   "title": "Show HN: I built a Rick and Morty explainer video generator",
+   "ts": 1794571482
+  },
   "wheresyoured.at/jensens-bizarre-adventure": {
    "label": "",
    "status": "skipped",
    "title": "Jensen's (Nvidia) Adventure",
    "ts": 1794501985
+  },
+  "wired.com/story/black-roles-are-disappearing-in-hollywood-this-startup-is-using-ai-microdramas-to-fight-back": {
+   "label": "Mansa AI Microdramas",
+   "status": "posted",
+   "title": "This Startup Is Betting on AI Microdramas to Get More Black Stories in Hollywood",
+   "ts": 1794571500
   },
   "wired.com/story/nvidia-employees-petition-for-jensen-huangs-return": {
    "label": "",
