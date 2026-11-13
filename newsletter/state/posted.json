@@ -84,6 +84,18 @@
    "title": "Jensen Huang Third Affair Allegations Revealed",
    "ts": 1794523261
   },
+  "fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots": {
+   "label": "OpenAI Robotics Team Disbanded",
+   "status": "posted",
+   "title": "OpenAI disbands its robotics team as its general models start running robots",
+   "ts": 1794596200
+  },
+  "ft.com/content/2a64f698-46dd-4178-a3f4-4c5f4c0a0926": {
+   "label": "Arm CEO Nvidia Search",
+   "status": "posted",
+   "title": "Arm boss Rene Haas approached in Nvidia CEO search",
+   "ts": 1794596171
+  },
   "github.com/anthropics/claude-code/issues/109446": {
    "label": "",
    "status": "skipped",
@@ -216,6 +228,18 @@
    "title": "Chicago schools to Google – we'd rather lose Search than be forced to accept AI",
    "ts": 1794540131
   },
+  "text.npr.org/nx-s1-6029408": {
+   "label": "Google AI Overviews Policy",
+   "status": "posted",
+   "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+   "ts": 1794596181
+  },
+  "theatlantic.com/books/2026/11/ai-literary-scams-amazon/689391": {
+   "label": "AI Literary Scams",
+   "status": "posted",
+   "title": "AI is destroying the trust between writers and readers",
+   "ts": 1794596187
+  },
   "theatlantic.com/international/2026/11/nvidia-affair-chips-china/689417": {
    "label": "",
    "status": "skipped",
@@ -227,6 +251,12 @@
    "status": "posted",
    "title": "AI makes it 'close to impossible' to assess university coursework,regulator says",
    "ts": 1794501979
+  },
+  "theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths": {
+   "label": "Claude Unlocks Gödel Notebooks",
+   "status": "posted",
+   "title": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+   "ts": 1794596165
   },
   "theguardian.com/technology/2026/nov/12/rise-and-fall-of-nvidia-ceo-jensen-huang-profile": {
    "label": "",
@@ -281,6 +311,12 @@
    "status": "skipped",
    "title": "Nvidia employees petition to bring back Jensen Huang",
    "ts": 1794540123
+  },
+  "youtube.com/watch?v=irk8h67ol7q": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jonathan Blow – If AI Solved Coding, Why Is My Software Still the Same? [video]",
+   "ts": 1794596177
   }
  }
 }
