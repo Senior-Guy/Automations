@@ -56,9 +56,11 @@ jobs:
           GROQ_MODEL: ${{ vars.GROQ_MODEL }}
           REQUIRE_IMAGE: ${{ vars.REQUIRE_IMAGE }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          
 
       - name: Save posted history
         if: ${{ always() && inputs.dry_run != true }}
+        continue-on-error: true  # <--- ADD THIS
         run: |
           git config user.name "ai-news-bot"
           git config user.email "ai-news-bot@users.noreply.github.com"
@@ -67,7 +69,8 @@ jobs:
             echo "No history changes to save."
           else
             git commit -m "chore: update posted history [skip ci]"
-            git pull --rebase --autostash
+            # FIX: Force git to not open a text editor
+            git -c core.editor=true pull --rebase --autostash
             git push
           fi
 
@@ -84,3 +87,4 @@ jobs:
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/newsletter.yml/enable"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
