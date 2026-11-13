@@ -24,6 +24,12 @@
    "title": "OpenAI board member worries an AI \"takeover\" of society could be months away",
    "ts": 1794596499
   },
+  "arstechnica.com/features/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns": {
+   "label": "",
+   "status": "skipped",
+   "title": "OpenAI board member worries an AI \"takeover\" of society could be months away",
+   "ts": 1794598534
+  },
   "aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock": {
    "label": "Amazon Bedrock Cost Attribution",
    "status": "posted",
@@ -294,11 +300,23 @@
    "title": "Hugging Face CEO vows to keep fighting for open-source AI",
    "ts": 1794540171
   },
+  "techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you": {
+   "label": "",
+   "status": "skipped",
+   "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+   "ts": 1794598534
+  },
   "techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen": {
    "label": "",
    "status": "skipped",
    "title": "Export-banned Nvidia chips are behind China’s most powerful AI models—uh oh, Jensen!",
    "ts": 1794596530
+  },
+  "techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline": {
+   "label": "",
+   "status": "skipped",
+   "title": "The unfolding Jensen Huang scandal: a timeline",
+   "ts": 1794598558
   },
   "techspot.com/news/114532-chicago-schools-tell-google-they-can-live-without.html": {
    "label": "Google Search AI Push",
@@ -311,6 +329,12 @@
    "status": "posted",
    "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
    "ts": 1794596181
+  },
+  "the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet": {
+   "label": "",
+   "status": "skipped",
+   "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
+   "ts": 1794598517
   },
   "theatlantic.com/books/2026/11/ai-literary-scams-amazon/689391": {
    "label": "AI Literary Scams",
@@ -407,6 +431,18 @@
    "status": "skipped",
    "title": "Nvidia employees petition to bring back Jensen Huang",
    "ts": 1794540123
+  },
+  "www.theverge.com/ai-artificial-intelligence/1032339/lets-talk-about-the-nvidia-shitshow": {
+   "label": "",
+   "status": "skipped",
+   "title": "Let’s talk about Jensen Huang’s many affairs!",
+   "ts": 1794598534
+  },
+  "www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast": {
+   "label": "",
+   "status": "skipped",
+   "title": "What’s really at stake in the Jensen Huang saga",
+   "ts": 1794598534
   },
   "youtube.com/watch?v=irk8h67ol7q": {
    "label": "",
