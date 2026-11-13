@@ -515,6 +515,12 @@
    "status": "posted",
    "label": "Global Server Crash Explained",
    "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage"
+  },
+  "developer.nvidia.com/blog/run-gpu-powered-black-hole-interferometry-with-nvidia-cuphoton": {
+   "ts": 1794605648,
+   "status": "posted",
+   "label": "Challenges in Black Hole Imaging",
+   "title": "Run GPU-Powered Black Hole Interferometry with NVIDIA cuPhoton"
   }
  }
 }
