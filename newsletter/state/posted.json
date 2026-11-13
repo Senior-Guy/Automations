@@ -461,6 +461,60 @@
    "status": "skipped",
    "title": "The Downfall of Jensen Huang: Nvidia's Greed and Corruption [video]",
    "ts": 1794596248
+  },
+  "the-decoder.com/jensen-huangs-ouster-likely-traces-back-to-nvidias-risky-business-practices-more-than-his-personal-life": {
+   "ts": 1794604008,
+   "status": "posted",
+   "label": "Nvidia Risky Practices Prompt CEO Exit",
+   "title": "Jensen Huang's ouster likely traces back to Nvidia's risky business practices more than his personal life"
+  },
+  "techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation": {
+   "ts": 1794604018,
+   "status": "posted",
+   "label": "LangChain Reaches 7,000 Customers",
+   "title": "AI agent startup LangChain hits $3B valuation"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet": {
+   "ts": 1794604027,
+   "status": "posted",
+   "label": "OpenAI Launches ChatGPT Wallet",
+   "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you"
+  },
+  "research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature": {
+   "ts": 1794604040,
+   "status": "posted",
+   "label": "Google Research Education Innovation",
+   "title": "Advancing science & engineering with Antigravity’s /teamwork"
+  },
+  "aws.amazon.com/blogs/machine-learning/cost-optimizing-assemblyai-speech-to-text-inference-on-aws-with-amazon-ec2-spot": {
+   "ts": 1794604047,
+   "status": "posted",
+   "label": "AssemblyAI Optimizes Speech AI Costs",
+   "title": "Cost-optimizing AssemblyAI speech-to-text inference on AWS with Amazon EC2 Spot"
+  },
+  "aws.amazon.com/blogs/machine-learning/build-a-model-improvement-flywheel-with-amazon-sagemaker-hyperpod-data-capture": {
+   "ts": 1794604055,
+   "status": "posted",
+   "label": "SageMaker HyperPod Data Capture",
+   "title": "Build a model improvement flywheel with Amazon SageMaker HyperPod Data Capture"
+  },
+  "developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits": {
+   "ts": 1794604062,
+   "status": "posted",
+   "label": "NVIDIA Launches Alpamayo 2 Edge",
+   "title": "Running AV Reasoning Models Within Onboard Compute and Latency Limits"
+  },
+  "www.marktechpost.com/2026/11/13/best-ai-video-generation-models-2026": {
+   "ts": 1794604081,
+   "status": "posted",
+   "label": "Best AI Video Generation Models in 2026: Elo, Price per Second, Open W",
+   "title": "Best AI Video Generation Models in 2026: Elo, Price per Second, Open Weights"
+  },
+  "www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage": {
+   "ts": 1794604088,
+   "status": "posted",
+   "label": "Global Server Crash Explained",
+   "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage"
   }
  }
 }
