@@ -48,11 +48,23 @@
    "title": "Jensen Huang's Last Hours as Nvidia CEO",
    "ts": 1794571479
   },
+  "businessinsider.com/dario-amodei-anthropic-cancer-cure-ipo-roadshow-backlash-doctors-2026-11": {
+   "label": "Anthropic Cancer Claim",
+   "status": "posted",
+   "title": "Amodei Says AI Will Cure Cancer in a Decade. Doctors Are Skeptical",
+   "ts": 1794596235
+  },
   "cnbc.com/2026/11/12/alice-huang-jensen-huang-nvidia-huawei.html": {
    "label": "",
    "status": "skipped",
    "title": "Alice Huang tied to Nvidia's biggest Chinese competitor",
    "ts": 1794540146
+  },
+  "coyotetracks.org/blog/right-amount-of-ai": {
+   "label": "",
+   "status": "skipped",
+   "title": "Is there a 'right amount' of AI?",
+   "ts": 1794596267
   },
   "deepmind.google/blog/introducing-gemini-4-hydrogen": {
    "label": "",
@@ -84,6 +96,12 @@
    "title": "Jensen Huang Third Affair Allegations Revealed",
    "ts": 1794523261
   },
+  "forbes.com/sites/maryroeloffs/2026/08/17/ai-companies-are-buying-and-destroying-antique-books-heres-why": {
+   "label": "AI Book Destruction",
+   "status": "posted",
+   "title": "Are we just going to ignore that books are destroyed for AI?",
+   "ts": 1794596227
+  },
   "fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots": {
    "label": "OpenAI Robotics Team Disbanded",
    "status": "posted",
@@ -113,6 +131,18 @@
    "status": "posted",
    "title": "Show HN: AgentRun – open-source, Self-improving Managed Agents",
    "ts": 1794540196
+  },
+  "huggingface.co/blog/allenai/xybench": {
+   "label": "XYBench Benchmark",
+   "status": "posted",
+   "title": "XYBench: Helping with the problem behind the question",
+   "ts": 1794596270
+  },
+  "huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place": {
+   "label": "",
+   "status": "skipped",
+   "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+   "ts": 1794596251
   },
   "ipo.anthropic.com/us": {
    "label": "Anthropic IPO",
@@ -191,6 +221,18 @@
    "status": "posted",
    "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
    "ts": 1794523271
+  },
+  "openai.com/index/introducing-chatgpt-wallet": {
+   "label": "ChatGPT Wallet",
+   "status": "posted",
+   "title": "Introducing ChatGPT Wallet",
+   "ts": 1794596242
+  },
+  "pcworld.com/article/3283946/ai-agents-have-a-big-problem-nobody-wants-to-let-them-in.html": {
+   "label": "United AI Agent Ban",
+   "status": "posted",
+   "title": "AI agents have a big problem: Nobody wants to let them in",
+   "ts": 1794596261
   },
   "reuters.com/live/nvidia-live-board-meets-fate-ceo-jensen-huang-after-affair-reports-2026-11-12": {
    "label": "",
@@ -317,6 +359,12 @@
    "status": "skipped",
    "title": "Jonathan Blow – If AI Solved Coding, Why Is My Software Still the Same? [video]",
    "ts": 1794596177
+  },
+  "youtube.com/watch?v=yyu_geuwqoa": {
+   "label": "",
+   "status": "skipped",
+   "title": "The Downfall of Jensen Huang: Nvidia's Greed and Corruption [video]",
+   "ts": 1794596248
   }
  }
 }
