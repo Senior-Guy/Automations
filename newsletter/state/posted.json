@@ -1,5 +1,11 @@
 {
  "items": {
+  "aistudio.google.com/docs/whats-new-gemini-4-hydrogen": {
+   "label": "",
+   "status": "skipped",
+   "title": "Gemini 4 Hydrogen",
+   "ts": 1794540151
+  },
   "antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity": {
    "label": "",
    "status": "skipped",
@@ -36,11 +42,35 @@
    "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
    "ts": 1794523283
   },
+  "cnbc.com/2026/11/12/alice-huang-jensen-huang-nvidia-huawei.html": {
+   "label": "",
+   "status": "skipped",
+   "title": "Alice Huang tied to Nvidia's biggest Chinese competitor",
+   "ts": 1794540146
+  },
   "deepmind.google/blog/introducing-gemini-4-hydrogen": {
    "label": "",
    "status": "skipped",
    "title": "Introducing Gemini 4 Hydrogen",
    "ts": 1794523286
+  },
+  "deepmind.google/models/model-cards/gemini-4-hydrogen": {
+   "label": "",
+   "status": "skipped",
+   "title": "Gemini 4 Hydrogen",
+   "ts": 1794540176
+  },
+  "economist.com/leaders/2026/11/12/why-you-should-expect-an-ai-crash": {
+   "label": "",
+   "status": "skipped",
+   "title": "Why You Should Expect an AI Crash",
+   "ts": 1794540125
+  },
+  "edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer": {
+   "label": "Edge0 145B",
+   "status": "posted",
+   "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+   "ts": 1794540138
   },
   "forbes.com/sites/alisondurkee/2026/11/12/jensen-huang-had-a-third-affair-with-another-nvidia-employee-report-says": {
    "label": "",
@@ -53,6 +83,12 @@
    "status": "posted",
    "title": "I'm making LLMs work on small and old devices",
    "ts": 1794501963
+  },
+  "github.com/parcha-ai/agentrun/blob/main/readme.md": {
+   "label": "AgentRun Open-Source Platform",
+   "status": "posted",
+   "title": "Show HN: AgentRun – open-source, Self-improving Managed Agents",
+   "ts": 1794540196
   },
   "ipo.anthropic.com/us": {
    "label": "Anthropic IPO",
@@ -72,11 +108,29 @@
    "title": "NVIDIA Announces CEO Transition",
    "ts": 1794501943
   },
+  "nytimes.com/2026/11/12/business/nvidia-megaspeed-alice-huang.html": {
+   "label": "",
+   "status": "skipped",
+   "title": "Singapore Says U.S. Not Helpful on Investigation into Suspected Spy's Company",
+   "ts": 1794540149
+  },
+  "nytimes.com/2026/11/12/us/politics/trump-jensen-huang-nvidia.html": {
+   "label": "",
+   "status": "skipped",
+   "title": "Trump had urged Nvidia’s Jensen Huang to fight for his job",
+   "ts": 1794540144
+  },
   "nytimes.com/live/2026/11/12/business/nvidia-jensen-huang-resigns": {
    "label": "",
    "status": "skipped",
    "title": "Jensen Huang Resigns as Nvidia CEO After Affairs",
    "ts": 1794501966
+  },
+  "openai.com/business/customer-stories/amplitude": {
+   "label": "",
+   "status": "skipped",
+   "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+   "ts": 1794540144
   },
   "openai.com/business/customer-stories/holidays-extras-codex": {
    "label": "Holiday Extras Codex",
@@ -108,11 +162,41 @@
    "title": "AI is turning Apple's app review process into a nightmare for synth developers",
    "ts": 1794523265
   },
+  "techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit": {
+   "label": "Hugging Face CEO Statement",
+   "status": "posted",
+   "title": "Hugging Face CEO vows to keep fighting for open-source AI",
+   "ts": 1794540171
+  },
+  "techspot.com/news/114532-chicago-schools-tell-google-they-can-live-without.html": {
+   "label": "Google Search AI Push",
+   "status": "posted",
+   "title": "Chicago schools to Google – we'd rather lose Search than be forced to accept AI",
+   "ts": 1794540131
+  },
   "theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator": {
    "label": "UK Higher Education AI Assessment",
    "status": "posted",
    "title": "AI makes it 'close to impossible' to assess university coursework,regulator says",
    "ts": 1794501979
+  },
+  "theguardian.com/technology/2026/nov/12/rise-and-fall-of-nvidia-ceo-jensen-huang-profile": {
+   "label": "",
+   "status": "skipped",
+   "title": "Washing dishes at Denny's to rockstar of AI, the rise and fall of Jensen Huang",
+   "ts": 1794540182
+  },
+  "theringer.com/2026/11/12/tech/jensen-huang-nvidia-ceo-resignation-chinese-spy-stock-market": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang Fucked Everybody",
+   "ts": 1794540179
+  },
+  "theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang": {
+   "label": "Nvidia CEO Resignation",
+   "status": "posted",
+   "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
+   "ts": 1794540164
   },
   "twitter.com/willdepue/status/2120992457630326841": {
    "label": "",
@@ -131,6 +215,12 @@
    "status": "skipped",
    "title": "Jensen's (Nvidia) Adventure",
    "ts": 1794501985
+  },
+  "wired.com/story/nvidia-employees-petition-for-jensen-huangs-return": {
+   "label": "",
+   "status": "skipped",
+   "title": "Nvidia employees petition to bring back Jensen Huang",
+   "ts": 1794540123
   }
  }
 }
