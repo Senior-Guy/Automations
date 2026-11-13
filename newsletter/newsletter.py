@@ -4,14 +4,14 @@
 Every run it collects recent stories from the sources listed in SOURCES below,
 skips anything already posted (history is kept in newsletter/state/posted.json),
 asks Groq to write a clean summary, and posts each story as:
-  [cover image]
-  Short Title <- links to the exact original article
-  > one-paragraph summary (Telegram quote block)
+
+    [cover image]
+    Short Title            <- links to the exact original article
+    > one-paragraph summary (Telegram quote block)
 
 Run on GitHub Actions (.github/workflows/newsletter.yml) or locally.
 DRY_RUN=1 prints the posts instead of sending them (and does not save history).
 """
-
 import html as htmllib
 import io
 import json
@@ -27,9 +27,10 @@ from email.utils import parsedate_to_datetime
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 import requests
+
 try:
-    from PIL import Image  # optional: converts WebP etc. so Telegram accepts the cover image
-except Exception:  # pragma: no cover
+    from PIL import Image          # optional: converts WebP etc. so Telegram accepts the cover image
+except Exception:                  # pragma: no cover
     Image = None
 
 # ----------------------------------------------------------------------------
@@ -38,17 +39,17 @@ except Exception:  # pragma: no cover
 DEFAULT_KEYWORDS = ("artificial intelligence, AI, LLM, OpenAI, Anthropic, Gemini, ChatGPT, "
                     "DeepSeek, Nvidia, AI agents")
 # Search terms for the search-based sources (Hacker News, arXiv, GitHub, NewsAPI). Comma separated.
-KEYWORDS = [k.strip() for k in (os.getenv("KEYWORDS") or os.getenv("KEYWORD") or DEFAULT_KEYWORDS).split(",") if k.strip()]
-
-HOURS = int(os.getenv("HOURS_BACK") or 12)        # only stories newer than this
-MAX_POSTS = int(os.getenv("MAX_POSTS") or 5)      # max posts per run
-MIN_SCORE = int(os.getenv("MIN_SCORE") or 5)      # AI newsworthiness (0-10) needed to post
-MAX_EVAL = MAX_POSTS * 3 + 4                      # max stories sent to the AI per run
+KEYWORDS = [k.strip() for k in (os.getenv("KEYWORDS") or os.getenv("KEYWORD") or DEFAULT_KEYWORDS).split(",")
+            if k.strip()]
+HOURS = int(os.getenv("HOURS_BACK") or 12)                      # only stories newer than this
+MAX_POSTS = int(os.getenv("MAX_POSTS") or 5)                    # max posts per run
+MIN_SCORE = int(os.getenv("MIN_SCORE") or 5)                    # AI newsworthiness (0-10) needed to post
+MAX_EVAL = MAX_POSTS * 3 + 4                                    # max stories sent to the AI per run
 DRY_RUN = os.getenv("DRY_RUN") == "1"
-REQUIRE_IMAGE = os.getenv("REQUIRE_IMAGE") == "1" # set to 1 to skip stories without a cover image
+REQUIRE_IMAGE = os.getenv("REQUIRE_IMAGE") == "1"              # set to 1 to skip stories without a cover image
 
 TG_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TG_CHAT = os.getenv("TELEGRAM_CHAT_ID", "")       # e.g. @Ai_news_latest
+TG_CHAT = os.getenv("TELEGRAM_CHAT_ID", "")                     # e.g. @Ai_news_latest
 GROQ_KEY = os.getenv("GROQ_API_KEY", "")
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY", "")
 GH_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN", "")
@@ -60,8 +61,7 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 # Groq retires models regularly. The first one that works is used; set the GROQ_MODEL
 # variable to force one. Current names: console.groq.com/docs/models
 GROQ_MODELS = [m for m in dict.fromkeys([os.getenv("GROQ_MODEL", "").strip(),
-                                         "openai/gpt-oss-120b",
-                                         "openai/gpt-oss-20b",
+                                         "openai/gpt-oss-120b", "openai/gpt-oss-20b",
                                          "qwen/qwen3.8-27b"]) if m]
 _groq = {"idx": 0, "disabled": False, "discovered": False}
 
@@ -93,8 +93,9 @@ FEEDS = [
     ("MarkTechPost", "https://www.marktechpost.com/feed/", 60),
     ("Simon Willison", "https://simonwillison.net/atom/everything/", 60),
 ]
+OTHER_SOURCES = ["arXiv (API)", "Hacker News (Algolia API)", "GitHub (search API)",
+                 "NewsAPI (optional, needs NEWSAPI_KEY)"]
 
-OTHER_SOURCES = ["arXiv (API)", "Hacker News (Algolia API)", "GitHub (search API)", "NewsAPI (optional, needs NEWSAPI_KEY)"]
 
 def log(msg):
     for secret in (TG_TOKEN, GROQ_KEY, NEWSAPI_KEY, GH_TOKEN):
@@ -102,20 +103,24 @@ def log(msg):
             msg = str(msg).replace(secret, "***")
     print(msg, file=sys.stderr, flush=True)
 
+
 # ----------------------------------------------------------------------------
 # Helpers
 # ----------------------------------------------------------------------------
 TAG = re.compile(r"<[^>]+>")
 
+
 def clean(s):
     s = htmllib.unescape(str(s or ""))
     return re.sub(r"\s+", " ", TAG.sub(" ", s)).strip()
+
 
 def clip(s, n):
     s = re.sub(r"\s+", " ", str(s or "")).strip()
     if len(s) <= n:
         return s
     return re.sub(r"\s+\S*$", "", s[: n - 1]) + "…"
+
 
 def parse_dt(s):
     if not s:
@@ -131,32 +136,57 @@ def parse_dt(s):
     except Exception:
         return None
 
+
 def recent(d):
     return d is not None and d >= SINCE
+
 
 def host(u):
     m = re.match(r"https?://(?:www\.)?([^/]+)", u or "")
     return m.group(1) if m else ""
+
 
 def clean_url(u):
     """Remove tracking junk but keep the real article address."""
     try:
         p = urlsplit(str(u).strip())
         q = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True)
-             if not k.lower().startswith("utm_") and k.lower() not in
-             ("fbclid", "gclid", "mc_cid", "mc_eid", "ref", "source")]
+             if not k.lower().startswith("utm_") and k.lower() not in ("fbclid", "gclid", "ref")]
         return urlunsplit((p.scheme, p.netloc, p.path, urlencode(q), ""))
     except Exception:
-        return str(u or "")
+        return str(u)
+
 
 def ukey(u):
     p = urlsplit(clean_url(u))
-    return (p.netloc + p.path).rstrip("/").lower()
+    return (p.netloc.lower().removeprefix("www.") + p.path.rstrip("/")
+            + ("?" + p.query if p.query else "")).lower()
+
+
+def http_get(url, params=None, headers=None, timeout=15):
+    h = {"User-Agent": UA}
+    h.update(headers or {})
+    try:
+        r = requests.get(url, params=params, headers=h, timeout=timeout)
+        r.raise_for_status()
+        return r
+    except Exception as e:
+        log(f"GET failed ({url[:70]}): {e}")
+        return None
+
+
+def make_item(**kw):
+    base = dict(title="", url="", excerpt="", text="", source="", outlet="", published_at=None,
+                source_weight=50, engagement=0, comments=0, image="", repo="")
+    base.update(kw)
+    return base
+
 
 # ----------------------------------------------------------------------------
-# State (dedupe history)
+# State (what has already been posted / looked at)
 # ----------------------------------------------------------------------------
 KEEP_DAYS = 21
+
 
 def load_state():
     try:
@@ -169,6 +199,7 @@ def load_state():
     st["items"] = {k: v for k, v in st["items"].items() if v.get("ts", 0) >= cutoff}
     return st
 
+
 def save_state(st):
     if DRY_RUN:
         return
@@ -176,21 +207,26 @@ def save_state(st):
     with open(STATE_PATH, "w", encoding="utf-8") as f:
         json.dump(st, f, indent=1, ensure_ascii=False, sort_keys=True)
 
+
 def mark(st, j, status, label=""):
     st["items"][ukey(j["url"])] = {"ts": int(time.time()), "status": status,
                                    "label": label, "title": j["title"][:140]}
     save_state(st)
+
 
 def recent_labels(st, limit=40):
     rows = [v for v in st["items"].values() if v.get("status") == "posted" and v.get("label")]
     rows.sort(key=lambda v: v["ts"], reverse=True)
     return [v["label"] for v in rows[:limit]]
 
+
 STOP = set("the and for with from that this into over about after will new how why what its are was "
            "has have can now says say may use uses using via not but you your".split())
 
+
 def toks(t):
     return {w for w in re.findall(r"[a-z0-9]+", t.lower()) if len(w) > 2 and w not in STOP}
+
 
 def similar(a, b):
     if not a or not b:
@@ -198,17 +234,20 @@ def similar(a, b):
     c = len(a & b)
     return c >= 4 and c / min(len(a), len(b)) >= 0.75
 
+
 # ----------------------------------------------------------------------------
 # Sources
 # ----------------------------------------------------------------------------
 def local(tag):
     return tag.rsplit("}", 1)[-1] if isinstance(tag, str) else ""
 
+
 def child_text(e, *names):
     for c in e:
         if local(c.tag) in names and (c.text or "").strip():
             return c.text.strip()
     return ""
+
 
 def entry_link(e):
     for c in e:
@@ -219,16 +258,18 @@ def entry_link(e):
                 return c.text.strip()
     return ""
 
+
 def entry_image(e, html_blob):
     for c in e:
         k = local(c.tag)
         if k in ("content", "thumbnail") and c.get("url") and \
-           (k == "thumbnail" or "image" in (c.get("type", "") + c.get("medium", "image"))):
+                (k == "thumbnail" or "image" in (c.get("type", "") + c.get("medium", "image"))):
             return c.get("url")
         if k == "enclosure" and c.get("url") and c.get("type", "").startswith("image"):
             return c.get("url")
     m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', htmllib.unescape(html_blob or ""), re.I)
     return m.group(1) if m else ""
+
 
 def fetch_feed(name, url, weight):
     out = []
@@ -249,55 +290,53 @@ def fetch_feed(name, url, weight):
         body = child_text(e, "encoded", "content") or child_text(e, "description", "summary")
         if title and link.startswith("http") and recent(pub):
             out.append(make_item(
-                title=title, url=link, excerpt=clean(body)[:3000], source=name,
-                outlet=host(link) or name, published_at=pub, source_weight=weight,
-                image=entry_image(e, body)))
+                title=title, url=link, excerpt=clean(body)[:3000], source="Feed", outlet=name,
+                published_at=pub, source_weight=weight, image=entry_image(e, body)))
     return name, out
+
 
 def fetch_arxiv():
     out = []
-    q = " OR ".join(f'all:"{k}"' for k in KEYWORDS[:3])
     r = http_get("https://export.arxiv.org/api/query", params={
-        "search_query": q, "start": 0, "max_results": 25,
+        "search_query": " OR ".join(f'all:"{k}"' for k in KEYWORDS[:3]), "start": 0, "max_results": 30,
         "sortBy": "submittedDate", "sortOrder": "descending"})
     if not r:
         return "arXiv", out
+    ns = {"a": "http://www.w3.org/2005/Atom"}
     try:
         root = ET.fromstring(r.content)
     except ET.ParseError:
         return "arXiv", out
-    for e in root.iter():
-        if local(e.tag) != "entry":
-            continue
-        title = clean(child_text(e, "title"))
-        link = clean_url(child_text(e, "id"))
-        pub = parse_dt(child_text(e, "published"))
-        summary = clean(child_text(e, "summary"))[:3000]
-        if title and link.startswith("http") and recent(pub):
+    for e in root.findall("a:entry", ns):
+        title = clean(e.findtext("a:title", "", ns))
+        url = (e.findtext("a:id", "", ns) or "").strip().replace("http://", "https://", 1)
+        pub = parse_dt((e.findtext("a:published", "", ns) or "").strip())
+        if title and url and recent(pub):
             out.append(make_item(
-                title=title, url=link, excerpt=summary, source="arXiv",
-                outlet="arXiv", published_at=pub, source_weight=80))
+                title=title, url=url, source="arXiv", outlet="arXiv", published_at=pub,
+                source_weight=55, excerpt=clean(e.findtext("a:summary", "", ns))[:3000]))
     return "arXiv", out
 
+
 def fetch_hackernews():
-    out = []
-    q = " OR ".join(f'"{k}"' for k in KEYWORDS[:3])
-    r = http_get("https://hn.algolia.com/api/v1/search", params={
-        "query": q, "tags": "story",
-        "numericFilters": f"created_at_i>{int(SINCE.timestamp())}",
-        "hitsPerPage": 30})
-    if not r:
-        return "Hacker News", out
-    for h in r.json().get("hits", []):
-        if not h.get("title") or not h.get("url"):
+    out, seen = [], set()
+    for kw in KEYWORDS:
+        r = http_get("https://hn.algolia.com/api/v1/search", params={
+            "query": kw, "tags": "story",
+            "numericFilters": f"created_at_i>{int(SINCE.timestamp())},points>=10", "hitsPerPage": 30})
+        if not r:
             continue
-        out.append(make_item(
-            title=clean(h["title"]), url=clean_url(h["url"]),
-            source="HackerNews", outlet=host(h["url"]) or "Hacker News",
-            published_at=datetime.fromtimestamp(h.get("created_at_i", 0), timezone.utc),
-            source_weight=70, engagement=h.get("points") or 0,
-            comments=h.get("num_comments") or 0))
+        for h in r.json().get("hits", []):
+            if h.get("objectID") in seen or not h.get("title") or not h.get("url"):  # no outside link = no exact source
+                continue
+            seen.add(h.get("objectID"))
+            out.append(make_item(
+                title=clean(h["title"]), url=clean_url(h["url"]), source="HackerNews",
+                outlet=host(h["url"]) or "Hacker News",
+                published_at=datetime.fromtimestamp(h.get("created_at_i", 0), timezone.utc),
+                source_weight=70, engagement=h.get("points") or 0, comments=h.get("num_comments") or 0))
     return "Hacker News", out
+
 
 def fetch_github():
     out, seen = [], set()
@@ -317,21 +356,20 @@ def fetch_github():
             seen.add(repo["full_name"])
             desc = clean(repo.get("description"))
             out.append(make_item(
-                title=repo["full_name"] + (" - " + desc if desc else ""),
-                url=repo["html_url"], excerpt=desc or repo["full_name"],
-                source="GitHub", outlet="GitHub", published_at=created,
-                source_weight=55, engagement=repo.get("stargazers_count") or 0,
+                title=repo["full_name"] + (" - " + desc if desc else ""), url=repo["html_url"],
+                excerpt=desc or repo["full_name"], source="GitHub", outlet="GitHub",
+                published_at=created, source_weight=55, engagement=repo.get("stargazers_count") or 0,
                 comments=repo.get("forks_count") or 0, repo=repo["full_name"],
                 image="https://opengraph.githubassets.com/1/" + repo["full_name"]))
     return "GitHub", out
+
 
 def fetch_newsapi():
     out = []
     if not NEWSAPI_KEY:
         return "NewsAPI", out
     r = http_get("https://newsapi.org/v2/everything", headers={"X-Api-Key": NEWSAPI_KEY}, params={
-        "q": " OR ".join(f'"{k}"' for k in KEYWORDS[:5]),
-        "from": SINCE.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "q": " OR ".join(f'"{k}"' for k in KEYWORDS[:5]), "from": SINCE.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "sortBy": "publishedAt", "language": "en", "pageSize": 20})
     if not r:
         return "NewsAPI", out
@@ -346,6 +384,7 @@ def fetch_newsapi():
             published_at=pub, source_weight=60, image=a.get("urlToImage") or ""))
     return "NewsAPI", out
 
+
 def gather():
     jobs = [fetch_arxiv, fetch_hackernews, fetch_github, fetch_newsapi] + \
            [(lambda n=n, u=u, w=w: fetch_feed(n, u, w)) for n, u, w in FEEDS]
@@ -357,9 +396,10 @@ def gather():
             except Exception as e:
                 log(f"A source crashed: {e}")
                 continue
-            log(f" {name}: {len(got)} recent stories")
+            log(f"  {name}: {len(got)} recent stories")
             items += got
     return items
+
 
 # ----------------------------------------------------------------------------
 # Rank
@@ -369,44 +409,50 @@ def rank(items):
     for j in items:
         s = j["source_weight"]
         age = max(0.0, (NOW - j["published_at"]).total_seconds() / 3600)
-        s -= min(age * 1.5, 18)
-        text = (j["title"] + " " + j.get("excerpt", "")).lower()
-        s += min(sum(text.count(k) for k in kws) * 4, 16)
-        s += min(math.log1p(j.get("engagement") or 0) * 3, 12)
-        s += min(math.log1p(j.get("comments") or 0) * 2, 8)
-        j["score"] = s
-    return sorted(items, key=lambda j: j["score"], reverse=True)
+        s += max(0.0, 20 * (1 - age / HOURS))                      # fresher = higher
+        if j["source"] in ("HackerNews", "GitHub", "arXiv") and any(k in j["title"].lower() for k in kws):
+            s += 8
+        if j["image"]:
+            s += 6                                                 # stories with a cover image look best
+        s += min(20, math.log10(j["engagement"] + 1) * 6)           # HN points / GitHub stars
+        s += min(8, math.log10(j["comments"] + 1) * 3)
+        j["rank_score"] = round(s, 1)
+    items.sort(key=lambda x: x["rank_score"], reverse=True)
+    return items
+
 
 # ----------------------------------------------------------------------------
-# Enrich (article text + image)
+# Read the article (text + cover image)
 # ----------------------------------------------------------------------------
-OG = re.compile(r'<meta[^>]+(?:property|name)=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', re.I)
-OG2 = re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name)=["\']og:image["\']', re.I)
-TWITTER = re.compile(r'<meta[^>]+(?:property|name)=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', re.I)
+def ok_image(u):
+    return u.lower().startswith("https://") and not re.search(r"\.(svg|ico|gif)(\?|$)", u, re.I)
+
 
 def find_og_image(page):
-    for rx in (OG, OG2, TWITTER):
-        m = rx.search(page)
-        if m:
-            return m.group(1)
+    for name in ("og:image:secure_url", "og:image", "twitter:image", "twitter:image:src"):
+        n = re.escape(name)
+        for pat in (rf'<meta[^>]+(?:property|name)=["\']{n}["\'][^>]*content=["\']([^"\']+)["\']',
+                    rf'<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name)=["\']{n}["\']'):
+            m = re.search(pat, page, re.I)
+            if m:
+                return m.group(1)
     return ""
 
-def ok_image(u):
-    return u.startswith("http") and not re.search(r"\.svg(\?|$)", u, re.I)
 
 def page_text(page):
-    page = re.sub(r"(?is)<(script|style|noscript|svg|iframe|head)[^>]*>.*?</\1>", " ", page)
-    page = re.sub(r"(?is)<(nav|footer|aside|form)[^>]*>.*?</\1>", " ", page)
-    m = re.search(r"(?is)<article[^>]*>(.*?)</article>", page)
-    paras = [clean(p) for p in re.findall(r"(?is)<p[^>]*>(.*?)</p>", m.group(1) if m else page)]
+    t = re.sub(r"(?is)<(script|style|noscript|svg|nav|footer|header|aside|form)[^>]*>.*?</\1>", " ", page)
+    m = re.search(r"(?is)<article[^>]*>(.*?)</article>", t)
+    paras = [clean(p) for p in re.findall(r"(?is)<p[^>]*>(.*?)</p>", m.group(1) if m else t)]
     return " ".join(p for p in paras if len(p) >= 60)[:4000]
+
 
 def enrich(j):
     """Fill j['text'] (for the AI) and j['image'] (for the post)."""
     j["text"] = j["excerpt"]
     if j["source"] == "GitHub" and j["repo"]:
         r = http_get(f"https://api.github.com/repos/{j['repo']}/readme",
-                     headers={"Accept": "application/vnd.github.raw", **({"Authorization": f"Bearer {GH_TOKEN}"} if GH_TOKEN else {})})
+                     headers={"Accept": "application/vnd.github.raw",
+                              **({"Authorization": f"Bearer {GH_TOKEN}"} if GH_TOKEN else {})})
         if r:
             j["text"] = clean(r.text)[:3500] or j["excerpt"]
         return
@@ -425,6 +471,7 @@ def enrich(j):
     if j["image"] and not ok_image(j["image"]):
         j["image"] = ""
 
+
 # ----------------------------------------------------------------------------
 # AI (Groq)
 # ----------------------------------------------------------------------------
@@ -440,6 +487,7 @@ Rules:
    - "duplicate": true if this article reports the same news or event as ANY topic in the already-posted list, even if worded differently. Otherwise false.
 4. Use only facts from the provided text. If the text is thin, write a shorter summary and do not invent details."""
 
+
 def parse_json(txt):
     if not isinstance(txt, str):
         return None
@@ -451,33 +499,42 @@ def parse_json(txt):
     except Exception:
         return None
 
+
 def discover_groq_models():
     """Ask Groq which chat models this API key can use (used when the defaults are all gone)."""
     try:
         r = requests.get("https://api.groq.com/openai/v1/models",
                          headers={"Authorization": f"Bearer {GROQ_KEY}"}, timeout=20)
         r.raise_for_status()
-        ids = [m["id"] for m in r.json().get("data", [])
-               if m.get("active", True) and "whisper" not in m["id"].lower()]
-        return ids
-    except Exception:
+        ids = [m["id"] for m in r.json().get("data", []) if m.get("active", True)]
+    except Exception as e:
+        log(f"Could not list Groq models: {e}")
         return []
+    log("Groq models available to your key: " + ", ".join(ids))
+    skip = ("whisper", "tts", "orpheus", "guard", "safeguard", "compound", "embed", "distil")
+    ok = [i for i in ids if not any(b in i.lower() for b in skip)]
+    prefer = ["gpt-oss-120b", "gpt-oss-20b", "qwen", "llama-3.3", "llama", "kimi"]
+    ok.sort(key=lambda i: next((n for n, p in enumerate(prefer) if p in i), 99))
+    return ok
 
-def ai_summarize(j, labels):
+
+def ai_summarize(j, posted_labels):
     if not GROQ_KEY or _groq["disabled"]:
         return None
-    prompt = (f"ALREADY POSTED (do not repeat any of these):\n"
-              + ("\n".join(f"- {x}" for x in labels) if labels else "- (nothing yet)")
-              + f"\n\nSOURCE: {j['source']}\nURL: {j['url']}\n\nARTICLE:\n{j['text'][:3500]}")
-    for attempt in range(6):
+    posted = "\n".join("- " + x for x in posted_labels) or "(none yet)"
+    prompt = (f"ALREADY POSTED TOPICS (most recent first):\n{posted}\n\n"
+              f"ARTICLE\nOutlet: {j['outlet']}\nHeadline: {j['title']}\n"
+              f"Published: {j['published_at'].strftime('%Y-%m-%d %H:%M UTC')}\nURL: {j['url']}\n"
+              f"Text:\n{j['text'][:3500]}\n\nReturn the JSON object now.")
+    json_mode = True
+    for attempt in range(14):
+        if _groq["idx"] >= len(GROQ_MODELS) and not _groq["discovered"]:
+            _groq["discovered"] = True               # defaults are gone: use whatever the key can access
+            GROQ_MODELS.extend(m for m in discover_groq_models() if m not in GROQ_MODELS)
         if _groq["idx"] >= len(GROQ_MODELS):
-            if not _groq["discovered"]:
-                _groq["discovered"] = True
-                GROQ_MODELS.extend(m for m in discover_groq_models() if m not in GROQ_MODELS)
-            if _groq["idx"] >= len(GROQ_MODELS):
-                _groq["disabled"] = True
-                log("No working Groq model found for this API key.")
-                return None
+            _groq["disabled"] = True
+            log("No working Groq model found for this API key.")
+            return None
         model = GROQ_MODELS[_groq["idx"]]
         body = {"model": model, "temperature": 0.3, "max_completion_tokens": 1500,
                 "messages": [{"role": "system", "content": SYSTEM_PROMPT},
@@ -525,29 +582,34 @@ def ai_summarize(j, labels):
             return None
     return None
 
+
 # ----------------------------------------------------------------------------
 # Post formatting + Telegram
 # ----------------------------------------------------------------------------
 def esc(s):
     return htmllib.escape(str(s if s is not None else ""), quote=False)
 
+
 def href(u):
     return htmllib.escape(u, quote=True)
+
 
 def build_caption(label, url, summary):
     """Exactly the layout of a channel post: linked title, then the summary in a quote block."""
     label = clip(label, 70)
-    body = clip(summary, 1000 - len(label) - 12)  # photo captions max out at 1024 characters
-    return f'<a href="{href(url)}"><b>{esc(label)}</b></a>\n\n<blockquote>{esc(body)}</blockquote>'
+    body = clip(summary, 1000 - len(label) - 12)      # photo captions max out at 1024 characters
+    return f'<a href="{href(url)}"><b>{esc(label)}</b></a>\n<blockquote>{esc(body)}</blockquote>'
+
 
 def prepare_image(j):
-    """Download the cover image ourselves so Telegram never has to fetch it
-    (avoids hotlink blocks, and converts WebP/huge images when Pillow is available)."""
+    """Download the cover image ourselves so Telegram never has to fetch it (avoids hotlink blocks,
+    and converts WebP/huge images when Pillow is available)."""
     j["image_bytes"], j["image_name"] = None, "cover.jpg"
     if not j.get("image"):
         return
     try:
-        r = requests.get(j["image"], headers={"User-Agent": UA, "Referer": j["url"], "Accept": "image/*"}, timeout=20)
+        r = requests.get(j["image"], headers={"User-Agent": UA, "Referer": j["url"],
+                                              "Accept": "image/*"}, timeout=20)
         r.raise_for_status()
         data = r.content
     except Exception as e:
@@ -559,40 +621,66 @@ def prepare_image(j):
         try:
             im = Image.open(io.BytesIO(data))
             w, h = im.size
-            if w < 300 or h < 150:  # logos / tracking pixels
+            if w < 300 or h < 150:                       # logos / tracking pixels
                 return
             too_big = len(data) > 9_000_000 or w + h > 9000 or max(w, h) / max(1, min(w, h)) > 15
             if not good_type or too_big:
                 im = im.convert("RGB")
-                im.thumbnail((1280, 1280))
+                im.thumbnail((2560, 2560))
                 buf = io.BytesIO()
-                im.save(buf, "JPEG", quality=85)
-                data = buf.getvalue()
-        except Exception:
-            pass
+                im.save(buf, "JPEG", quality=90)
+                data, good_type, ctype = buf.getvalue(), True, "image/jpeg"
+        except Exception as e:
+            log(f"Could not read image ({j['image'][:70]}): {e}")
+            return
+    elif not good_type:
+        return
+    if len(data) < 1500 or len(data) > 10_000_000:
+        return
     j["image_bytes"] = data
+    j["image_name"] = "cover.png" if ctype == "image/png" else "cover.jpg"
 
-def tg(method, **kw):
-    r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/{method}",
-                      data={k: v for k, v in kw.items() if not isinstance(v, (dict, list)) and v is not None},
-                      files=kw.get("files"), timeout=30)
-    if r.ok:
-        return True
-    log(f"Telegram {method} failed: {r.text[:200]}")
+
+def tg(method, files=None, **payload):
+    url = f"https://api.telegram.org/bot{TG_TOKEN}/{method}"
+    for _ in range(3):
+        try:
+            if files:
+                r = requests.post(url, data={"chat_id": TG_CHAT, **payload}, files=files, timeout=60)
+            else:
+                r = requests.post(url, json={"chat_id": TG_CHAT, **payload}, timeout=30)
+        except Exception as e:
+            log(f"Telegram {method} error: {e}")
+            time.sleep(2)
+            continue
+        if r.status_code == 429:
+            try:
+                wait = r.json().get("parameters", {}).get("retry_after", 5)
+            except Exception:
+                wait = 5
+            time.sleep(wait + 1)
+            continue
+        if r.ok:
+            return True
+        log(f"Telegram {method} failed: {r.status_code} {r.text[:200]}")
+        return False
     return False
 
+
 def publish(j, label, summary):
-    if DRY_RUN:
-        log(f"[DRY RUN] {label} -> {j['url']}")
-        return True
     caption = build_caption(label, j["url"], summary)
-    if j.get("image_bytes") and tg("sendPhoto", files={"photo": (j["image_name"], j["image_bytes"])}, caption=caption, parse_mode="HTML"):
+    if DRY_RUN:
+        print(f"\n--- cover image: {j['image'] or '(none)'}\n{caption}\n")
+        return True
+    if j.get("image_bytes") and tg("sendPhoto", files={"photo": (j["image_name"], j["image_bytes"])},
+                                   caption=caption, parse_mode="HTML"):
         return True
     if j.get("image") and tg("sendPhoto", photo=j["image"], caption=caption, parse_mode="HTML"):
         return True
     if REQUIRE_IMAGE:
         return False
     return tg("sendMessage", text=caption, parse_mode="HTML", link_preview_options={"is_disabled": True})
+
 
 # ----------------------------------------------------------------------------
 def main():
@@ -628,7 +716,7 @@ def main():
         if posted >= MAX_POSTS or evaluated >= MAX_EVAL or _groq["disabled"]:
             break
         t = toks(j["title"])
-        if any(similar(t, h) for h in history):  # same headline as something we handled
+        if any(similar(t, h) for h in history):         # same headline as something we handled
             mark(state, j, "skipped", "")
             continue
         enrich(j)
@@ -640,9 +728,9 @@ def main():
         res = ai_summarize(j, labels)
         evaluated += 1
         if GROQ_KEY and not _groq["disabled"]:
-            time.sleep(1.5)  # stay under Groq rate limits
+            time.sleep(1.5)                              # stay under Groq rate limits
         if not isinstance(res, dict):
-            continue  # AI failed: try this story again next hour
+            continue                                     # AI failed: try this story again next hour
         label = re.sub(r"\s+", " ", str(res.get("title") or "")).strip().strip(".:;-")
         summary = re.sub(r"[*_`#]+", "", re.sub(r"\s+", " ", str(res.get("summary") or ""))).strip()
         try:
@@ -650,8 +738,9 @@ def main():
         except (TypeError, ValueError):
             score = 0
         history.append(t)
-        if res.get("duplicate") is True or any(similar(toks(label), toks(x)) or label.lower() == x.lower() for x in labels) or not label or len(summary) < 40 \
-           or score < MIN_SCORE:
+        if res.get("duplicate") is True or any(similar(toks(label), toks(x)) or label.lower() == x.lower()
+                                               for x in labels) or not label or len(summary) < 40 \
+                or score < MIN_SCORE:
             log(f"Skipped ({'duplicate' if res.get('duplicate') else 'score ' + str(score)}): {j['title'][:70]}")
             mark(state, j, "skipped", "")
             continue
@@ -659,7 +748,7 @@ def main():
             mark(state, j, "posted", label)
             labels.insert(0, label)
             posted += 1
-            log(f"Posted: {label} -> {j['url']}")
+            log(f"Posted: {label}  ->  {j['url']}")
             time.sleep(3)
         else:
             log(f"Could not post: {j['title'][:70]} (will retry next hour)")
@@ -669,6 +758,7 @@ def main():
     if _groq["disabled"] and not posted:
         return 1
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
