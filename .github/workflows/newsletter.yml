@@ -2,7 +2,6 @@ name: Hourly AI News
 
 on:
   schedule:
-    # Every hour at minute 7 (GitHub is busiest at minute 0, so this runs more reliably).
     - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
@@ -12,8 +11,8 @@ on:
         default: false
 
 permissions:
-  contents: write      # save the "already posted" history
-  actions: write       # keep the hourly schedule from being auto-disabled
+  contents: write
+  actions: write
 
 concurrency:
   group: ai-news
@@ -37,13 +36,11 @@ jobs:
       - name: Find and post new stories
         run: python newsletter/newsletter.py
         env:
-          # Secrets: Settings -> Secrets and variables -> Actions -> Secrets
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Optional variables: Settings -> Secrets and variables -> Actions -> Variables
           KEYWORDS: ${{ vars.KEYWORDS }}
           HOURS_BACK: ${{ vars.HOURS_BACK }}
           MAX_POSTS: ${{ vars.MAX_POSTS }}
@@ -66,9 +63,6 @@ jobs:
             git push
           fi
 
-      # GitHub switches off scheduled workflows in public repos after 60 days without
-      # activity. Re-enabling the workflow on every run resets that counter, so the
-      # hourly schedule keeps itself alive with no clicking.
       - name: Keep the schedule alive
         if: ${{ always() }}
         continue-on-error: true
