@@ -18,6 +18,18 @@
    "title": "Jensen Huang resigns",
    "ts": 1794523280
   },
+  "arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns": {
+   "label": "OpenAI Board AI Takeover Warning",
+   "status": "posted",
+   "title": "OpenAI board member worries an AI \"takeover\" of society could be months away",
+   "ts": 1794596499
+  },
+  "aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock": {
+   "label": "Amazon Bedrock Cost Attribution",
+   "status": "posted",
+   "title": "Cost attribution and controls for AI developer and productivity tools on Amazon Bedrock",
+   "ts": 1794596570
+  },
   "bbc.co.uk/news/live/c6zjry11v8w1t": {
    "label": "",
    "status": "skipped",
@@ -78,6 +90,12 @@
    "title": "Gemini 4 Hydrogen",
    "ts": 1794540176
   },
+  "developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla": {
+   "label": "NVIDIA cuDLA Python Support",
+   "status": "posted",
+   "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+   "ts": 1794596563
+  },
   "economist.com/leaders/2026/11/12/why-you-should-expect-an-ai-crash": {
    "label": "",
    "status": "skipped",
@@ -126,6 +144,12 @@
    "title": "I'm making LLMs work on small and old devices",
    "ts": 1794501963
   },
+  "github.com/me-farza/lightreason/tree/main": {
+   "label": "Lightreason Qwen Speedup",
+   "status": "posted",
+   "title": "6-11X speedup running Qwen3.6 on my RTX 4090, full repo.",
+   "ts": 1794596469
+  },
   "github.com/parcha-ai/agentrun/blob/main/readme.md": {
    "label": "AgentRun Open-Source Platform",
    "status": "posted",
@@ -137,6 +161,12 @@
    "status": "posted",
    "title": "XYBench: Helping with the problem behind the question",
    "ts": 1794596270
+  },
+  "huggingface.co/blog/ggml-org/llama-cpp-v1": {
+   "label": "llama.cpp v1",
+   "status": "posted",
+   "title": "Llama.cpp v1 Is Out",
+   "ts": 1794596524
   },
   "huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place": {
    "label": "",
@@ -264,6 +294,12 @@
    "title": "Hugging Face CEO vows to keep fighting for open-source AI",
    "ts": 1794540171
   },
+  "techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen": {
+   "label": "",
+   "status": "skipped",
+   "title": "Export-banned Nvidia chips are behind China’s most powerful AI models—uh oh, Jensen!",
+   "ts": 1794596530
+  },
   "techspot.com/news/114532-chicago-schools-tell-google-they-can-live-without.html": {
    "label": "Google Search AI Push",
    "status": "posted",
@@ -318,6 +354,18 @@
    "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
    "ts": 1794540164
   },
+  "theverge.com/ai-artificial-intelligence/1032339/lets-talk-about-the-nvidia-shitshow": {
+   "label": "",
+   "status": "skipped",
+   "title": "Let’s talk about Jensen Huang’s many affairs!",
+   "ts": 1794596478
+  },
+  "theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast": {
+   "label": "",
+   "status": "skipped",
+   "title": "What’s really at stake in the Jensen Huang saga",
+   "ts": 1794596475
+  },
   "twitter.com/willdepue/status/2120992457630326841": {
    "label": "",
    "status": "skipped",
@@ -347,6 +395,12 @@
    "status": "posted",
    "title": "This Startup Is Betting on AI Microdramas to Get More Black Stories in Hollywood",
    "ts": 1794571500
+  },
+  "wired.com/story/jensen-huang-and-the-end-of-the-founder-fairy-tale": {
+   "label": "",
+   "status": "skipped",
+   "title": "Jensen Huang and the End of the Founder Fairy Tale",
+   "ts": 1794596532
   },
   "wired.com/story/nvidia-employees-petition-for-jensen-huangs-return": {
    "label": "",
