@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hourly AI News -> Telegram (The Media House Firehose Edition)"""
+"""Hourly AI News -> Telegram (The Unstoppable Firehose Edition)"""
 
 import html as htmllib
 import io
@@ -22,17 +22,17 @@ except Exception:
     Image = None
 
 # ----------------------------------------------------------------------------
-# CONFIG (No Limits)
+# CONFIG (Firehose Mode)
 # ----------------------------------------------------------------------------
 DEFAULT_KEYWORDS = ("artificial intelligence, AI, LLM, OpenAI, Anthropic, Gemini, Claude, ChatGPT, DeepSeek, Nvidia, AI agents, machine learning")
 KEYWORDS = [k.strip() for k in (os.getenv("KEYWORDS") or DEFAULT_KEYWORDS).split(",") if k.strip()]
 
-HOURS = int(os.getenv("HOURS_BACK") or 2)         # Look back 2 hours to catch delayed cron runs
-MAX_POSTS = int(os.getenv("MAX_POSTS") or 150)    # Post EVERYTHING (up to 150 per hour)
-MIN_SCORE = int(os.getenv("MIN_SCORE") or 0)      # 0 = Accept everything, even minor news
-MAX_EVAL = int(os.getenv("MAX_EVAL") or 200)      # AI evaluates up to 200 items
+HOURS = int(os.getenv("HOURS_BACK") or 4)         # Look back 4 hours to ensure we catch everything
+MAX_POSTS = int(os.getenv("MAX_POSTS") or 100)    # Post up to 100 per run
+MIN_SCORE = int(os.getenv("MIN_SCORE") or 0)      # 0 = Accept everything
+MAX_EVAL = int(os.getenv("MAX_EVAL") or 200)      
 DRY_RUN = os.getenv("DRY_RUN") == "1"
-REQUIRE_IMAGE = os.getenv("REQUIRE_IMAGE") == "1" # Keep 0 so text-only news is posted!
+REQUIRE_IMAGE = False                             # FORCE FALSE: Never drop a story just because it lacks an image
 
 TG_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TG_CHAT = os.getenv("TELEGRAM_CHAT_ID", "")       
@@ -43,15 +43,15 @@ GH_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN", "")
 STATE_PATH = os.getenv("STATE_PATH") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "posted.json")
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODELS = [m for m in dict.fromkeys([os.getenv("GROQ_MODEL", "").strip(), "llama-3.3-70b-versatile", "llama-3.1-8b-instant", "qwen/qwen3.8-27b"]) if m]
+GROQ_MODELS = [m for m in dict.fromkeys([os.getenv("GROQ_MODEL", "").strip(), "openai/gpt-oss-120b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant"]) if m]
 _groq = {"idx": 0, "disabled": False, "discovered": False}
 
-UA = "Mozilla/5.0 (compatible; ai-news-bot/5.0)"
+UA = "Mozilla/5.0 (compatible; ai-news-bot/6.0)"
 NOW = datetime.now(timezone.utc)
 SINCE = NOW - timedelta(hours=HOURS)
 
 # ----------------------------------------------------------------------------
-# THE ULTIMATE SOURCE LIST
+# SOURCES
 # ----------------------------------------------------------------------------
 FEEDS = [
     ("OpenAI", "https://openai.com/news/rss.xml", 95),
@@ -144,18 +144,6 @@ def http_get(url, **kwargs):
     except Exception:
         return None
 
-# --- THIS WAS MISSING BEFORE, NOW IT'S FIXED ---
-def http_get(url, **kwargs):
-    headers = kwargs.pop("headers", {})
-    headers.setdefault("User-Agent", UA)
-    try:
-        r = requests.get(url, headers=headers, timeout=15, **kwargs)
-        r.raise_for_status()
-        return r
-    except Exception:
-        return None
-# -----------------------------------------------
-
 def make_item(title, url, excerpt, source, outlet, published_at, source_weight, engagement=0, repo=None, image=""):
     return {"title": title, "url": clean_url(url), "excerpt": excerpt, "source": source, "outlet": outlet, "published_at": published_at, "source_weight": source_weight, "engagement": engagement, "repo": repo, "image": image}
 
@@ -204,7 +192,7 @@ def fetch_github():
         if r:
             for repo in r.json().get("items", []):
                 created = parse_dt(repo.get("created_at"))
-                if repo["full_name"] not in seen and recent(created) and (repo.get("stargazers_count") or 0) >= 20:
+                if repo["full_name"] not in seen and recent(created) and (repo.get("stargazers_count") or 0) >= 15:
                     seen.add(repo["full_name"]); desc = clean(repo.get("description"))
                     out.append(make_item(repo["full_name"] + (" - " + desc if desc else ""), repo["html_url"], desc or repo["full_name"], "GitHub", "GitHub", created, 55, repo.get("stargazers_count") or 0, repo=repo["full_name"], image="https://opengraph.githubassets.com/1/" + repo["full_name"]))
     return "GitHub", out
@@ -231,7 +219,7 @@ def gather():
     return items
 
 # ----------------------------------------------------------------------------
-# ENRICHMENT (THE MEDIA HOUSE SPEEDUP)
+# ENRICHMENT
 # ----------------------------------------------------------------------------
 def rank(items):
     kws = [k.lower() for k in KEYWORDS]
@@ -264,7 +252,6 @@ def enrich_and_download_image(j):
     j["text"] = j["excerpt"]
     j["image_bytes"] = None
     
-    # 1. Fetch text/image from webpage
     if j["source"] != "arXiv":
         r = http_get(j["url"], headers={"Accept": "text/html"}, timeout=10)
         if r:
@@ -275,7 +262,6 @@ def enrich_and_download_image(j):
                 found = find_og_image(page)
                 j["image"] = urljoin(j["url"], htmllib.unescape(found)) if found else ""
 
-    # 2. Download and process image
     if j.get("image") and j["image"].startswith("http") and not re.search(r"\.svg(\?|$)", j["image"], re.I):
         try:
             r = requests.get(j["image"], headers={"User-Agent": UA, "Referer": j["url"]}, timeout=10)
@@ -298,10 +284,10 @@ def enrich_and_download_image(j):
 # ----------------------------------------------------------------------------
 # AI SUMMARY & TELEGRAM
 # ----------------------------------------------------------------------------
-SYSTEM_PROMPT = """You are the editor of an elite AI news Telegram channel. Return exactly ONE valid JSON object.
+SYSTEM_PROMPT = """You are the editor of a tech news Telegram channel. Return exactly ONE valid JSON object.
 Rules:
-1. Output ONLY raw JSON.
-2. Keys: "title" (2-6 words naming event), "summary" (100-130 words, neutral tone, no markdown), "score" (0-10).
+1. Output ONLY raw JSON. No markdown, no backticks.
+2. Keys: "title" (2-6 words naming the event), "summary" (100-130 words, neutral tone, plain text).
 3. Use ONLY facts from the text."""
 
 def parse_json(txt):
@@ -314,14 +300,21 @@ def parse_json(txt):
 def ai_summarize(j, labels):
     if not GROQ_KEY or _groq["disabled"]: return None
     prompt = f"ALREADY POSTED:\n" + ("\n".join(f"- {x}" for x in labels) if labels else "- (nothing yet)") + f"\n\nSOURCE: {j['source']}\nARTICLE:\n{j['text'][:3500]}"
-    for attempt in range(4):
+    
+    for attempt in range(3):
         model = GROQ_MODELS[_groq["idx"]]
         body = {"model": model, "temperature": 0.2, "max_completion_tokens": 1500, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": prompt}]}
-        try: r = requests.post(GROQ_URL, headers={"Authorization": f"Bearer {GROQ_KEY}"}, json=body, timeout=60)
-        except: time.sleep(3); continue
+        try: 
+            r = requests.post(GROQ_URL, headers={"Authorization": f"Bearer {GROQ_KEY}"}, json=body, timeout=60)
+        except Exception as e: 
+            log(f"Groq request error: {e}")
+            time.sleep(2)
+            continue
         
         if r.status_code == 429:
-            time.sleep(int(r.headers.get("retry-after", 5))); continue
+            log("Groq rate limit hit, waiting...")
+            time.sleep(5)
+            continue
         if r.status_code == 404:
             _groq["idx"] += 1
             if _groq["idx"] >= len(GROQ_MODELS): _groq["disabled"] = True; return None
@@ -338,6 +331,8 @@ def build_caption(label, url, summary):
 
 def tg(method, **kw):
     r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/{method}", data={k: v for k, v in kw.items() if not isinstance(v, (dict, list)) and v is not None}, files=kw.get("files"), timeout=30)
+    if not r.ok:
+        log(f"TG Error {r.status_code}: {r.text[:100]}")
     return r.ok
 
 def publish(j, label, summary):
@@ -351,8 +346,10 @@ def publish(j, label, summary):
 # MAIN
 # ----------------------------------------------------------------------------
 def main():
-    if not DRY_RUN and not (TG_TOKEN and TG_CHAT): return 1
-    if not GROQ_KEY: return 1
+    if not DRY_RUN and not (TG_TOKEN and TG_CHAT): 
+        log("Missing TG Tokens."); return 1
+    if not GROQ_KEY: 
+        log("Missing Groq Key."); return 1
 
     try:
         with open(STATE_PATH, encoding="utf-8") as f: st = json.load(f); st.setdefault("items", {})
@@ -371,7 +368,6 @@ def main():
     log(f"{len(items)} stories found, {len(fresh)} fresh.")
     if not fresh: return 0
 
-    # THE MAGIC: Pre-fetch all text and images in parallel (takes ~5 seconds for 100 items)
     candidates = rank(fresh)[: MAX_EVAL]
     log(f"Downloading text & images for {len(candidates)} items...")
     with ThreadPoolExecutor(max_workers=15) as pool:
@@ -382,32 +378,40 @@ def main():
     posted = 0
 
     for j in candidates:
-        if posted >= MAX_POSTS or _groq["disabled"]: break
+        if posted >= MAX_POSTS: break
             
+        log(f"Evaluating: {j['title'][:50]}...")
         res = ai_summarize(j, labels)
-        if GROQ_KEY and not _groq["disabled"]: time.sleep(1.2) # Respect Groq RPM limits
         
-        if not isinstance(res, dict): continue
-        label = re.sub(r"\s+", " ", str(res.get("title") or "")).strip().strip(".:;-")
-        summary = re.sub(r"[*_`#]+", "", re.sub(r"\s+", " ", str(res.get("summary") or ""))).strip()
+        if GROQ_KEY and not _groq["disabled"]: time.sleep(1.2) 
         
-        try: score = int(round(float(res.get("score"))))
-        except: score = 0
-        
-        if res.get("duplicate") is True or not label or len(summary) < 20 or score < MIN_SCORE:
-            continue
+        # --- THE FIREHOSE FALLBACK ---
+        # If AI fails, we STILL POST using the raw data!
+        if not isinstance(res, dict):
+            log(" -> AI failed. Falling back to raw RSS data.")
+            label = j['title'][:70]
+            summary = j['excerpt'][:800] if j.get('excerpt') else "Read the full article at the link."
+        else:
+            label = re.sub(r"\s+", " ", str(res.get("title") or "")).strip().strip(".:;-")
+            summary = re.sub(r"[*_`#]+", "", re.sub(r"\s+", " ", str(res.get("summary") or ""))).strip()
+
+        # Ensure no empty posts
+        if not label: label = j['title'][:70]
+        if len(summary) < 20: summary = j.get('excerpt', 'No summary available.')[:800]
             
+        log(f" -> Attempting to post: {label}...")
         if publish(j, label, summary):
             st["items"][ukey(j["url"])] = {"ts": int(time.time()), "status": "posted", "label": label, "title": j["title"][:140]}
             labels.insert(0, label)
             posted += 1
-            log(f"Posted: {label}")
+            log(f" -> SUCCESS: Posted {label}")
             
-            # Save state every 5 posts so we don't lose progress if GitHub kills us at 55 mins
             if posted % 5 == 0:
                 with open(STATE_PATH, "w", encoding="utf-8") as f: json.dump(st, f, indent=1, ensure_ascii=False)
             
-            time.sleep(2.5) # Space out Telegram API calls (max 24 msgs/min)
+            time.sleep(2.5) 
+        else:
+            log(f" -> FAILED: Could not publish to Telegram.")
 
     with open(STATE_PATH, "w", encoding="utf-8") as f: json.dump(st, f, indent=1, ensure_ascii=False)
     log(f"Done: {posted} posted.")
