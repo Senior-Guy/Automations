@@ -563,6 +563,12 @@
    "status": "posted",
    "label": "GS Caltex Streamlines ML Deployment",
    "title": "Production MLOps at GS Caltex with Amazon SageMaker Canvas, part 1"
+  },
+  "developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation": {
+   "ts": 1794621635,
+   "status": "posted",
+   "label": "Robot Obstacle Course Training",
+   "title": "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation"
   }
  }
 }
