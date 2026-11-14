@@ -27,7 +27,7 @@ except Exception:
 DEFAULT_KEYWORDS = ("artificial intelligence, AI, LLM, OpenAI, Anthropic, Gemini, Claude, ChatGPT, DeepSeek, Nvidia, AI agents, machine learning")
 KEYWORDS = [k.strip() for k in (os.getenv("KEYWORDS") or DEFAULT_KEYWORDS).split(",") if k.strip()]
 
-HOURS = float(os.getenv("HOURS_BACK") or 1.5)     # STRICT: 1.5 hours max lookback
+HOURS = 1.5                                       # STRICT: 1.5 hours max lookback
 MAX_POSTS = int(os.getenv("MAX_POSTS") or 100)    
 MIN_SCORE = int(os.getenv("MIN_SCORE") or 0)      
 MAX_EVAL = int(os.getenv("MAX_EVAL") or 200)      
@@ -98,8 +98,8 @@ def parse_dt(s):
     except: return None
 
 def recent(d): 
-    # STRICT: Must be newer than SINCE
-    return d is not None and d >= SINCE
+    # STRICT: Must be newer than 1.5h before right now
+    return d is not None and d >= datetime.now(timezone.utc) - timedelta(hours=HOURS)
 
 def host(u):
     m = re.match(r"https?://(?:www\.)?([^/]+)", u or "")
@@ -160,7 +160,7 @@ def fetch_feed(name, url, weight):
     except: return name, out
     for e in root.iter():
         if local(e.tag) not in ("item", "entry"): continue
-        title, link, pub = clean(child_text(e, "title")), clean_url(entry_link(e)), parse_dt(child_text(e, "pubDate", "published", "updated", "date"))
+        title, link, pub = clean(child_text(e, "title")), clean_url(entry_link(e)), (parse_dt(child_text(e, "pubDate", "published", "date")) or parse_dt(child_text(e, "updated")))
         body = child_text(e, "encoded", "content") or child_text(e, "description", "summary")
         if title and link.startswith("http") and recent(pub):
             out.append(make_item(title, link, clean(body)[:3000], name, host(link) or name, pub, weight, image=entry_image(e, body)))
