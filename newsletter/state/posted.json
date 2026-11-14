@@ -551,6 +551,18 @@
    "status": "posted",
    "label": "NVIDIA cuBLAS Accelerates Scientific GEMM",
    "title": "Faster Scientific Simulations with New FP64 Algorithms in NVIDIA cuBLAS"
+  },
+  "www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search": {
+   "ts": 1794614441,
+   "status": "posted",
+   "label": "Amazon Announces World Product Graph",
+   "title": "Amazon has a plan to index the world’s online shopping data"
+  },
+  "aws.amazon.com/blogs/machine-learning/production-mlops-at-gs-caltex-with-amazon-sagemaker-canvas-part-1": {
+   "ts": 1794614448,
+   "status": "posted",
+   "label": "GS Caltex Streamlines ML Deployment",
+   "title": "Production MLOps at GS Caltex with Amazon SageMaker Canvas, part 1"
   }
  }
 }
