@@ -701,6 +701,18 @@
    "status": "posted",
    "label": "Jensen Identified with Nvidia",
    "title": "Is bad news for Jensen Huang also bad news for the AI industry?"
+  },
+  "openai.com/index/our-new-blog-for-science": {
+   "ts": 1794783637,
+   "status": "posted",
+   "label": "OpenAI Science Blog Highlights AI Research",
+   "title": "Our new blog for science"
+  },
+  "openai.com/index/step-toward-defining-the-standard-model": {
+   "ts": 1794783643,
+   "status": "posted",
+   "label": "GPT-6 Aids Lattice Standard Model",
+   "title": "A step toward defining the Standard Model on a lattice"
   }
  }
 }
