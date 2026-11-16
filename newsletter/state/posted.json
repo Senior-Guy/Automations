@@ -767,6 +767,36 @@
    "status": "posted",
    "label": "Dreamteam Gains 100+ Customers",
    "title": "Freshworks alums raise $53M to take on Salesforce, HubSpot with AI-native CRM"
+  },
+  "arstechnica.com/ai/2026/11/jensen-huang-allies-build-a-war-room-to-get-him-back-at-nvidia": {
+   "ts": 1794841241,
+   "status": "posted",
+   "label": "Jensen Huang Mulls Nvidia Return",
+   "title": "Jensen Huang allies build a \"war room\" to get him back at Nvidia"
+  },
+  "www.theverge.com/tech/1034083/audible-audio-discovery-ai-feature-availability": {
+   "ts": 1794841250,
+   "status": "posted",
+   "label": "Audible Launches AI Synopsis Feature",
+   "title": "Audible is trying to make it easier to find audiobooks you’ll actually like"
+  },
+  "blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026": {
+   "ts": 1794841268,
+   "status": "posted",
+   "label": "Article Content Not Provided",
+   "title": "New Ask Maps features to help with holiday travel and prep"
+  },
+  "www.theverge.com/tech/1034110/google-ask-maps-ai-trip-planning": {
+   "ts": 1794841275,
+   "status": "posted",
+   "label": "Google Maps AI Trip Planner",
+   "title": "Google Maps can now create trip itineraries for you"
+  },
+  "techcrunch.com/2026/11/16/google-maps-can-now-build-trip-itineraries-with-real-time-details-about-each-stop": {
+   "ts": 1794841283,
+   "status": "posted",
+   "label": "Google Maps AI Trip Planner",
+   "title": "Google Maps can now build trip itineraries with real-time details about each stop"
   }
  }
 }
