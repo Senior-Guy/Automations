@@ -863,6 +863,60 @@
    "status": "posted",
    "label": "Amazon Bedrock Tabular Search",
    "title": "Get answers from tables with tabular search in Amazon Bedrock Managed Knowledge Base"
+  },
+  "openai.com/index/expanding-chatgpt-for-academic-researchers": {
+   "ts": 1794852050,
+   "status": "posted",
+   "label": "ChatGPT Academic Researchers Expansion",
+   "title": "Broadening access to AI for scientists"
+  },
+  "openai.com/index/strengthening-online-child-safety": {
+   "ts": 1794852057,
+   "status": "posted",
+   "label": "New Tools Combat Online Abuse",
+   "title": "Strengthening the fight against online child sexual abuse with new tools and support"
+  },
+  "techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion": {
+   "ts": 1794852063,
+   "status": "posted",
+   "label": "OpenAI Adds Apollo Evaluators",
+   "title": "OpenAI will embed Apollo researchers to investigate AI subversion"
+  },
+  "techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam": {
+   "ts": 1794852070,
+   "status": "posted",
+   "label": "ChatGPT Implements CSAM Ban",
+   "title": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM"
+  },
+  "techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street": {
+   "ts": 1794852077,
+   "status": "posted",
+   "label": "AI Sales Voice Claims",
+   "title": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’"
+  },
+  "aws.amazon.com/blogs/machine-learning/modernizing-mainframe-assembler-to-java-using-amazon-bedrock-and-aws-transform": {
+   "ts": 1794852086,
+   "status": "posted",
+   "label": "AWS Bedrock Modernizes Legacy Assembler",
+   "title": "Modernizing mainframe Assembler to Java using Amazon Bedrock and AWS Transform"
+  },
+  "aws.amazon.com/blogs/machine-learning/novo-nordisk-modernizes-manufacturing-process-documents-with-amazon-bedrock-agentcore": {
+   "ts": 1794852093,
+   "status": "posted",
+   "label": "Novo Nordisk Deploys AI Documentation System",
+   "title": "Novo Nordisk modernizes manufacturing process documents with Amazon Bedrock AgentCore"
+  },
+  "techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours": {
+   "ts": 1794852100,
+   "status": "posted",
+   "label": "FBI Links Open-Source Tool to Cyberattacks",
+   "title": "FBI says Artex AI open-source hacking tool used to breach networks in ‘under three hours’"
+  },
+  "the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices": {
+   "ts": 1794852118,
+   "status": "posted",
+   "label": "Alibaba Unveils Qwen4-Max Model",
+   "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices"
   }
  }
 }
