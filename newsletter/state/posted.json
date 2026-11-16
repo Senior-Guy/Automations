@@ -1013,6 +1013,12 @@
    "status": "posted",
    "label": "Constellation Secures Meta Power Deal",
    "title": "Big Nuclear isn’t worried about the Democrats stopping data centers"
+  },
+  "aws.amazon.com/blogs/machine-learning/taxonomy-of-multi-agent-design-patterns-anti-patterns-and-lessons-from-manufacturing": {
+   "ts": 1794866440,
+   "status": "posted",
+   "label": "Enterprise Multi-Agent Coordination",
+   "title": "Taxonomy of multi-agent design patterns, anti-patterns, and lessons from manufacturing"
   }
  }
 }
