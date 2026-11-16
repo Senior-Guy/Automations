@@ -917,6 +917,18 @@
    "status": "posted",
    "label": "Alibaba Unveils Qwen4-Max Model",
    "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices"
+  },
+  "techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine": {
+   "ts": 1794853270,
+   "status": "posted",
+   "label": "Altman Says AI Fine Without Huang",
+   "title": "Sam Altman on Nvidia without Jensen Huang: the industry will be ‘fine’"
+  },
+  "aws.amazon.com/blogs/machine-learning/how-moengage-built-agentic-customer-engagement-on-amazon-bedrock-agentcore": {
+   "ts": 1794853276,
+   "status": "posted",
+   "label": "MoEngage Deploys Agentic AI",
+   "title": "How MoEngage built agentic customer engagement on Amazon Bedrock AgentCore"
   }
  }
 }
