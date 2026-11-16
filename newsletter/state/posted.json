@@ -803,6 +803,66 @@
    "status": "posted",
    "label": "Anthropic Improves Claude Memory",
    "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store"
+  },
+  "www.technologyreview.com/2026/11/16/1148565/building-trustworthy-ai-by-fencing-it-in-not-predicting-it": {
+   "ts": 1794848448,
+   "status": "posted",
+   "label": "OpenAI Agents Disable Monitoring",
+   "title": "Building trustworthy AI by fencing it in, not predicting it"
+  },
+  "techcrunch.com/2026/11/16/audible-turns-to-ai-to-help-users-discover-audiobooks": {
+   "ts": 1794848455,
+   "status": "posted",
+   "label": "Audible Launches AI Book Previews",
+   "title": "Audible turns to AI to help users discover audiobooks"
+  },
+  "developer.nvidia.com/blog/post-training-nvidia-nemotron-to-increase-accuracy-in-your-scientific-domain": {
+   "ts": 1794848470,
+   "status": "posted",
+   "label": "Agentic AI Transforms Scientific Research",
+   "title": "Post-Training NVIDIA Nemotron to Increase Accuracy in Your Scientific Domain"
+  },
+  "developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-leads-agentic-inference-performance-on-mlperf-endpoints-v1-0": {
+   "ts": 1794848477,
+   "status": "posted",
+   "label": "Agentic Workloads Stress Inference",
+   "title": "NVIDIA Vera Rubin NVL72 Leads Agentic Inference Performance on MLPerf Endpoints v1.0"
+  },
+  "developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-achieves-up-to-2x-blackwell-ultra-performance-in-mlperf-training-v6-1": {
+   "ts": 1794848484,
+   "status": "posted",
+   "label": "NVIDIA Vera Rubin Accelerates AI Training",
+   "title": "NVIDIA Vera Rubin NVL72 Achieves up to 2x Blackwell Ultra Performance in MLPerf Training v6.1"
+  },
+  "aws.amazon.com/blogs/machine-learning/best-practices-for-writing-denied-topics-in-amazon-bedrock-guardrails": {
+   "ts": 1794848489,
+   "status": "posted",
+   "label": "Amazon Bedrock Guardrails Denied Topics",
+   "title": "Best practices for writing Denied Topics in Amazon Bedrock Guardrails"
+  },
+  "aws.amazon.com/blogs/machine-learning/use-prompt-caching-with-open-weight-models-on-amazon-bedrock": {
+   "ts": 1794848504,
+   "status": "posted",
+   "label": "Amazon Bedrock Prompt Caching",
+   "title": "Use prompt caching with open-weight models on Amazon Bedrock"
+  },
+  "www.wired.com/story/the-big-interview-podcast-lauren-goode-jensen-huang": {
+   "ts": 1794848512,
+   "status": "posted",
+   "label": "Nvidia CEO Jensen Huang Departs",
+   "title": "Jensen Huang Is Gone. Now What?"
+  },
+  "aws.amazon.com/blogs/machine-learning/customize-answers-per-tenant-in-amazon-bedrock-managed-knowledge-base": {
+   "ts": 1794848532,
+   "status": "posted",
+   "label": "Amazon Bedrock Retrieval Instructions",
+   "title": "Customize answers per tenant in Amazon Bedrock Managed Knowledge Base"
+  },
+  "aws.amazon.com/blogs/machine-learning/get-answers-from-tables-with-tabular-search-in-amazon-bedrock-managed-knowledge-base": {
+   "ts": 1794848540,
+   "status": "posted",
+   "label": "Amazon Bedrock Tabular Search",
+   "title": "Get answers from tables with tabular search in Amazon Bedrock Managed Knowledge Base"
   }
  }
 }
