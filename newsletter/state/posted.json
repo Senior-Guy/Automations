@@ -755,6 +755,18 @@
    "status": "posted",
    "label": "Meta Deploys JiTTests System",
    "title": "Meet Meta’s JiTTests: LLM-Generated Tests Designed to Fail Before Risky Code Lands"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1031740/jensen-huang-nvidia-scandal-isnt-slowing-down": {
+   "ts": 1794834065,
+   "status": "posted",
+   "label": "Jensen Huang's Dominance in AI",
+   "title": "The Nvidia scandal isn’t slowing down"
+  },
+  "techcrunch.com/2026/11/16/freshworks-alums-raise-53m-to-take-on-salesforce-hubspot-with-ai-native-crm": {
+   "ts": 1794834072,
+   "status": "posted",
+   "label": "Dreamteam Gains 100+ Customers",
+   "title": "Freshworks alums raise $53M to take on Salesforce, HubSpot with AI-native CRM"
   }
  }
 }
