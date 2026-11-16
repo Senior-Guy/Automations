@@ -797,6 +797,12 @@
    "status": "posted",
    "label": "Google Maps AI Trip Planner",
    "title": "Google Maps can now build trip itineraries with real-time details about each stop"
+  },
+  "the-decoder.com/anthropic-says-the-key-to-agent-memory-is-knowing-what-to-forget-not-how-much-to-store": {
+   "ts": 1794844866,
+   "status": "posted",
+   "label": "Anthropic Improves Claude Memory",
+   "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store"
   }
  }
 }
