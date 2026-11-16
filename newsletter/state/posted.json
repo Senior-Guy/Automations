@@ -743,6 +743,18 @@
    "status": "posted",
    "label": "Alibaba Releases Qwen4-Max: 2.4T MoE, 71B Active, 1M Context",
    "title": "Alibaba Releases Qwen4-Max: 2.4T MoE, 71B Active, 1M Context"
+  },
+  "www.wired.com/story/nvidia-was-already-in-trouble-before-the-jensen-huang-mess": {
+   "ts": 1794828145,
+   "status": "posted",
+   "label": "AI Rivals Close In on Nvidia",
+   "title": "Nvidia Was Already in Trouble Before the Jensen Huang Mess"
+  },
+  "www.marktechpost.com/2026/11/16/meta-jittests-llm-catching-tests-privacy-bugs": {
+   "ts": 1794828151,
+   "status": "posted",
+   "label": "Meta Deploys JiTTests System",
+   "title": "Meet Meta’s JiTTests: LLM-Generated Tests Designed to Fail Before Risky Code Lands"
   }
  }
 }
