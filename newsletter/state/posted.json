@@ -983,6 +983,36 @@
    "status": "posted",
    "label": "Trump Disputes Spy Claim",
    "title": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security"
+  },
+  "techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents": {
+   "ts": 1794862842,
+   "status": "posted",
+   "label": "California AI Lab Lawsuit",
+   "title": "California state AG sues OpenAI over rogue agent incidents"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit": {
+   "ts": 1794862849,
+   "status": "posted",
+   "label": "California Sues OpenAI Over AI Agents",
+   "title": "California sues OpenAI over rogue AI hacking incidents"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1034787/sam-altman-ram-shortage-semafor": {
+   "ts": 1794862856,
+   "status": "posted",
+   "label": "Altman Defends RAM Comments",
+   "title": "Sam Altman says he wants everyone ‘to have a lot of RAM’"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1034668/data-centers-electricity-climate-pollution-study-harvard": {
+   "ts": 1794862866,
+   "status": "posted",
+   "label": "Data Centers Fuel AI Emissions",
+   "title": "US data centers now burn more electricity than a midsized country"
+  },
+  "www.theverge.com/science/1034694/nuclear-energy-constellation-earnings-data-centers-democrats": {
+   "ts": 1794862875,
+   "status": "posted",
+   "label": "Constellation Secures Meta Power Deal",
+   "title": "Big Nuclear isn’t worried about the Democrats stopping data centers"
   }
  }
 }
