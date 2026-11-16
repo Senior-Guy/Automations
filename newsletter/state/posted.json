@@ -1019,6 +1019,36 @@
    "status": "posted",
    "label": "Enterprise Multi-Agent Coordination",
    "title": "Taxonomy of multi-agent design patterns, anti-patterns, and lessons from manufacturing"
+  },
+  "techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont": {
+   "ts": 1794870039,
+   "status": "posted",
+   "label": "Nvidia Q3 Results Under Kress",
+   "title": "All the questions Nvidia should answer on Tuesday — but probably won’t"
+  },
+  "arstechnica.com/ai/2026/11/robo-soldier-startup-backed-by-eric-trump-misses-payroll-may-collapse": {
+   "ts": 1794870046,
+   "status": "posted",
+   "label": "Foundation Future Robotics Collapse",
+   "title": "Robo-soldier startup backed by Eric Trump misses payroll, may collapse"
+  },
+  "aws.amazon.com/blogs/machine-learning/how-duco-transforms-financial-data-automation-with-amazon-bedrock-agentcore": {
+   "ts": 1794870052,
+   "status": "posted",
+   "label": "Duco Adopts Amazon Bedrock",
+   "title": "How Duco transforms financial data automation with Amazon Bedrock AgentCore"
+  },
+  "aws.amazon.com/blogs/machine-learning/build-memory-aware-ai-agents-with-agentic-retrieve-on-amazon-bedrock-managed-knowledge-base": {
+   "ts": 1794870064,
+   "status": "posted",
+   "label": "Amazon Bedrock Adds Agent Memory",
+   "title": "Build memory-aware AI agents with Agentic Retrieve on Amazon Bedrock Managed Knowledge Base"
+  },
+  "developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential": {
+   "ts": 1794870070,
+   "status": "posted",
+   "label": "GPU Challenges for Molecular Dynamics",
+   "title": "Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential"
   }
  }
 }
