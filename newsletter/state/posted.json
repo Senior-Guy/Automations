@@ -731,6 +731,18 @@
    "status": "posted",
    "label": "Apple Health AI Usage Study",
    "title": "Apple’s new study looks to improve the effectiveness of AI health tools"
+  },
+  "openai.com/index/lvmh-media-division-partnership": {
+   "ts": 1794823251,
+   "status": "posted",
+   "label": "LVMH Media Partners with OpenAI",
+   "title": "LVMH’s Media Division announces strategic partnership with OpenAI"
+  },
+  "www.marktechpost.com/2026/11/16/alibaba-qwen4-max-release": {
+   "ts": 1794823265,
+   "status": "posted",
+   "label": "Alibaba Releases Qwen4-Max: 2.4T MoE, 71B Active, 1M Context",
+   "title": "Alibaba Releases Qwen4-Max: 2.4T MoE, 71B Active, 1M Context"
   }
  }
 }
