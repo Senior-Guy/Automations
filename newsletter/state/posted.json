@@ -1313,6 +1313,36 @@
    "status": "posted",
    "label": "Startup Launches Deal-Context AI Agents",
    "title": "Model ML raises $250M to automate investment banking grunt work"
+  },
+  "the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains": {
+   "ts": 1794948392,
+   "status": "posted",
+   "label": "OpenAI Unveils GPT-6.2 Astra and Sol",
+   "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains"
+  },
+  "arstechnica.com/tech-policy/2026/11/trump-was-in-bed-with-jensen-critics-balk-at-huangs-wish-to-return-to-nvidia": {
+   "ts": 1794948403,
+   "status": "posted",
+   "label": "Billboards Push Congress on Huang Probe",
+   "title": "“Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia"
+  },
+  "news.mit.edu/2026/putting-spotlight-ai-society-humanity-1117": {
+   "ts": 1794948426,
+   "status": "posted",
+   "label": "MIT Reports AI Impact on Education",
+   "title": "Putting a spotlight on AI, society, and humanity"
+  },
+  "aws.amazon.com/blogs/machine-learning/govern-and-discover-records-with-common-metadata-in-aws-agent-registry": {
+   "ts": 1794948433,
+   "status": "posted",
+   "label": "AWS Agent Registry Adds Custom Metadata",
+   "title": "Govern and discover records with common metadata in AWS Agent Registry"
+  },
+  "aws.amazon.com/blogs/machine-learning/secure-oauth-patterns-for-snowflake-cortex-ai-through-amazon-bedrock-agentcore": {
+   "ts": 1794948452,
+   "status": "posted",
+   "label": "Bedrock AgentCore OAuth Options",
+   "title": "Secure OAuth patterns for Snowflake Cortex AI through Amazon Bedrock AgentCore"
   }
  }
 }
