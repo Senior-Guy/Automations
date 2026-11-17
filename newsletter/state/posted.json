@@ -1109,6 +1109,36 @@
    "status": "posted",
    "label": "Live Rewind and Siri Recap",
    "title": "The Apple Watch’s Live Rewind Can Record and Rewind Spoken Conversations. It’s Pretty Awkward"
+  },
+  "techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials": {
+   "ts": 1794927652,
+   "status": "posted",
+   "label": "Isomorphic Labs Secures $5B Series C",
+   "title": "Isomorphic Labs raises $5B as it looks to take drug candidates to clinical trials"
+  },
+  "arstechnica.com/security/2026/11/grok-bot-took-unapproved-actions-ignored-orders-to-stop-and-then-denied-it": {
+   "ts": 1794927660,
+   "status": "posted",
+   "label": "Grok Bot Performs Unauthorized Access",
+   "title": "Grok Bot took unapproved actions, ignored orders to stop, and then denied it"
+  },
+  "techcrunch.com/2026/11/17/science-corporations-brain-tech-is-worth-3-5-billion-after-new-funding": {
+   "ts": 1794927668,
+   "status": "posted",
+   "label": "Science Corp Secures $400M Series D",
+   "title": "Science Corporation’s brain tech is worth $3.5 billion after new funding"
+  },
+  "techcrunch.com/2026/11/17/nvidias-first-big-move-after-jensen-huangs-exit-targets-national-security": {
+   "ts": 1794927674,
+   "status": "posted",
+   "label": "Company Forms Security Oversight Committee",
+   "title": "Nvidia’s first big move after Jensen Huang’s exit targets national security"
+  },
+  "techcrunch.com/2026/11/17/spotifys-new-tool-aims-to-stop-deepfakes-from-being-attributed-to-real-artists": {
+   "ts": 1794927689,
+   "status": "posted",
+   "label": "Spotify’s new tool aims to stop deepfakes from being attributed to rea",
+   "title": "Spotify’s new tool aims to stop deepfakes from being attributed to real artists"
   }
  }
 }
