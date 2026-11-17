@@ -1349,6 +1349,42 @@
    "status": "posted",
    "label": "AI Data Retention Framework",
    "title": "Clearing Up the Confusion on AI Data Retention: Two Standard Designs Explained"
+  },
+  "techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit": {
+   "ts": 1794952839,
+   "status": "posted",
+   "label": "SEC probes Nvidia after CEO exit",
+   "title": "SEC reportedly investigating Nvidia amid Huang exit"
+  },
+  "www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang": {
+   "ts": 1794952845,
+   "status": "posted",
+   "label": "Nvidia Posts $115.8B Q3 Revenue",
+   "title": "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing"
+  },
+  "www.theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake": {
+   "ts": 1794952854,
+   "status": "posted",
+   "label": "Altman TV Interview Deepfake Clip",
+   "title": "Not even Sam Altman is safe from AI deepfakes on Instagram"
+  },
+  "aws.amazon.com/blogs/machine-learning/cut-generative-ai-costs-code-for-rules-models-for-judgment": {
+   "ts": 1794952867,
+   "status": "posted",
+   "label": "Avoid Unneeded Model Calls",
+   "title": "Cut generative AI costs: Code for rules, models for judgment"
+  },
+  "aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-real-time-endpoints-now-support-kv-cache-aware-routing": {
+   "ts": 1794952875,
+   "status": "posted",
+   "label": "SageMaker Introduces KV-Aware Routing",
+   "title": "Amazon SageMaker AI real-time endpoints now support KV cache aware routing"
+  },
+  "techcrunch.com/2026/11/17/google-joins-the-tech-outage-trend-by-announcing-its-not-having-one": {
+   "ts": 1794952885,
+   "status": "posted",
+   "label": "Google Confirms Gmail Is Operational",
+   "title": "Google joins the tech outage trend by announcing it’s not having one"
   }
  }
 }
