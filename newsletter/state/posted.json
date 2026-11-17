@@ -1139,6 +1139,30 @@
    "status": "posted",
    "label": "Spotify’s new tool aims to stop deepfakes from being attributed to rea",
    "title": "Spotify’s new tool aims to stop deepfakes from being attributed to real artists"
+  },
+  "techcrunch.com/2026/11/17/voyage-labs-raises-12-million-for-a-specialized-ai-travel-assistant": {
+   "ts": 1794931243,
+   "status": "posted",
+   "label": "Specialized Travel‑Planning AI Startup",
+   "title": "Voyage Labs raises $12 million for a specialized AI travel assistant"
+  },
+  "aws.amazon.com/blogs/machine-learning/how-arisglobal-scaled-generative-ai-inference-on-amazon-bedrock": {
+   "ts": 1794931253,
+   "status": "posted",
+   "label": "ArisGlobal Optimizes AI Cost on Bedrock",
+   "title": "How ArisGlobal scaled generative AI inference on Amazon Bedrock"
+  },
+  "arstechnica.com/gadgets/2026/11/ars-live-can-the-cloud-survive-drone-strikes-on-data-centers": {
+   "ts": 1794931262,
+   "status": "posted",
+   "label": "Drone Attacks Threaten Cloud Infrastructure",
+   "title": "Ars Live: What do drone strikes on data centers mean for the future? Talk at 1 pm EST today"
+  },
+  "www.technologyreview.com/2026/11/17/1148203/research-reports": {
+   "ts": 1794931281,
+   "status": "posted",
+   "label": "Report Access Prompt",
+   "title": "Research Reports"
   }
  }
 }
