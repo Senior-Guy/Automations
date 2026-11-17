@@ -1085,6 +1085,18 @@
    "status": "posted",
    "label": "Liquid AI Decision Models Released",
    "title": "Liquid AI Releases d1.2 and d1.2-ultra: Omnimodal Decision Models That Top the AA Decision Index"
+  },
+  "www.marktechpost.com/2026/11/17/nvidia-nvke-nvkr-managed-kubernetes-gpu": {
+   "ts": 1794913245,
+   "status": "posted",
+   "label": "NVIDIA Launches Open-Source Kubernetes Tools",
+   "title": "NVIDIA Open-Sources NVKE and NVKR for Managed Kubernetes on GPU Infrastructure"
+  },
+  "www.wired.com/story/ai-told-these-ex-google-guys-how-to-build-a-billion-dollar-weapons-business": {
+   "ts": 1794913252,
+   "status": "posted",
+   "label": "Tech Alumni Enter Munitions",
+   "title": "AI Told These Ex-Google Guys How to Build a Billion-Dollar Weapons Business"
   }
  }
 }
