@@ -1283,6 +1283,36 @@
    "status": "posted",
    "label": "Sqwish Labs Enables Custom Training",
    "title": "As decision model use skyrockets, is customization the next frontier?"
+  },
+  "www.theverge.com/tech/1035756/google-spark-ai-tasks-free": {
+   "ts": 1794945640,
+   "status": "posted",
+   "label": "Google Rebrands Spark as Tasks",
+   "title": "Google’s Spark AI agent becomes ‘Tasks’ — and now it’s free"
+  },
+  "techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases": {
+   "ts": 1794945646,
+   "status": "posted",
+   "label": "Google Gemini Adds Task Mode",
+   "title": "Google expands access to Gemini Tasks, which can help with calls, purchases"
+  },
+  "aws.amazon.com/blogs/machine-learning/announcing-ai-data-preparation-capabilities-in-amazon-sagemaker-build-high-quality-datasets-for-model-development-workflows": {
+   "ts": 1794945653,
+   "status": "posted",
+   "label": "Amazon SageMaker AI Data Preparation",
+   "title": "Announcing AI data preparation capabilities in Amazon SageMaker: Build high-quality datasets for model development workflows"
+  },
+  "aws.amazon.com/blogs/machine-learning/getting-ai-out-of-the-demo-and-into-businesses-globally": {
+   "ts": 1794945660,
+   "status": "posted",
+   "label": "AWS FDE now in 15 countries",
+   "title": "Getting AI out of the demo and into businesses globally"
+  },
+  "techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work": {
+   "ts": 1794945667,
+   "status": "posted",
+   "label": "Startup Launches Deal-Context AI Agents",
+   "title": "Model ML raises $250M to automate investment banking grunt work"
   }
  }
 }
