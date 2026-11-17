@@ -1343,6 +1343,12 @@
    "status": "posted",
    "label": "Bedrock AgentCore OAuth Options",
    "title": "Secure OAuth patterns for Snowflake Cortex AI through Amazon Bedrock AgentCore"
+  },
+  "www.marktechpost.com/2026/11/17/zero-data-retention-ai-apis-explained": {
+   "ts": 1794949237,
+   "status": "posted",
+   "label": "AI Data Retention Framework",
+   "title": "Clearing Up the Confusion on AI Data Retention: Two Standard Designs Explained"
   }
  }
 }
