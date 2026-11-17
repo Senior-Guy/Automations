@@ -1061,6 +1061,18 @@
    "status": "posted",
    "label": "Corba Secures $125M Series A",
    "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months"
+  },
+  "news.mit.edu/2026/qa-why-building-math-muscles-remains-important-ai-era-1117": {
+   "ts": 1794895245,
+   "status": "posted",
+   "label": "MIT Professor Merges AI and Math",
+   "title": "Q&A: Why building math muscles remains important in the AI era"
+  },
+  "news.mit.edu/2026/learning-language-of-machine-learning-jacob-andreas-1117": {
+   "ts": 1794895252,
+   "status": "posted",
+   "label": "MIT Professor Develops AI Self-Explanation",
+   "title": "Learning the language of machine learning"
   }
  }
 }
