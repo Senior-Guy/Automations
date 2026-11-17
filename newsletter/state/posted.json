@@ -1241,6 +1241,48 @@
    "status": "posted",
    "label": "Quantum Processors Join Supercomputers",
    "title": "Integrating QPUs into Supercomputing Centers Using Slurm HRES Plugins"
+  },
+  "openai.com/index/introducing-gpt-6-2-astra-sol": {
+   "ts": 1794942050,
+   "status": "posted",
+   "label": "GPT‑6.2 Astra and Sol",
+   "title": "Introducing GPT-6.2 Astra and Sol"
+  },
+  "news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences": {
+   "ts": 1794942065,
+   "status": "posted",
+   "label": "Copilotforce Unites Salesforce and Microsoft",
+   "title": "Microsoft and Salesforce Announce Copilotforce, Bringing Trusted Customer Context and Action into Microsoft AI Experiences"
+  },
+  "techcrunch.com/2026/11/17/pedestal-ai-raises-4-7-million-to-agentify-the-supply-chain": {
+   "ts": 1794942071,
+   "status": "posted",
+   "label": "Agentic AI Boosts Supply Chains",
+   "title": "Pedestal AI raises $4.7 million to agentify the supply chain"
+  },
+  "techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off": {
+   "ts": 1794942078,
+   "status": "posted",
+   "label": "Google Gemini Extends Chat Retention",
+   "title": "Google to keep Gemini chats for 2 months, up from 72 hours, even with history off"
+  },
+  "aws.amazon.com/blogs/machine-learning/build-whatsapp-ai-agents-with-amazon-bedrock-agentcore": {
+   "ts": 1794942090,
+   "status": "posted",
+   "label": "SMART Toolkit Simplifies WhatsApp AI Integration",
+   "title": "Build WhatsApp AI agents with Amazon Bedrock AgentCore"
+  },
+  "aws.amazon.com/blogs/machine-learning/reason-over-time-series-data-with-opentslm-on-amazon-sagemaker-jumpstart": {
+   "ts": 1794942098,
+   "status": "posted",
+   "label": "Temporal Models for Proactive IT",
+   "title": "Reason over time-series data with OpenTSLM on Amazon SageMaker JumpStart"
+  },
+  "techcrunch.com/2026/11/17/as-decision-model-use-skyrockets-is-customization-is-the-next-frontier": {
+   "ts": 1794942104,
+   "status": "posted",
+   "label": "Sqwish Labs Enables Custom Training",
+   "title": "As decision model use skyrockets, is customization the next frontier?"
   }
  }
 }
