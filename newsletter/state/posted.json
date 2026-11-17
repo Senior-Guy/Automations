@@ -1163,6 +1163,42 @@
    "status": "posted",
    "label": "Report Access Prompt",
    "title": "Research Reports"
+  },
+  "arstechnica.com/ai/2026/11/google-will-let-you-opt-out-of-ai-training-in-gemini-without-losing-your-history": {
+   "ts": 1794934838,
+   "status": "posted",
+   "label": "Google Adds Gemini Training Controls",
+   "title": "Google will let you opt out of AI training in Gemini without losing your history"
+  },
+  "www.theverge.com/policy/1035410/doj-megaspeed-nvidia-investigation-update": {
+   "ts": 1794934850,
+   "status": "posted",
+   "label": "US Probes Megaspeed Over Nvidia Resignation",
+   "title": "The DOJ says it’s investigating Megaspeed"
+  },
+  "www.theverge.com/tech/1035420/jensen-huang-nvidia-return-as-ceo-statement": {
+   "ts": 1794934875,
+   "status": "posted",
+   "label": "Jensen Huang Open to Return",
+   "title": "Jensen Huang says he’s willing to return as Nvidia CEO"
+  },
+  "techcrunch.com/2026/11/17/jensen-huang-says-he-would-be-honored-if-allowed-to-return-as-nvidia-ceo": {
+   "ts": 1794934885,
+   "status": "posted",
+   "label": "Jensen Huang Open to Return",
+   "title": "Jensen Huang says he would be ‘honored’ if allowed to return as Nvidia CEO"
+  },
+  "techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too": {
+   "ts": 1794934891,
+   "status": "posted",
+   "label": "Daydream Launches AI Shopping Agent",
+   "title": "Daydream’s new AI agent acts as your personal stylist — and can shop for you, too"
+  },
+  "aws.amazon.com/blogs/machine-learning/responsible-ai-for-agentic-ai-a-phased-roadmap-for-platform-and-application-teams": {
+   "ts": 1794934907,
+   "status": "posted",
+   "label": "Agentic AI Platform Governance Roadmap",
+   "title": "Responsible AI for agentic AI: A phased roadmap for platform and application teams"
   }
  }
 }
