@@ -1421,6 +1421,24 @@
    "status": "posted",
    "label": "OpenAI Launches GPT-6.2 Astra and Sol",
    "title": "OpenAI Releases GPT-6.2 Astra and Sol With a 20% Cheaper Astra API"
+  },
+  "techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit": {
+   "ts": 1794960038,
+   "status": "posted",
+   "label": "Nvidia Interim CEO Reaffirms Open-Source Strategy",
+   "title": "Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit"
+  },
+  "techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster": {
+   "ts": 1794960044,
+   "status": "posted",
+   "label": "Nvidia Halts China Chip Sales",
+   "title": "Nvidia is abandoning China after Jensen Huang’s ouster"
+  },
+  "aws.amazon.com/blogs/machine-learning/managed-nvidia-dynamo-on-amazon-sagemaker-hyperpod-inference": {
+   "ts": 1794960060,
+   "status": "posted",
+   "label": "SageMaker HyperPod Adds Dynamo",
+   "title": "Managed NVIDIA Dynamo on Amazon SageMaker HyperPod Inference"
   }
  }
 }
