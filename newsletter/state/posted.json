@@ -1571,6 +1571,36 @@
    "status": "posted",
    "label": "Nagel Wins Berggruen Prize",
    "title": "‘Just Ridiculous’: A Famed Philosopher Takes on AI Consciousness"
+  },
+  "blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices": {
+   "ts": 1795021243,
+   "status": "posted",
+   "label": "Google Gemini Supports Low‑Memory Android",
+   "title": "The Gemini app is now available on lower-memory Android devices."
+  },
+  "techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots": {
+   "ts": 1795021250,
+   "status": "posted",
+   "label": "Altman Brockman Reject AI Takeover Debate",
+   "title": "Sam Altman warns against a future where AI, not humans, calls the shots"
+  },
+  "techcrunch.com/2026/11/18/openai-ceo-sam-altman-says-its-hard-to-imagine-the-ai-industry-without-jensen": {
+   "ts": 1795021256,
+   "status": "posted",
+   "label": "Jensen Huang Resigns Amid Scandal",
+   "title": "OpenAI CEO Sam Altman says it’s ‘hard to imagine the AI industry without Jensen’"
+  },
+  "www.marktechpost.com/2026/11/18/hugging-face-qwen3-8-27b-pi-adapted-lora": {
+   "ts": 1795021262,
+   "status": "posted",
+   "label": "Hugging Face Releases Qwen3.8 LoRA Adapter",
+   "title": "New LoRA Adapter Lifts Qwen3.8 Coding Success From 39% to 65%"
+  },
+  "www.wired.com/story/artex-ai-hacking-tools": {
+   "ts": 1795021283,
+   "status": "posted",
+   "label": "Artex Enables Hackers' Chatbot Attacks",
+   "title": "Criminals Have a New Favorite ‘Point-and-Shoot’ AI Hacking Tool"
   }
  }
 }
