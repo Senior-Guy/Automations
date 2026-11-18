@@ -1553,6 +1553,24 @@
    "status": "posted",
    "label": "Will Wright Announces MyMems",
    "title": "Will Wright’s next game uses AI to map your memories"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1036549/nvidia-amd-earnings-fall-2026-chips-pause-frontier-models": {
+   "ts": 1795017670,
+   "status": "posted",
+   "label": "Nvidia Ships Vera Rubin, OpenAI Pauses Training",
+   "title": "Remember the frontier AI pause? Chip companies don’t either"
+  },
+  "developer.nvidia.com/blog/tackling-gpu-bottlenecks-in-plane-wave-dft-with-k-point-batching-and-mixed-precision": {
+   "ts": 1795017698,
+   "status": "posted",
+   "label": "NVIDIA Details MLIP Training Requirements",
+   "title": "Tackling GPU Bottlenecks in Plane-Wave DFT with K-Point Batching and Mixed Precision"
+  },
+  "www.wired.com/story/just-ridiculous-a-famed-philosopher-takes-on-ai-consciousness": {
+   "ts": 1795017706,
+   "status": "posted",
+   "label": "Nagel Wins Berggruen Prize",
+   "title": "‘Just Ridiculous’: A Famed Philosopher Takes on AI Consciousness"
   }
  }
 }
