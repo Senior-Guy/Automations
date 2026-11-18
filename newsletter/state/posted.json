@@ -1535,6 +1535,24 @@
    "status": "posted",
    "label": "Nvidia Halts China Chip Shipments",
    "title": "Nvidia isn’t selling any more AI chips to China"
+  },
+  "www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere": {
+   "ts": 1795014057,
+   "status": "posted",
+   "label": "AI Overload Across Daily Life",
+   "title": "The AI Hype Index: AI is everywhere"
+  },
+  "huggingface.co/blog/ibm-research/time-series-powered-streamhouse": {
+   "ts": 1795014065,
+   "status": "posted",
+   "label": "Recent AI News Highlights",
+   "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases"
+  },
+  "www.theverge.com/games/1036140/will-wright-mymems-ai-game-interview": {
+   "ts": 1795014073,
+   "status": "posted",
+   "label": "Will Wright Announces MyMems",
+   "title": "Will Wright’s next game uses AI to map your memories"
   }
  }
 }
