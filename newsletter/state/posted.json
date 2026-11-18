@@ -1655,6 +1655,54 @@
    "status": "posted",
    "label": "Snapchat AI Lens Creator",
    "title": "Snapchat now lets developers build AR Lenses with AI assistants like Claude Code and Cursor"
+  },
+  "deepmind.google/blog/introducing-gemini-4-neon": {
+   "ts": 1795039238,
+   "status": "posted",
+   "label": "Missing Article Content",
+   "title": "Introducing Gemini 4 Neon"
+  },
+  "techcrunch.com/2026/11/18/palmer-luckey-thinks-china-is-thrilled-to-have-jensen-out-so-he-wants-the-ousted-nvidia-ceo-reinstated": {
+   "ts": 1795039248,
+   "status": "posted",
+   "label": "Anduril CEO Defends Jensen Huang",
+   "title": "Palmer Luckey thinks China is ‘thrilled to have Jensen out,’ so he wants the ousted Nvidia CEO reinstated"
+  },
+  "techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report": {
+   "ts": 1795039258,
+   "status": "posted",
+   "label": "Nvidia Delays 10-Q Filing",
+   "title": "Nvidia created a weird bit of intrigue by not filing a routine SEC report"
+  },
+  "techcrunch.com/2026/11/18/palmer-luckey-warns-ai-powered-cyberattacks-are-outpacing-defenses-its-time-to-start-running": {
+   "ts": 1795039265,
+   "status": "posted",
+   "label": "Anduril Co-Founder Warns AI Attacks",
+   "title": "Palmer Luckey warns AI-powered cyberattacks are outpacing defenses: ‘It’s time to start running’"
+  },
+  "aws.amazon.com/blogs/machine-learning/how-airbnb-uses-cost-per-task-to-operate-coding-agents-on-amazon-bedrock": {
+   "ts": 1795039272,
+   "status": "posted",
+   "label": "Airbnb Monitors Bedrock Coding Agents",
+   "title": "How Airbnb uses cost per task to operate coding agents on Amazon Bedrock"
+  },
+  "aws.amazon.com/blogs/machine-learning/design-responsible-ai-controls-for-amazon-aurora-postgresql": {
+   "ts": 1795039288,
+   "status": "posted",
+   "label": "Aurora PostgreSQL Enables Responsible AI",
+   "title": "Design responsible AI controls for Amazon Aurora PostgreSQL"
+  },
+  "www.wired.com/story/the-ai-chip-war-meets-the-jensen-huang-affair": {
+   "ts": 1795039308,
+   "status": "posted",
+   "label": "America’s AI Chip War Is Heating Up in the Dumbest Possible Ways",
+   "title": "America’s AI Chip War Is Heating Up in the Dumbest Possible Ways"
+  },
+  "aws.amazon.com/blogs/machine-learning/private-certificate-authority-support-in-amazon-bedrock-agentcore-identity": {
+   "ts": 1795039317,
+   "status": "posted",
+   "label": "AgentCore Identity Adds Private CA Support",
+   "title": "Private certificate authority support in Amazon Bedrock AgentCore Identity"
   }
  }
 }
