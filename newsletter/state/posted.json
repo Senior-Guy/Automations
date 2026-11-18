@@ -1523,6 +1523,18 @@
    "status": "posted",
    "label": "Unsiloed AI Targets Document Market",
    "title": "Felicis leads $7.5M bet on Unsiloed AI to make enterprise documents usable by AI agents"
+  },
+  "techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds": {
+   "ts": 1795010449,
+   "status": "posted",
+   "label": "Nvidia Backstops Data Center Loan",
+   "title": "Nvidia clarifies when it will — and won’t —keep financing neoclouds"
+  },
+  "www.theverge.com/tech/1036445/nvidia-h200-ai-chips-china-stop-selling": {
+   "ts": 1795010457,
+   "status": "posted",
+   "label": "Nvidia Halts China Chip Shipments",
+   "title": "Nvidia isn’t selling any more AI chips to China"
   }
  }
 }
