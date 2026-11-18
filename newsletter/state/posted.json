@@ -1463,6 +1463,18 @@
    "status": "posted",
    "label": "Nvidia Private Investments Triple",
    "title": "Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt"
+  },
+  "news.mit.edu/2026/helping-ai-text-detectors-keep-up-with-changing-conditions-1118": {
+   "ts": 1794981643,
+   "status": "posted",
+   "label": "Test-Time Adaptation Boosts AI Detector",
+   "title": "Helping AI text detectors keep up with changing conditions"
+  },
+  "www.wired.com/story/over-a-third-of-gen-z-rely-on-ai-for-friendship": {
+   "ts": 1794981657,
+   "status": "posted",
+   "label": "Gallup Finds AI Companionship Increases Loneliness",
+   "title": "Over a Third of Gen Z-ers Rely on AI for Friendship"
   }
  }
 }
