@@ -1601,6 +1601,42 @@
    "status": "posted",
    "label": "Artex Enables Hackers' Chatbot Attacks",
    "title": "Criminals Have a New Favorite ‘Point-and-Shoot’ AI Hacking Tool"
+  },
+  "techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked": {
+   "ts": 1795024848,
+   "status": "posted",
+   "label": "More banks says customers using AI agents are on their own — even if t",
+   "title": "More banks says customers using AI agents are on their own — even if they get hacked"
+  },
+  "engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models": {
+   "ts": 1795024857,
+   "status": "posted",
+   "label": "Meta Scales Ranking Technique Propagation",
+   "title": "How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models"
+  },
+  "engineering.fb.com/2026/11/18/ml-applications/design-once-deploy-at-scale-template-driven-ml-ecosystem": {
+   "ts": 1795024879,
+   "status": "posted",
+   "label": "Meta Introduces Template‑Driven ML Scaling",
+   "title": "Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem"
+  },
+  "developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos": {
+   "ts": 1795024888,
+   "status": "posted",
+   "label": "NVIDIA Streamlines Training Data",
+   "title": "Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos"
+  },
+  "www.theverge.com/tech/1036729/disney-star-wars-anzellans-animatronic-amazon-aws-cloud-ai": {
+   "ts": 1795024900,
+   "status": "posted",
+   "label": "Disney Unveils AI Animatronics",
+   "title": "Disney’s new Star Wars animatronics interact with guests using AI"
+  },
+  "www.wired.com/story/inside-nvidias-first-all-hands-without-jensen-huang-as-ceo": {
+   "ts": 1795024921,
+   "status": "posted",
+   "label": "Collette Kress Promises Raises",
+   "title": "Inside Nvidia’s First Post-Jensen All-Hands: Pay Raises and More Equity"
   }
  }
 }
