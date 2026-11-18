@@ -1475,6 +1475,18 @@
    "status": "posted",
    "label": "Gallup Finds AI Companionship Increases Loneliness",
    "title": "Over a Third of Gen Z-ers Rely on AI for Friendship"
+  },
+  "www.marktechpost.com/2026/11/17/sid-ai-sid-2-agentic-search-swarm": {
+   "ts": 1794988837,
+   "status": "posted",
+   "label": "SID-2 Agentic Search Model",
+   "title": "SID AI Releases SID-2 Agentic Search Model With 0.720 NDCG Swarm Mode"
+  },
+  "www.marktechpost.com/2026/11/17/anthropic-claude-code-code-mode-javascript-tool-calls": {
+   "ts": 1794988844,
+   "status": "posted",
+   "label": "Anthropic Launches Claude Code Mode",
+   "title": "Anthropic Adds Code Mode to Claude Code: Claude Now Chains Tool Calls in JavaScript"
   }
  }
 }
