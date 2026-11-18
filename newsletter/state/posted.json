@@ -1643,6 +1643,12 @@
    "status": "posted",
    "label": "Recent AI News Compilation",
    "title": "Genie 4 is now available"
+  },
+  "huggingface.co/blog/radixark/daisyrose-27b-pushing-the-frontier-of-post-trainin": {
+   "ts": 1795033418,
+   "status": "posted",
+   "label": "No Article Content Provided",
+   "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency"
   }
  }
 }
