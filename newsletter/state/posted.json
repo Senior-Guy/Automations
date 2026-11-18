@@ -1439,6 +1439,24 @@
    "status": "posted",
    "label": "SageMaker HyperPod Adds Dynamo",
    "title": "Managed NVIDIA Dynamo on Amazon SageMaker HyperPod Inference"
+  },
+  "www.theverge.com/tech/1036111/satya-nadella-says-hes-agi-pilled-now": {
+   "ts": 1794963643,
+   "status": "posted",
+   "label": "Nadella Calls Himself AGI‑Pilled",
+   "title": "Satya Nadella says he’s AGI-pilled now"
+  },
+  "techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now": {
+   "ts": 1794963650,
+   "status": "posted",
+   "label": "Nvidia Projects Continued Revenue Growth",
+   "title": "Nvidia promises that revenue will keep soaring — for now"
+  },
+  "arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote": {
+   "ts": 1794963656,
+   "status": "posted",
+   "label": "Microsoft Launches Office Copilot Integration",
+   "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it"
   }
  }
 }
