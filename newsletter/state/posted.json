@@ -1703,6 +1703,36 @@
    "status": "posted",
    "label": "AgentCore Identity Adds Private CA Support",
    "title": "Private certificate authority support in Amazon Bedrock AgentCore Identity"
+  },
+  "techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web": {
+   "ts": 1795042838,
+   "status": "posted",
+   "label": "Microsoft CEO warns AI agents disrupt ads",
+   "title": "Satya Nadella predicts AI agents will reshuffle the economics of the web"
+  },
+  "techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range": {
+   "ts": 1795042846,
+   "status": "posted",
+   "label": "IPO Values Company at $1.5 Trillion",
+   "title": "Anthropic reportedly prices IPO at $83 a share, above projected range"
+  },
+  "aws.amazon.com/blogs/machine-learning/introducing-the-amazon-sagemaker-jumpstart-model-leaderboard": {
+   "ts": 1795042856,
+   "status": "posted",
+   "label": "SageMaker JumpStart Model Leaderboard Launch",
+   "title": "Introducing the Amazon SageMaker JumpStart Model Leaderboard"
+  },
+  "www.wired.com/story/administration-officials-dont-think-much-ai-progress-will-come-of-trumps-china-visit": {
+   "ts": 1795042863,
+   "status": "posted",
+   "label": "Nvidia Scandal Hampers AI Talks",
+   "title": "Even His Own Officials Don’t Think Trump’s China Trip Will Lead to Progress on AI"
+  },
+  "www.wired.com/story/guys-really-we-got-this": {
+   "ts": 1795042877,
+   "status": "posted",
+   "label": "Nvidia CEO Reassurance Count",
+   "title": "Does Nvidia Got This? Interim CEO Colette Kress Says It’s Got This"
   }
  }
 }
