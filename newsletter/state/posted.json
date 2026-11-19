@@ -2087,6 +2087,30 @@
    "status": "posted",
    "label": "Meta FAIR Self-Improving Memory",
    "title": "Meta FAIR Self-Improving Memory Hits 56.0 on Continual Learning Bench"
+  },
+  "www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing": {
+   "ts": 1795129237,
+   "status": "posted",
+   "label": "Apple Develops Agentic AI Assistant",
+   "title": "Apple is hiring engineers to build its own AI agent"
+  },
+  "news.mit.edu/2026/ai-helps-researchers-investigate-how-medical-studies-share-code-1119": {
+   "ts": 1795129244,
+   "status": "posted",
+   "label": "Code Sharing Gaps in Clinical AI",
+   "title": "AI helps researchers investigate how thousands of medical studies share code"
+  },
+  "aws.amazon.com/blogs/machine-learning/how-the-bmw-group-governs-hundreds-of-agents-across-thousands-of-developers": {
+   "ts": 1795129250,
+   "status": "posted",
+   "label": "BMW Scales Agentic AI Governance",
+   "title": "How the BMW Group governs hundreds of agents across thousands of developers"
+  },
+  "aws.amazon.com/blogs/machine-learning/run-your-whole-selling-business-in-aws-quick": {
+   "ts": 1795129256,
+   "status": "posted",
+   "label": "AWS Quick Selling Partner Plugin",
+   "title": "Run your whole selling business in AWS Quick"
   }
  }
 }
