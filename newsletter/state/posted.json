@@ -1769,6 +1769,18 @@
    "status": "posted",
    "label": "Musk Defends Huang Loyalty",
    "title": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’"
+  },
+  "techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit": {
+   "ts": 1795050039,
+   "status": "posted",
+   "label": "Nadella Offers Voluntary Buyouts",
+   "title": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit"
+  },
+  "aws.amazon.com/blogs/machine-learning/full-fine-tuning-fft-on-sagemaker-ai-serverless-model-customization": {
+   "ts": 1795050047,
+   "status": "posted",
+   "label": "Full Fine‑Tuning Beats LoRA",
+   "title": "Full Fine-Tuning (FFT) on SageMaker AI Serverless Model Customization"
   }
  }
 }
