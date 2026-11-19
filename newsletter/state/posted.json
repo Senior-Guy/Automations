@@ -1895,6 +1895,36 @@
    "status": "posted",
    "label": "NVIDIA Tool-Call Parsing Guide",
    "title": "Build Tool-Calling Parsers in Rust with AI Agents"
+  },
+  "blog.google/innovation-and-ai/technology/ai/dialogues-walter-isaacson": {
+   "ts": 1795111247,
+   "status": "posted",
+   "label": "Isaacson Discusses Innovation with Google",
+   "title": "Walter Isaacson on curiosity and creativity in the AI age."
+  },
+  "www.wired.com/story/google-built-a-giant-mirror-dimension-internet-to-test-its-chrome-ai-agents": {
+   "ts": 1795111265,
+   "status": "posted",
+   "label": "Chrome Team Uses Sandbox",
+   "title": "Google Built a Giant ‘Mirror Dimension’ Internet to Test Its Chrome AI Agents"
+  },
+  "techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says": {
+   "ts": 1795111271,
+   "status": "posted",
+   "label": "Muse Sends Incorrect Personal Messages",
+   "title": "Meta’s AI agent Muse is mixing up conversations and exposing private data, report says"
+  },
+  "aws.amazon.com/blogs/machine-learning/polyai-dialog-rsn-1-is-now-on-amazon-sagemaker-jumpstart": {
+   "ts": 1795111283,
+   "status": "posted",
+   "label": "Dialog-RSN-1 Available on AWS",
+   "title": "PolyAI Dialog-RSN-1 is now on Amazon SageMaker JumpStart"
+  },
+  "developer.nvidia.com/blog/enabling-real-time-ai-for-scientific-instruments-with-gpu-native-data-acquisition": {
+   "ts": 1795111303,
+   "status": "posted",
+   "label": "Real-Time Sensor Data for AI",
+   "title": "Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition"
   }
  }
 }
