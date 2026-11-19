@@ -2033,6 +2033,18 @@
    "status": "posted",
    "label": "Google Research Quantum Article",
    "title": "A game you cannot win unless you have a quantum computer"
+  },
+  "developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo": {
+   "ts": 1795122048,
+   "status": "posted",
+   "label": "Reinforcement Learning Training Loop",
+   "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo"
+  },
+  "www.wired.com/story/jensen-huangs-favorite-restaurants-are-caught-up-in-his-scandals-too": {
+   "ts": 1795122069,
+   "status": "posted",
+   "label": "Taiwan Vendors Split Over Nvidia Ex-CEO",
+   "title": "The Jensen Huang Blast Radius Has Hit His Favorite Restaurants"
   }
  }
 }
