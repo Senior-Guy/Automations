@@ -1781,6 +1781,12 @@
    "status": "posted",
    "label": "Full Fine‑Tuning Beats LoRA",
    "title": "Full Fine-Tuning (FFT) on SageMaker AI Serverless Model Customization"
+  },
+  "www.marktechpost.com/2026/11/18/nutrient-data-extraction-api-citations-confidence": {
+   "ts": 1795060837,
+   "status": "posted",
+   "label": "Nutrient Data Extraction API Overview",
+   "title": "Nutrient Data Extraction API: JSON Matching Your Schema With Per-Field Citations and Confidence"
   }
  }
 }
