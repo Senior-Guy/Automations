@@ -1829,6 +1829,24 @@
    "status": "posted",
    "label": "Superhuman Deploys Go Agent",
    "title": "Superhuman pushes its Go assistant everywhere"
+  },
+  "techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test": {
+   "ts": 1795100442,
+   "status": "posted",
+   "label": "Anthropic Goes Public, Compute Burden",
+   "title": "Anthropic’s IPO puts AI’s circular financing boom to the test"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1037459/anthropic-ipo-safe-ai-reputation-power-structure": {
+   "ts": 1795100461,
+   "status": "posted",
+   "label": "Anthropic IPO Sets New Record",
+   "title": "With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line"
+  },
+  "news.mit.edu/2026/study-reveals-data-centers-long-distance-damage-air-quality-1119": {
+   "ts": 1795100468,
+   "status": "posted",
+   "label": "Data Centers Harm U.S. Health",
+   "title": "Study reveals data centers’ long-distance damage to air quality"
   }
  }
 }
