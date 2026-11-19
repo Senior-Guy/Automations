@@ -1805,6 +1805,24 @@
    "status": "posted",
    "label": "Google DeepMind Launches Gemini 4 Neon",
    "title": "Google's latest AI model is faster, cheaper and smarter than its flagship predecessor from just weeks ago"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1037126/canva-ai-features-off-button": {
+   "ts": 1795093256,
+   "status": "posted",
+   "label": "Canva Adds AI Toggle",
+   "title": "Canva adds an AI ‘off’ button"
+  },
+  "www.theverge.com/tech/1037100/apple-siri-recap-audio-intelligence-hands-on": {
+   "ts": 1795093263,
+   "status": "posted",
+   "label": "Apple Watch Siri Recap Toggle",
+   "title": "I let Apple’s always-listening AI summarize my life for two weeks"
+  },
+  "www.wired.com/story/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself": {
+   "ts": 1795093288,
+   "status": "posted",
+   "label": "Investors Bet $107B on Growth",
+   "title": "Anthropic’s Record-Breaking IPO Highlights the AI Giant’s Worst Enemy—Itself"
   }
  }
 }
