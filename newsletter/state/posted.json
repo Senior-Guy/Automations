@@ -1997,6 +1997,42 @@
    "status": "posted",
    "label": "Frontier Lab Foundation Hits $156B",
    "title": "Anthropic’s IPO could deliver $156 billion to charity"
+  },
+  "techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline": {
+   "ts": 1795120043,
+   "status": "posted",
+   "label": "Nvidia CEO Jensen Huang Resigns",
+   "title": "The unfolding Jensen Huang scandal: a timeline"
+  },
+  "www.theverge.com/tech/1038087/meta-muse-charm-ai-price": {
+   "ts": 1795120049,
+   "status": "posted",
+   "label": "Meta Announces Muse Charm Pricing",
+   "title": "Meta’s Muse Charm might cost $300"
+  },
+  "arstechnica.com/tech-policy/2026/11/traumatized-teens-sue-school-cops-after-doritos-bag-triggers-ai-gun-alert": {
+   "ts": 1795120056,
+   "status": "posted",
+   "label": "Baltimore School AI Gun Alert",
+   "title": "Traumatized teens sue school, cops after Doritos bag triggers AI gun alert"
+  },
+  "www.theverge.com/tech/1038059/google-search-homepage-ai-chats": {
+   "ts": 1795120063,
+   "status": "posted",
+   "label": "Google Adds AI Sidebar to Homepage",
+   "title": "Google is putting AI chats right on the homepage"
+  },
+  "aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-adds-strands-harness-defaults-built-in-tools-and-lifecycle-hooks": {
+   "ts": 1795120069,
+   "status": "posted",
+   "label": "Bedrock AgentCore Harness Upgrade",
+   "title": "Amazon Bedrock AgentCore harness adds Strands harness defaults, built-in tools, and lifecycle hooks"
+  },
+  "research.google/blog/a-game-you-cannot-win-unless-you-have-a-quantum-computer": {
+   "ts": 1795120086,
+   "status": "posted",
+   "label": "Google Research Quantum Article",
+   "title": "A game you cannot win unless you have a quantum computer"
   }
  }
 }
