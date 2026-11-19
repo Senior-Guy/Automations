@@ -2045,6 +2045,48 @@
    "status": "posted",
    "label": "Taiwan Vendors Split Over Nvidia Ex-CEO",
    "title": "The Jensen Huang Blast Radius Has Hit His Favorite Restaurants"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1038063/nvidia-stock-market-price-earnings": {
+   "ts": 1795125637,
+   "status": "posted",
+   "label": "Nvidia Q3 Earnings Stock Dip",
+   "title": "A brief history of Nvidia’s recent stock fluctuations"
+  },
+  "techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style": {
+   "ts": 1795125644,
+   "status": "posted",
+   "label": "Multiple Platform Outages Raise Concerns",
+   "title": "These tech outages are giving Y2K, AI agent style"
+  },
+  "aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-detects-latency-drift-idle-gpus-and-missed-optimizations-on-your-inference-endpoints": {
+   "ts": 1795125651,
+   "status": "posted",
+   "label": "SageMaker AI Endpoint Monitoring",
+   "title": "Amazon SageMaker AI now detects latency drift, idle GPUs, and missed optimizations on your inference endpoints"
+  },
+  "aws.amazon.com/blogs/machine-learning/inside-amazon-connect-talent-the-science-of-structured-ai-interviews": {
+   "ts": 1795125663,
+   "status": "posted",
+   "label": "Amazon Connect Talent Interview Service",
+   "title": "Inside Amazon Connect Talent: The science of structured AI interviews"
+  },
+  "techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300": {
+   "ts": 1795125670,
+   "status": "posted",
+   "label": "Meta Teases AI Wearable",
+   "title": "Meta’s new Muse Charm device may cost $300"
+  },
+  "www.wired.com/story/uncanny-valley-podcast-whats-with-all-these-outages": {
+   "ts": 1795125677,
+   "status": "posted",
+   "label": "Outages, IPO Funds, Chip Shift",
+   "title": "What’s With All These Outages?"
+  },
+  "www.marktechpost.com/2026/11/19/meta-fair-self-improving-memory-harness-distillation": {
+   "ts": 1795125683,
+   "status": "posted",
+   "label": "Meta FAIR Self-Improving Memory",
+   "title": "Meta FAIR Self-Improving Memory Hits 56.0 on Continual Learning Bench"
   }
  }
 }
