@@ -1979,6 +1979,24 @@
    "status": "posted",
    "label": "Perplexity Orchestrator API Launch",
    "title": "Perplexity Launches Orchestrator API for Failover and Model Routing"
+  },
+  "the-decoder.com/ai-industry-growth-remains-strong-but-the-pace-is-slowing": {
+   "ts": 1795118454,
+   "status": "posted",
+   "label": "AI Token Prices Drop 21%",
+   "title": "AI industry growth remains strong, but the pace is slowing"
+  },
+  "aws.amazon.com/blogs/machine-learning/amazon-polly-launches-voice-cloning-a-unique-voice-for-your-brand": {
+   "ts": 1795118470,
+   "status": "posted",
+   "label": "Amazon Polly Voice Cloning GA",
+   "title": "Amazon Polly launches voice cloning: A unique voice for your brand"
+  },
+  "techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity": {
+   "ts": 1795118478,
+   "status": "posted",
+   "label": "Frontier Lab Foundation Hits $156B",
+   "title": "Anthropic’s IPO could deliver $156 billion to charity"
   }
  }
 }
