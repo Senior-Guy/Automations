@@ -336,7 +336,14 @@ def build_caption(label, url, summary):
     return f'<a href="{htmllib.escape(url, quote=True)}"><b>{htmllib.escape(label)}</b></a>\n\n<blockquote>{htmllib.escape(body)}</blockquote>'
 
 def tg(method, **kw):
-    r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/{method}", data={k: v for k, v in kw.items() if not isinstance(v, (dict, list)) and v is not None}, files=kw.get("files"), timeout=30)
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/{method}", data={k: v for k, v in kw.items() if not isinstance(v, (dict, list)) and v is not None}, files=kw.get("files"), timeout=60)
+    except requests.exceptions.ReadTimeout:
+        log("TG read timeout, assuming delivered")
+        return True
+    except Exception as e:
+        log(f"TG request error: {e}")
+        return False
     if not r.ok:
         log(f"TG Error {r.status_code}: {r.text[:100]}")
     return r.ok
