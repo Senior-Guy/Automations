@@ -1925,6 +1925,60 @@
    "status": "posted",
    "label": "Real-Time Sensor Data for AI",
    "title": "Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition"
+  },
+  "blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval": {
+   "ts": 1795114867,
+   "status": "posted",
+   "label": "Gemini Spark Visualized",
+   "title": "Introducing Tool Retrieval in the Gemini API"
+  },
+  "techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you": {
+   "ts": 1795114873,
+   "status": "posted",
+   "label": "Google Adds Gemini Agent to Mac",
+   "title": "Google gives Gemini the ability to use your Mac for you"
+  },
+  "www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use": {
+   "ts": 1795114880,
+   "status": "posted",
+   "label": "Gemini Gains Mac Computer Use",
+   "title": "Gemini on Mac can now use your computer"
+  },
+  "aws.amazon.com/blogs/machine-learning/optimize-ai-economics-on-amazon-bedrock-with-accentures-sequenced-approach": {
+   "ts": 1795114886,
+   "status": "posted",
+   "label": "Optimizing Token Spend on Bedrock",
+   "title": "Optimize AI economics on Amazon Bedrock with Accenture’s sequenced approach"
+  },
+  "aws.amazon.com/blogs/machine-learning/from-learning-to-leaderboard-how-cisco-upskilled-1200-engineers-in-agentic-ai-with-aws-ai-league": {
+   "ts": 1795114901,
+   "status": "posted",
+   "label": "Cisco Embraces AWS AI League",
+   "title": "From learning to leaderboard: How Cisco upskilled 1,200 engineers in agentic AI with AWS AI League"
+  },
+  "aws.amazon.com/blogs/machine-learning/keep-inference-running-through-regional-capacity-shortfalls-with-cross-region-inference-routing-in-amazon-sagemaker-ai": {
+   "ts": 1795114914,
+   "status": "posted",
+   "label": "SageMaker Adds Cross-Region Routing",
+   "title": "Keep inference running through regional capacity shortfalls with cross-Region inference routing in Amazon SageMaker AI"
+  },
+  "aws.amazon.com/blogs/machine-learning/protect-agent-tool-calls-with-skyflow-and-amazon-bedrock-agentcore-gateway": {
+   "ts": 1795114934,
+   "status": "posted",
+   "label": "Skyflow Integrates with Bedrock AgentCore",
+   "title": "Protect agent tool calls with Skyflow and Amazon Bedrock AgentCore Gateway"
+  },
+  "www.marktechpost.com/2026/11/19/best-agent-gateways-2026": {
+   "ts": 1795114939,
+   "status": "posted",
+   "label": "Top 13 Agent Gateways Compared",
+   "title": "13 Best Agent Gateways in 2026 for MCP, A2A and LLM Traffic: Kong, Bifrost, AgentCore, Arcade"
+  },
+  "www.marktechpost.com/2026/11/19/perplexity-orchestrator-api-failover-model-routing": {
+   "ts": 1795114945,
+   "status": "posted",
+   "label": "Perplexity Orchestrator API Launch",
+   "title": "Perplexity Launches Orchestrator API for Failover and Model Routing"
   }
  }
 }
