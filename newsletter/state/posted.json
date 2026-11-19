@@ -1733,6 +1733,42 @@
    "status": "posted",
    "label": "Nvidia CEO Reassurance Count",
    "title": "Does Nvidia Got This? Interim CEO Colette Kress Says It’s Got This"
+  },
+  "techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit": {
+   "ts": 1795046441,
+   "status": "posted",
+   "label": "Nadella Backs Nvidia Interim CEO",
+   "title": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1037151/school-districts-ditching-google": {
+   "ts": 1795046449,
+   "status": "posted",
+   "label": "Google Limits Search for Schools",
+   "title": "The nation’s largest school districts consider ditching Google Search"
+  },
+  "techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable": {
+   "ts": 1795046456,
+   "status": "posted",
+   "label": "Microsoft CEO on Outlook Outage",
+   "title": "Amidst fears of AI-cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’"
+  },
+  "aws.amazon.com/blogs/machine-learning/exa-boosts-embedding-throughput-by-50-to-index-billions-of-documents-on-aws-ai-chips": {
+   "ts": 1795046463,
+   "status": "posted",
+   "label": "Exa Optimizes Embedding Infrastructure",
+   "title": "Exa boosts embedding throughput by 50% to index billions of documents on AWS AI chips"
+  },
+  "aws.amazon.com/blogs/machine-learning/introducing-workload-recovery-and-expanded-infrastructure-checks-on-amazon-sagemaker-hyperpod": {
+   "ts": 1795046469,
+   "status": "posted",
+   "label": "SageMaker HyperPod New Reliability Features",
+   "title": "Introducing workload recovery and expanded infrastructure checks on Amazon SageMaker HyperPod"
+  },
+  "techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team": {
+   "ts": 1795046475,
+   "status": "posted",
+   "label": "Musk Defends Huang Loyalty",
+   "title": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’"
   }
  }
 }
