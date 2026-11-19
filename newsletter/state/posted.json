@@ -1853,6 +1853,48 @@
    "status": "posted",
    "label": "ChatGPT Live Dictation Rolls Out",
    "title": "ChatGPT can transcribe as you speak now with Live Dictation"
+  },
+  "techcrunch.com/2026/11/19/former-alibaba-execs-everful-raises-48-5m-to-connect-retailers-with-chinese-factories": {
+   "ts": 1795107639,
+   "status": "posted",
+   "label": "Everful Secures $48.5M Funding",
+   "title": "Former Alibaba exec’s Everful raises $48.5M to connect retailers with Chinese factories"
+  },
+  "techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development": {
+   "ts": 1795107646,
+   "status": "posted",
+   "label": "Anthropic Commits to Pacing AI",
+   "title": "At Nasdaq opening bell, Anthropic CEO recommits to pacing AI development"
+  },
+  "techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price": {
+   "ts": 1795107654,
+   "status": "posted",
+   "label": "Anthropic IPO Priced at $83",
+   "title": "Anthropic hits NASDAQ exchanges at $110, $27 above IPO price"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq": {
+   "ts": 1795107662,
+   "status": "posted",
+   "label": "Anthropic Goes Public on Nasdaq",
+   "title": "Anthropic starts trading on Wall Street"
+  },
+  "aws.amazon.com/blogs/machine-learning/introducing-enhanced-observability-in-amazon-sagemaker-hyperpod-to-diagnose-gpu-training-issues": {
+   "ts": 1795107670,
+   "status": "posted",
+   "label": "SageMaker HyperPod Observability Upgrade",
+   "title": "Introducing enhanced infrastructure observability in Amazon SageMaker HyperPod"
+  },
+  "aws.amazon.com/blogs/machine-learning/using-nvidia-runai-gpu-fractioning-on-amazon-eks": {
+   "ts": 1795107687,
+   "status": "posted",
+   "label": "NVIDIA Run:ai GPU Fractioning on EKS",
+   "title": "Using NVIDIA Run:ai GPU Fractioning on Amazon EKS"
+  },
+  "developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents": {
+   "ts": 1795107695,
+   "status": "posted",
+   "label": "NVIDIA Tool-Call Parsing Guide",
+   "title": "Build Tool-Calling Parsers in Rust with AI Agents"
   }
  }
 }
