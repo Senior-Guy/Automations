@@ -1787,6 +1787,12 @@
    "status": "posted",
    "label": "Nutrient Data Extraction API Overview",
    "title": "Nutrient Data Extraction API: JSON Matching Your Schema With Per-Field Citations and Confidence"
+  },
+  "www.marktechpost.com/2026/11/18/google-gemini-4-neon-release": {
+   "ts": 1795071638,
+   "status": "posted",
+   "label": "Google DeepMind Launches Gemini 4 Neon",
+   "title": "Google DeepMind Releases Gemini 4 Neon: 1M Context, #1 on AA Coding Agent Index"
   }
  }
 }
