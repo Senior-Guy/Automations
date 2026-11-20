@@ -2267,6 +2267,24 @@
    "status": "posted",
    "label": "Amazon Textract Insights GA",
    "title": "Announcing Amazon Textract Insights: Verifiable generative AI for documents"
+  },
+  "arstechnica.com/ai/2026/11/meta-reconsiders-2030-net-zero-goal-amid-record-emissions-from-ai-data-centers": {
+   "ts": 1795212038,
+   "status": "posted",
+   "label": "Meta Revises Net-Zero Goal",
+   "title": "Meta reconsiders 2030 net-zero goal amid record emissions from AI data centers"
+  },
+  "arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate": {
+   "ts": 1795212050,
+   "status": "posted",
+   "label": "AI Service Data Leak Study",
+   "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced."
+  },
+  "news.mit.edu/2026/qa-enabling-more-human-interactions-understanding-multimodal-foundation-models-1120": {
+   "ts": 1795212056,
+   "status": "posted",
+   "label": "MIT-IBM Multimodal Model Study",
+   "title": "Q&A: Enabling more human-like interactions and understanding in multimodal foundation models"
   }
  }
 }
