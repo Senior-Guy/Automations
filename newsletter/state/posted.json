@@ -2117,6 +2117,30 @@
    "status": "posted",
    "label": "AWS Marketplace Integration for AgentCore Payments",
    "title": "Enable AI agents to pay for AWS Marketplace x402 products with Amazon Bedrock AgentCore payments"
+  },
+  "techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac": {
+   "ts": 1795136438,
+   "status": "posted",
+   "label": "Apple Builds Competitive AI Agents",
+   "title": "Apple may be developing its own AI agent that runs your Mac"
+  },
+  "techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo": {
+   "ts": 1795136452,
+   "status": "posted",
+   "label": "Anthropic IPO Raises $105B",
+   "title": "Anthropic’s 7 founders cashed out nearly $2B in record-breaking IPO"
+  },
+  "aws.amazon.com/blogs/machine-learning/amazon-sagemaker-inference-2026-launches-in-review-part-2": {
+   "ts": 1795136458,
+   "status": "posted",
+   "label": "SageMaker Expands Inference Routing",
+   "title": "Amazon SageMaker Inference: 2026 launches in review, part 2"
+  },
+  "aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock": {
+   "ts": 1795136465,
+   "status": "posted",
+   "label": "Kimi Code CLI Bedrock Integration",
+   "title": "Use Kimi Code CLI with models on Amazon Bedrock"
   }
  }
 }
