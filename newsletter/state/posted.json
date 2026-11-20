@@ -2159,6 +2159,18 @@
    "status": "posted",
    "label": "Jensen Huang Scandal Sparks Dating Anxiety",
    "title": "Regular Tech Bros Are Worried About Honeypots"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app": {
+   "ts": 1795179651,
+   "status": "posted",
+   "label": "Signal Blocks Screenshots to Guard Privacy",
+   "title": "Signal is blocking Gemini and Siri AI from reading your screen"
+  },
+  "www.wired.com/story/muse-is-unleashing-a-world-of-pettiness-on-instagram": {
+   "ts": 1795179659,
+   "status": "posted",
+   "label": "Meta AI Unfollow Assistant",
+   "title": "Muse Is Unleashing a World of Pettiness on Instagram"
   }
  }
 }
