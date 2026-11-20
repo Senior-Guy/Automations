@@ -2201,6 +2201,18 @@
    "status": "posted",
    "label": "Anthropic Mathematician Claims Riemann Proof",
    "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude"
+  },
+  "www.marktechpost.com/2026/11/20/radixark-daisyrose-27b-agentic-model": {
+   "ts": 1795197648,
+   "status": "posted",
+   "label": "RadixArk Launches DaisyRose-27B",
+   "title": "RadixArk Ships DaisyRose-27B, a 27B Agentic Coding Model Trained With Reinforcement Learning Only"
+  },
+  "techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing": {
+   "ts": 1795197658,
+   "status": "posted",
+   "label": "Lenders Resist SpaceX Collateral Orbit",
+   "title": "Chips can survive the space environment. Can their financing?"
   }
  }
 }
