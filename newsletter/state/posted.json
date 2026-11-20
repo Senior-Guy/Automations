@@ -2261,6 +2261,12 @@
    "status": "posted",
    "label": "Standard Bank Automates AI Governance",
    "title": "How Standard Bank Group automates AI risk assessment for generative AI"
+  },
+  "aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents": {
+   "ts": 1795208440,
+   "status": "posted",
+   "label": "Amazon Textract Insights GA",
+   "title": "Announcing Amazon Textract Insights: Verifiable generative AI for documents"
   }
  }
 }
