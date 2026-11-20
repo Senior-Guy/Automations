@@ -2171,6 +2171,24 @@
    "status": "posted",
    "label": "Meta AI Unfollow Assistant",
    "title": "Muse Is Unleashing a World of Pettiness on Instagram"
+  },
+  "techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues": {
+   "ts": 1795186852,
+   "status": "posted",
+   "label": "Nvidia Reports Growth, Halts H200 Sales",
+   "title": "The fallout from Nvidia’s Jensen Huang scandal continues"
+  },
+  "techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter": {
+   "ts": 1795186859,
+   "status": "posted",
+   "label": "Six AI Gadgets for Workspaces",
+   "title": "Six AI-powered gadgets that could make your home office smarter"
+  },
+  "www.marktechpost.com/2026/11/20/nvidia-nemotron-labs-sigma-continuous-diffusion-language-model": {
+   "ts": 1795186866,
+   "status": "posted",
+   "label": "NVIDIA Unveils Nemotron Sigma",
+   "title": "NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B"
   }
  }
 }
