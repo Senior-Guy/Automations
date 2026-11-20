@@ -2111,6 +2111,12 @@
    "status": "posted",
    "label": "AWS Quick Selling Partner Plugin",
    "title": "Run your whole selling business in AWS Quick"
+  },
+  "aws.amazon.com/blogs/machine-learning/enable-ai-agents-to-pay-for-aws-marketplace-x402-products-with-amazon-bedrock-agentcore-payments": {
+   "ts": 1795132851,
+   "status": "posted",
+   "label": "AWS Marketplace Integration for AgentCore Payments",
+   "title": "Enable AI agents to pay for AWS Marketplace x402 products with Amazon Bedrock AgentCore payments"
   }
  }
 }
