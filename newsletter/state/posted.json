@@ -2285,6 +2285,18 @@
    "status": "posted",
    "label": "MIT-IBM Multimodal Model Study",
    "title": "Q&A: Enabling more human-like interactions and understanding in multimodal foundation models"
+  },
+  "arstechnica.com/ai/2026/11/googles-latest-search-page-redesign-drops-the-search-button-adds-ai-sidebar": {
+   "ts": 1795215640,
+   "status": "posted",
+   "label": "Google Search Homepage Redesign",
+   "title": "Google rolls out new search homepage with AI chat history and no search button"
+  },
+  "aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-global-inference-gateway-one-endpoint-across-regions-and-clusters": {
+   "ts": 1795215647,
+   "status": "posted",
+   "label": "SageMaker Global Inference Gateway",
+   "title": "Introducing Amazon SageMaker HyperPod Global Inference Gateway: One endpoint across Regions and clusters"
   }
  }
 }
