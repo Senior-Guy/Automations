@@ -2333,6 +2333,18 @@
    "status": "posted",
    "label": "Bytedance Launches Axion 1.0",
    "title": "Bytedance argues most AI training phases are unnecessary and backs it up with a competitive open model"
+  },
+  "www.marktechpost.com/2026/11/21/thinking-machines-inkling-2-mini-looped-transformer": {
+   "ts": 1795266036,
+   "status": "posted",
+   "label": "Thinking Machines Releases Inkling 2 Mini",
+   "title": "Meet Thinking Machines Inkling 2 Mini: 26B Looped MoE Runs on a 32GB Mac"
+  },
+  "www.marktechpost.com/2026/11/21/openai-gpt-live-1-1-api-standby-mode": {
+   "ts": 1795266042,
+   "status": "posted",
+   "label": "OpenAI Launches GPT-Live-1.1",
+   "title": "OpenAI Ships GPT-Live-1.1 for Voice Agents, Cuts Idle Cost to $0.02/Min"
   }
  }
 }
