@@ -2351,6 +2351,18 @@
    "status": "posted",
    "label": "AI Accelerates Patch Race",
    "title": "The Outages Are Just Getting Started"
+  },
+  "the-decoder.com/openai-shares-new-prompting-tips-for-gpt-6-2-astra-and-sol-to-fix-brief-answers-and-unnecessary-questions": {
+   "ts": 1795273251,
+   "status": "posted",
+   "label": "OpenAI Releases Prompt Templates",
+   "title": "OpenAI shares new prompting tips for GPT-6.2 Astra and Sol to fix brief answers and unnecessary questions"
+  },
+  "www.theverge.com/games/1038099/chess-classic-games-expansion-ai": {
+   "ts": 1795273257,
+   "status": "posted",
+   "label": "Chess.com Launches Classic Games",
+   "title": "Chess.com’s next move is a new hub for classic games, from mahjong to sudoku"
   }
  }
 }
