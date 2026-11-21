@@ -2315,6 +2315,12 @@
    "status": "posted",
    "label": "Game Criticizes Police, Departments Recruit",
    "title": "Cops Are Pushing Extremely Corny ‘Grand Theft Auto 6’ Slop"
+  },
+  "aws.amazon.com/blogs/machine-learning/cut-self-hosted-llm-cost-and-latency-with-the-distributed-kv-caching-agent-skill": {
+   "ts": 1795222836,
+   "status": "posted",
+   "label": "Distributed KV Caching for LLMs",
+   "title": "Cut self-hosted LLM cost and latency with the distributed KV caching agent skill"
   }
  }
 }
