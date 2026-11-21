@@ -2321,6 +2321,12 @@
    "status": "posted",
    "label": "Distributed KV Caching for LLMs",
    "title": "Cut self-hosted LLM cost and latency with the distributed KV caching agent skill"
+  },
+  "aws.amazon.com/blogs/machine-learning/new-in-aws-quick-more-capable-flows-an-updated-web-experience-and-agents-that-work-together": {
+   "ts": 1795224203,
+   "status": "posted",
+   "label": "AWS Quick Enhances Team Workflows",
+   "title": "New in AWS Quick: More capable flows, an updated web experience, and agents that work together"
   }
  }
 }
