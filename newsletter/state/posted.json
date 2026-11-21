@@ -2297,6 +2297,24 @@
    "status": "posted",
    "label": "SageMaker Global Inference Gateway",
    "title": "Introducing Amazon SageMaker HyperPod Global Inference Gateway: One endpoint across Regions and clusters"
+  },
+  "research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini": {
+   "ts": 1795219240,
+   "status": "posted",
+   "label": "Google Research on Generative AI",
+   "title": "How Google Duplex evolved to also call businesses for you in Gemini"
+  },
+  "aws.amazon.com/blogs/machine-learning/introducing-managed-cluster-extensions-for-observability-and-user-management-in-amazon-sagemaker-hyperpod-slurm": {
+   "ts": 1795219246,
+   "status": "posted",
+   "label": "SageMaker HyperPod Slurm Extensions",
+   "title": "Introducing managed cluster extensions for observability and user management in Amazon SageMaker HyperPod Slurm"
+  },
+  "www.wired.com/story/cops-are-being-extremely-corny-about-gta-vi": {
+   "ts": 1795219253,
+   "status": "posted",
+   "label": "Game Criticizes Police, Departments Recruit",
+   "title": "Cops Are Pushing Extremely Corny ‘Grand Theft Auto 6’ Slop"
   }
  }
 }
