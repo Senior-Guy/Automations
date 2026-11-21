@@ -2399,6 +2399,18 @@
    "status": "posted",
    "label": "UN Talks on Killer Robots",
    "title": "The UN fails to agree on rules regulating ‘killer robots’"
+  },
+  "techcrunch.com/2026/11/21/a-tale-of-two-nvidias": {
+   "ts": 1795298438,
+   "status": "posted",
+   "label": "Nvidia Earnings vs Executive Calls",
+   "title": "A tale of two Nvidias"
+  },
+  "techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance": {
+   "ts": 1795298445,
+   "status": "posted",
+   "label": "Signal Blocks Screenshot Function",
+   "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance"
   }
  }
 }
