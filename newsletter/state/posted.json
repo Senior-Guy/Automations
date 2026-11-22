@@ -2411,6 +2411,18 @@
    "status": "posted",
    "label": "Signal Blocks Screenshot Function",
    "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance"
+  },
+  "aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick": {
+   "ts": 1795312840,
+   "status": "posted",
+   "label": "AWS Quick Adds Meta Ads Connector",
+   "title": "Meta ads is now available in AWS Quick"
+  },
+  "www.marktechpost.com/2026/11/21/columbia-certik-tensorlean-formal-verification-gpu-kernels": {
+   "ts": 1795312846,
+   "status": "posted",
+   "label": "TensorLean Verifies GPU Kernels",
+   "title": "A Team of Researchers from Columbia and CertiK Introduce TensorLean for Formal Verification of GPU Kernels"
   }
  }
 }
