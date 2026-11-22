@@ -2435,6 +2435,18 @@
    "status": "posted",
    "label": "Google Gemini Tool Retrieval",
    "title": "Google AI Previews Tool Retrieval in the Gemini API for Large Tool Libraries"
+  },
+  "the-decoder.com/gpt-6-2-astra-and-sol-get-to-the-point-faster-but-score-lower-on-transparency-than-claude": {
+   "ts": 1795345525,
+   "status": "posted",
+   "label": "GPT-6.2 vs Claude Transparency",
+   "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude"
+  },
+  "www.wired.com/story/banks-are-cracking-down-on-ai-agents": {
+   "ts": 1795345533,
+   "status": "posted",
+   "label": "US Banks Ban Third-Party Bots",
+   "title": "Banks Have Had It Up to Here With Your AI Agent"
   }
  }
 }
