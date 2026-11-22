@@ -2423,6 +2423,18 @@
    "status": "posted",
    "label": "TensorLean Verifies GPU Kernels",
    "title": "A Team of Researchers from Columbia and CertiK Introduce TensorLean for Formal Verification of GPU Kernels"
+  },
+  "www.marktechpost.com/2026/11/22/best-personal-ai-agents-2026": {
+   "ts": 1795345236,
+   "status": "posted",
+   "label": "Personal AI Agents Compared",
+   "title": "Best Personal AI Agents in 2026: OpenClaw, Hermes Agent, Gemini Spark and More, Compared on Memory, Security and Cost"
+  },
+  "www.marktechpost.com/2026/11/22/google-gemini-api-tool-retrieval": {
+   "ts": 1795345243,
+   "status": "posted",
+   "label": "Google Gemini Tool Retrieval",
+   "title": "Google AI Previews Tool Retrieval in the Gemini API for Large Tool Libraries"
   }
  }
 }
