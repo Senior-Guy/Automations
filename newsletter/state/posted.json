@@ -2495,6 +2495,12 @@
    "status": "posted",
    "label": "MIT Unveils SLIC for Chip Design",
    "title": "AI-driven technique could help engineers design analog chips faster and with less expense"
+  },
+  "www.marktechpost.com/2026/11/23/meta-tlx-triton-low-level-extensions": {
+   "ts": 1795424067,
+   "status": "posted",
+   "label": "Meta Releases TLX Compiler Extension",
+   "title": "Meta TLX Brings Warp-Group GPU Control to Triton on Hopper, Blackwell, AMD"
   }
  }
 }
