@@ -2675,6 +2675,36 @@
    "status": "posted",
    "label": "NVIDIA and DuckLabs Launch Sirius",
    "title": "Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension"
+  },
+  "the-decoder.com/anthropics-appetite-for-compute-is-pushing-xai-toward-a-rent-over-build-strategy": {
+   "ts": 1795460443,
+   "status": "posted",
+   "label": "SpaceXSI Rents Compute to Rivals",
+   "title": "Anthropic's appetite for compute is pushing xAI toward a rent-over-build strategy"
+  },
+  "the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits": {
+   "ts": 1795460449,
+   "status": "posted",
+   "label": "OpenAI Publishes GPT Perplexity Scores",
+   "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits"
+  },
+  "www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument": {
+   "ts": 1795460455,
+   "status": "posted",
+   "label": "Nagel Slams Anthropic's AI Sentience Claim",
+   "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit": {
+   "ts": 1795460462,
+   "status": "posted",
+   "label": "SpaceX Sued Over X Platform Safety",
+   "title": "Oregon and Virginia sue SpaceX over Grok’s porn deepfakes"
+  },
+  "techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo": {
+   "ts": 1795460468,
+   "status": "posted",
+   "label": "Public Hearing on Huang Affair",
+   "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO"
   }
  }
 }
