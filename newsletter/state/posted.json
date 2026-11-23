@@ -2741,6 +2741,18 @@
    "status": "posted",
    "label": "NVIDIA Direct Solver for Sparse Systems",
    "title": "Accelerating Direct Sparse Solvers for Computational Engineering with NVIDIA cuDSS 1.0"
+  },
+  "the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably": {
+   "ts": 1795467630,
+   "status": "posted",
+   "label": "OpenAI Deploys GPT-6.2",
+   "title": "OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably"
+  },
+  "techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq": {
+   "ts": 1795467636,
+   "status": "posted",
+   "label": "Huang Promises Better Leadership",
+   "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company’s HQ"
   }
  }
 }
