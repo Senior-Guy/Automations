@@ -2615,6 +2615,30 @@
    "status": "posted",
    "label": "President Defends Nvidia CEO Return",
    "title": "Trump endorses Jensen Huang’s return to Nvidia, says US has no evidence of wrongdoing"
+  },
+  "techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet": {
+   "ts": 1795453230,
+   "status": "posted",
+   "label": "Jensen Huang Returns as Nvidia CEO",
+   "title": "Jensen Huang isn’t out of the woods yet"
+  },
+  "deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification": {
+   "ts": 1795453237,
+   "status": "posted",
+   "label": "Agent Teams Boost Quantum Algorithms",
+   "title": "Finding faster quantum algorithms with agents and formal verification"
+  },
+  "techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return": {
+   "ts": 1795453242,
+   "status": "posted",
+   "label": "President Claims Convincing Talk",
+   "title": "Trump reportedly called into Nvidia board meeting to advocate for Huang’s return"
+  },
+  "www.theverge.com/tech/1040069/jensen-huang-return-elon-musk-sam-altman-yay": {
+   "ts": 1795453249,
+   "status": "posted",
+   "label": "Jensen Huang Reinstated as Nvidia CEO",
+   "title": "Tech leaders are celebrating Jensen Huang’s return"
   }
  }
 }
