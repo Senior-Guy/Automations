@@ -2639,6 +2639,42 @@
    "status": "posted",
    "label": "Jensen Huang Reinstated as Nvidia CEO",
    "title": "Tech leaders are celebrating Jensen Huang’s return"
+  },
+  "blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps": {
+   "ts": 1795456829,
+   "status": "posted",
+   "label": "Google Showcases Personal Intelligence",
+   "title": "A more tailored Google Search that’s uniquely yours"
+  },
+  "techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips": {
+   "ts": 1795456835,
+   "status": "posted",
+   "label": "Amazon Acquires Decart AI",
+   "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips"
+  },
+  "huggingface.co/blog/allenai/robotrack": {
+   "ts": 1795456844,
+   "status": "posted",
+   "label": "Tech Headlines Overview",
+   "title": "RoboTrack: Point tracking for real-world robotic manipulation"
+  },
+  "research.google/blog/supercharging-transformer-residual-connections": {
+   "ts": 1795456850,
+   "status": "posted",
+   "label": "Google Research Publishes Algorithms Theory",
+   "title": "Supercharging transformer residual connections"
+  },
+  "www.wired.com/story/jensens-back-stocks-up-what-the-hell-sure": {
+   "ts": 1795456860,
+   "status": "posted",
+   "label": "Jensen Huang Returns as CEO",
+   "title": "Jensen Huang Is Back and So Is Nvidia’s Stock"
+  },
+  "developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension": {
+   "ts": 1795456867,
+   "status": "posted",
+   "label": "NVIDIA and DuckLabs Launch Sirius",
+   "title": "Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension"
   }
  }
 }
