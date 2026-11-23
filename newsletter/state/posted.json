@@ -2705,6 +2705,42 @@
    "status": "posted",
    "label": "Public Hearing on Huang Affair",
    "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests": {
+   "ts": 1795464030,
+   "status": "posted",
+   "label": "Anthropic Unveils Claude Ship",
+   "title": "Claude AI can review pull requests and ship fixes on its own now"
+  },
+  "www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return": {
+   "ts": 1795464036,
+   "status": "posted",
+   "label": "Nvidia CEO Jensen Huang Resigns",
+   "title": "How Jensen Huang ended up as Nvidia CEO again"
+  },
+  "techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses": {
+   "ts": 1795464043,
+   "status": "posted",
+   "label": "Google Adds AI Mode to Services",
+   "title": "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses"
+  },
+  "www.theverge.com/gadgets/1040357/nothing-ear-note-earbuds-ai-recording": {
+   "ts": 1795464049,
+   "status": "posted",
+   "label": "Nothing Announces Ear Note Earbuds",
+   "title": "Nothing’s upcoming Ear Note is a pair of earbuds with AI transcription"
+  },
+  "www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer": {
+   "ts": 1795464056,
+   "status": "posted",
+   "label": "Z.ai Unveils GLM-5.4 Loop Transformer",
+   "title": "Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice"
+  },
+  "developer.nvidia.com/blog/accelerating-direct-sparse-solvers-for-computational-engineering-with-nvidia-cudss-1-0": {
+   "ts": 1795464063,
+   "status": "posted",
+   "label": "NVIDIA Direct Solver for Sparse Systems",
+   "title": "Accelerating Direct Sparse Solvers for Computational Engineering with NVIDIA cuDSS 1.0"
   }
  }
 }
