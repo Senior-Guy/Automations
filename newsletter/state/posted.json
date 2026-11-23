@@ -2783,6 +2783,36 @@
    "status": "posted",
    "label": "Megaspeed Barred From US Business",
    "title": "Megaspeed, the company at the center of the Jensen Huang scandal, appears headed for a US blacklist"
+  },
+  "techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes": {
+   "ts": 1795474831,
+   "status": "posted",
+   "label": "Anthropic Launches AI Approval Tools",
+   "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes"
+  },
+  "techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios": {
+   "ts": 1795474837,
+   "status": "posted",
+   "label": "Supertake Enables Idea-Based Investing",
+   "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated": {
+   "ts": 1795474844,
+   "status": "posted",
+   "label": "Trump Comments on Nvidia CEO",
+   "title": "Trump engineered a risky comeback for Jensen Huang"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang": {
+   "ts": 1795474850,
+   "status": "posted",
+   "label": "Jensen Huang Reinstated as Nvidia CEO",
+   "title": "Nvidia CEO Jensen Huang is back. What happens next?"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang": {
+   "ts": 1795474857,
+   "status": "posted",
+   "label": "Jensen Huang Reinstated as Nvidia CEO",
+   "title": "Welcome to elite impunity, Jensen Huang"
   }
  }
 }
