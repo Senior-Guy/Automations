@@ -2501,6 +2501,30 @@
    "status": "posted",
    "label": "Meta Releases TLX Compiler Extension",
    "title": "Meta TLX Brings Warp-Group GPU Control to Triton on Hopper, Blackwell, AMD"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday": {
+   "ts": 1795431651,
+   "status": "posted",
+   "label": "Walmart Enables Meta's Muse Shopping",
+   "title": "Meta Muse can now do your Black Friday shopping at Walmart"
+  },
+  "www.marktechpost.com/2026/11/23/27-ai-cybersecurity-terms": {
+   "ts": 1795431661,
+   "status": "posted",
+   "label": "AI Security Threat Landscape 2026",
+   "title": "27 Cybersecurity Terms to Prepare You for the Age of AI"
+  },
+  "www.marktechpost.com/2026/11/23/architect-labs-frostbite-ai-designed-cpu-interaction-nets": {
+   "ts": 1795431666,
+   "status": "posted",
+   "label": "Architect Labs Frostbite CPU",
+   "title": "Architect Labs Unveils Frostbite, an Interaction Net CPU Designed by AI"
+  },
+  "www.wired.com/story/goodbye-world-the-end-of-programmers": {
+   "ts": 1795431673,
+   "status": "posted",
+   "label": "Wired Coding Craft Farewell",
+   "title": "Goodbye, World: The End of Programmers"
   }
  }
 }
