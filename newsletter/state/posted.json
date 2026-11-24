@@ -2897,6 +2897,54 @@
    "status": "posted",
    "label": "Jensen Huang Reinstated as Nvidia CEO",
    "title": "How Trump and Silicon Valley forced Nvidia to take Jensen Huang back"
+  },
+  "blog.google/products-and-platforms/products/gemini/gemini-golden-state": {
+   "ts": 1795539629,
+   "status": "posted",
+   "label": "Google Gemini Partners with Golden State",
+   "title": "How Gemini is changing the game for Golden State's organization and fans."
+  },
+  "techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming": {
+   "ts": 1795539635,
+   "status": "posted",
+   "label": "Company Allows AI-Assisted Songs",
+   "title": "Tidal to ban and remove millions of AI-generated tracks as AI slop inundates music streaming"
+  },
+  "techcrunch.com/2026/11/24/pinterest-will-now-let-parents-limit-the-ai-generated-content-their-teens-see": {
+   "ts": 1795539641,
+   "status": "posted",
+   "label": "Pinterest Tackles AI Feed Content",
+   "title": "Pinterest will now let parents limit the AI-generated content their teens see"
+  },
+  "www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes": {
+   "ts": 1795539648,
+   "status": "posted",
+   "label": "Jensen Huang Ibiza Dance Video",
+   "title": "Jensen Huang deepfakes are the hot new AI slop"
+  },
+  "www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features": {
+   "ts": 1795539655,
+   "status": "posted",
+   "label": "NYT Advises Against New Photoshop",
+   "title": "The New York Times warns photographers not to update Photoshop over AI features"
+  },
+  "huggingface.co/blog/nvidia/microduck-obstacle-avoidance": {
+   "ts": 1795539661,
+   "status": "posted",
+   "label": "Article Content Missing",
+   "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton"
+  },
+  "www.wired.com/story/ai-agents-can-get-honeypotted-too-aw": {
+   "ts": 1795539669,
+   "status": "posted",
+   "label": "New AI Rogue Temptation Test",
+   "title": "Anthropic Created a Honeypot to Lure AI Agents Into Misbehaving"
+  },
+  "techcrunch.com/2026/11/24/why-a-crusoe-investor-is-betting-on-solar-and-batteries-to-power-future-ai-data-centers": {
+   "ts": 1795539676,
+   "status": "posted",
+   "label": "Data Centers Power Demand",
+   "title": "Why a Crusoe investor is betting on solar and batteries to power future AI data centers"
   }
  }
 }
