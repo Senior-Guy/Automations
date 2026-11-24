@@ -2987,6 +2987,42 @@
    "status": "posted",
    "label": "Nvidia CEO Reinstated, Admits Misconduct",
    "title": "Jensen Huang Apologizes to Nvidia Employees in First All-Hands Since His Return"
+  },
+  "the-decoder.com/novartis-ceo-says-ai-will-shave-four-years-off-drug-development-not-cure-all-disease": {
+   "ts": 1795546825,
+   "status": "posted",
+   "label": "Novartis CEO Tempering AI Hype",
+   "title": "Novartis CEO says AI will shave four years off drug development, not cure all disease"
+  },
+  "techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups": {
+   "ts": 1795546831,
+   "status": "posted",
+   "label": "Anthropic IPO Slump Impacts Valuations",
+   "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups"
+  },
+  "www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive": {
+   "ts": 1795546837,
+   "status": "posted",
+   "label": "Fincher Film Faces AI Allegations",
+   "title": "David Fincher is being dragged for suspected use of AI in his latest film"
+  },
+  "techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security": {
+   "ts": 1795546845,
+   "status": "posted",
+   "label": "UK Cyber Agency Warns AI Hacking",
+   "title": "UK warns AI-driven cyberattacks are exposing years of weak security"
+  },
+  "developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers": {
+   "ts": 1795546851,
+   "status": "posted",
+   "label": "NVIDIA Cosmos 3 Nano Tutorial",
+   "title": "How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers"
+  },
+  "arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage": {
+   "ts": 1795546858,
+   "status": "posted",
+   "label": "Amazon Drone Crash Investigation",
+   "title": "FAA opens probe after Amazon delivery drone clips cable, crashes into garage"
   }
  }
 }
