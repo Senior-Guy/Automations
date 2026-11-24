@@ -2879,6 +2879,24 @@
    "status": "posted",
    "label": "OpenAI and Cisco Launch Shirudo Runtime",
    "title": "OpenAI and Cisco Releases Shirudo: An Open-Source Linux Runtime Allowing Agents to Defend Systems Without Downtime"
+  },
+  "www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization": {
+   "ts": 1795536032,
+   "status": "posted",
+   "label": "AI Strains Enterprise Networks",
+   "title": "Raising the stakes for enterprise networks with AI modernization"
+  },
+  "techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race": {
+   "ts": 1795536045,
+   "status": "posted",
+   "label": "Amazon Acquires Decart for $7.5B",
+   "title": "Amazon’s Decart acquisition is a bet on using software to narrow the gap with Nvidia in the AI chip race"
+  },
+  "arstechnica.com/tech-policy/2026/11/how-trump-and-silicon-valley-forced-nvidia-to-take-jensen-huang-back": {
+   "ts": 1795536052,
+   "status": "posted",
+   "label": "Jensen Huang Reinstated as Nvidia CEO",
+   "title": "How Trump and Silicon Valley forced Nvidia to take Jensen Huang back"
   }
  }
 }
