@@ -3035,6 +3035,18 @@
    "status": "posted",
    "label": "MIT Unveils TangiMap System",
    "title": "Agentic system personalizes physical controls to help users “DJ their art”"
+  },
+  "the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows": {
+   "ts": 1795554028,
+   "status": "posted",
+   "label": "Anthropic Enables Claude Desktop Apps",
+   "title": "Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows"
+  },
+  "arstechnica.com/ai/2026/11/whats-going-on-with-the-riemann-hypothesis": {
+   "ts": 1795554034,
+   "status": "posted",
+   "label": "AI-Assisted Riemann Proof",
+   "title": "What's going on with the Riemann hypothesis?"
   }
  }
 }
