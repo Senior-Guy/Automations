@@ -2945,6 +2945,30 @@
    "status": "posted",
    "label": "Data Centers Power Demand",
    "title": "Why a Crusoe investor is betting on solar and batteries to power future AI data centers"
+  },
+  "www.theverge.com/entertainment/1041362/tidal-ai-music-ban": {
+   "ts": 1795541404,
+   "status": "posted",
+   "label": "Tidal Bans AI-Generated Music",
+   "title": "Tidal will start banning AI-generated music next month"
+  },
+  "techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms": {
+   "ts": 1795541411,
+   "status": "posted",
+   "label": "Instagram Muse AI Integration",
+   "title": "Meta brings its Muse AI assistant directly into Instagram DMs"
+  },
+  "developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core": {
+   "ts": 1795541417,
+   "status": "posted",
+   "label": "AI-Ready Market Data Aggregation",
+   "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core"
+  },
+  "developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools": {
+   "ts": 1795541423,
+   "status": "posted",
+   "label": "NVIDIA Game Dev Updates",
+   "title": "What’s New for Game Developers: AI Animation and RTX Tools"
   }
  }
 }
