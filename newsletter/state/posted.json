@@ -2825,6 +2825,18 @@
    "status": "posted",
    "label": "AWS Bedrock Trusted Access API",
    "title": "Introducing the Amazon Bedrock Trusted Access API with Anthropic’s Enterprise Frontier Safeguards and Enterprise Data Controls"
+  },
+  "www.wired.com/story/dont-bring-up-ai-if-you-want-to-enjoy-your-thanksgiving": {
+   "ts": 1795518040,
+   "status": "posted",
+   "label": "Generational Tension Over AI",
+   "title": "Don’t Bring Up AI if You Want to Enjoy Your Thanksgiving"
+  },
+  "www.wired.com/story/ai-solved-maths-most-famous-problem": {
+   "ts": 1795518048,
+   "status": "posted",
+   "label": "Anthropic's 17‑Million‑Line Riemann Solution",
+   "title": "AI Solved Math’s Most Famous Problem. Now Humans Are Struggling to Understand It"
   }
  }
 }
