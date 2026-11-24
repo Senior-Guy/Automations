@@ -2843,6 +2843,18 @@
    "status": "posted",
    "label": "Anthropic Launches Claude Ship",
    "title": "Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own"
+  },
+  "the-decoder.com/german-researchers-call-for-computer-science-to-reinvent-itself-as-computer-and-ai-science": {
+   "ts": 1795525237,
+   "status": "posted",
+   "label": "TU Darmstadt Calls Redefinition",
+   "title": "German researchers call for computer science to reinvent itself as \"Computer and AI Science\""
+  },
+  "arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input": {
+   "ts": 1795525244,
+   "status": "posted",
+   "label": "Amazon AI Agents Exploit Zero-Day",
+   "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input"
   }
  }
 }
