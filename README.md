@@ -1,62 +1,50 @@
-# Tech Newsletter Automation (n8n)
+# Automations
 
-Daily automation that pulls recent tech content from multiple sources, filters by keyword, scores relevance, summarizes with AI, and posts the best items to Telegram.
+A collection of practical automations for everyday tasks and productivity, built with Python, GitHub Actions and [n8n](https://n8n.io).
 
-## What it does
+| Project | What it does | Stack | Runs on |
+| --- | --- | --- | --- |
+| [AI News Bot](newsletter/) | Finds new AI stories every hour, summarizes them, posts to Telegram | Python, Groq, Telegram | GitHub Actions |
+| [Telegram Lyrics Bot](n8n/) | Replies to `/lyrics <song>` with formatted lyrics | n8n, Groq, Telegram | Your own n8n instance |
+| [Daily Tech Newsletter](n8n/) | Daily 08:00 digest of tech news to Telegram (original n8n version) | n8n, Groq, Telegram | Your own n8n instance |
 
-Every day at 08:00 it:
+**Live output:** the AI News Bot posts to [t.me/Ai_news_latest](https://t.me/Ai_news_latest).
 
-1. Fetches fresh content from:
-   - arXiv
-   - Hacker News
-   - GitHub (new repositories)
-   - Google News
-   - NewsAPI
-2. Normalizes and deduplicates the results
-3. Filters by keyword (default: "Artificial Intelligence")
-4. Scores items by source quality, recency, and keyword relevance
-5. Uses Groq (Llama 3.3) to generate short summaries
-6. Sends the top results to a Telegram chat/channel
+## Repository layout
 
-If nothing relevant is found, it can send a "no results" notice.
+```text
+.
+├── .github/workflows/   GitHub Actions workflow that runs the AI News Bot hourly
+├── n8n/                 Importable n8n workflows (lyrics bot, daily newsletter)
+└── newsletter/          Python AI News Bot and its state
+    └── state/           History of already-posted stories (auto-updated)
+```
 
-## Requirements
+Each folder has its own README with setup details.
 
-- n8n (self-hosted or cloud)
-- NewsAPI key → [newsapi.org](https://newsapi.org)
-- Groq API key → [console.groq.com](https://console.groq.com)
-- Telegram Bot + Chat/Channel ID
+## Quick start
 
-## Setup
+**AI News Bot (no server needed)**
 
-1. **Import the workflow**
-   - In n8n go to Workflows → Import from File
-   - Select `Newsletter.json`
+1. Fork this repository.
+2. Add the secrets listed in [`newsletter/README.md`](newsletter/README.md#configuration) under *Settings → Secrets and variables → Actions*.
+3. Open the *Actions* tab and run **Hourly AI News** manually with *dry run* enabled to preview the output.
 
-2. **Create credentials in n8n**
-   - NewsAPI → Header Auth (Header name: `X-Api-Key`)
-   - Groq → Groq API credential
-   - Telegram → Telegram API credential (bot token)
+**n8n workflows**
 
-3. **Configure the nodes**
-   - `Fetch NewsAPI` → attach the Header Auth credential (or paste your key if you prefer)
-   - `Groq Chat Model` → select your Groq credential
-   - `Send a text message` → select Telegram credential and set your Chat ID
-   - (Recommended) Replace the `Send No-Results Notice` HTTP node with a normal Telegram node that uses the same credential
+1. In n8n choose *Workflows → Import from File*.
+2. Pick a file from [`n8n/`](n8n/) and follow the setup notes in [`n8n/README.md`](n8n/README.md).
 
-4. **Optional: change the keyword**
-   - Open `Set Config Variables`
-   - Change the default from `"Artificial Intelligence"` or pass it via webhook body later
+## Security
 
-5. **Activate** the workflow
+- No real API keys, bot tokens or chat IDs are stored in this repository. Placeholders such as `PASTE_BOT_TOKEN` and `YOUR_TELEGRAM_CHAT_ID` must be replaced in your own copy.
+- Never commit real credentials. If you accidentally do, revoke and regenerate them immediately.
+- The Python bot reads all secrets from GitHub Actions secrets and masks them in logs.
 
-## Notes
+## Contributing
 
-- No real API keys or chat IDs are stored in this repository.
-- Fetch nodes use `continueOnFail: true` so one source failing does not stop the whole run.
-- The AI step uses `llama-3.3-70b-versatile` via Groq.
-- The workflow currently keeps the top 20 scored items before sending.
+Issues and suggestions are welcome. For a change, open a pull request with a short description of what it does and how you tested it (the workflow's *dry run* mode is handy for the news bot).
 
-## File
+## License
 
-- `Newsletter.json` — the full n8n workflow export
+No license has been added yet, so all rights are reserved by default. If you want others to reuse this work, add a `LICENSE` file (for example MIT).
