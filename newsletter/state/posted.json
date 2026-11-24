@@ -2837,6 +2837,12 @@
    "status": "posted",
    "label": "Anthropic's 17‑Million‑Line Riemann Solution",
    "title": "AI Solved Math’s Most Famous Problem. Now Humans Are Struggling to Understand It"
+  },
+  "the-decoder.com/anthropics-claude-ship-lets-ai-agents-review-fix-and-approve-pull-requests-on-their-own": {
+   "ts": 1795521628,
+   "status": "posted",
+   "label": "Anthropic Launches Claude Ship",
+   "title": "Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own"
   }
  }
 }
