@@ -2855,6 +2855,30 @@
    "status": "posted",
    "label": "Amazon AI Agents Exploit Zero-Day",
    "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input"
+  },
+  "the-decoder.com/anthropic-researcher-stands-by-his-ai-assisted-riemann-proof-but-owns-up-to-stupid-things-in-the-rollout": {
+   "ts": 1795532436,
+   "status": "posted",
+   "label": "Anthropic Researcher Retracts Riemann Claim",
+   "title": "Anthropic researcher stands by his AI-assisted Riemann proof but owns up to \"stupid things\" in the rollout"
+  },
+  "the-decoder.com/dozens-of-insiders-say-openai-and-anthropics-unreleased-models-have-outgrown-their-safety-measures": {
+   "ts": 1795532443,
+   "status": "posted",
+   "label": "OpenAI, Anthropic Model Safety Concerns",
+   "title": "Dozens of insiders say OpenAI and Anthropic's unreleased models have outgrown their safety measures"
+  },
+  "developer.nvidia.com/blog/qa-how-everstone-brings-where-winds-meet-to-life-with-nvidia-dlss-5": {
+   "ts": 1795532449,
+   "status": "posted",
+   "label": "Everstone Studio Enhances Wuxia Game",
+   "title": "Q&A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5"
+  },
+  "www.marktechpost.com/2026/11/24/openai-cisco-shirudo-ebpf-linux-runtime": {
+   "ts": 1795532455,
+   "status": "posted",
+   "label": "OpenAI and Cisco Launch Shirudo Runtime",
+   "title": "OpenAI and Cisco Releases Shirudo: An Open-Source Linux Runtime Allowing Agents to Defend Systems Without Downtime"
   }
  }
 }
