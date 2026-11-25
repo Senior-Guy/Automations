@@ -3155,6 +3155,12 @@
    "status": "posted",
    "label": "ComfyUI 0.46.2 Portable Kit",
    "title": "patriciaj372/comfyui-0-46-portable-edition-local-ai-studio-ja - ComfyUI 0.46.2のスタンドアロン・ポータブル環境構築キット。動画デフリッカーノード、FP8/GGUF量子化モデルローダー、日本語UIカスタム"
+  },
+  "www.marktechpost.com/2026/11/24/bytedance-seed-laminar-async-rl-post-training-framework": {
+   "ts": 1795586430,
+   "status": "posted",
+   "label": "Laminar RL Post-Training Framework",
+   "title": "ByteDance Researchers Open-Sources Laminar, an Async Reinforcement Learning RL Post-Training Framework"
   }
  }
 }
