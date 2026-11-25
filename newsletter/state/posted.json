@@ -3179,6 +3179,18 @@
    "status": "posted",
    "label": "Recent AI News Highlights",
    "title": "An Indic Voice Agent with CUGA"
+  },
+  "the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb": {
+   "ts": 1795608036,
+   "status": "posted",
+   "label": "PrismML Launches Ternary Bonsai 2.5",
+   "title": "PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values"
+  },
+  "www.wired.com/story/airplane-turbulence-is-extremely-hard-to-predict-and-avoid": {
+   "ts": 1795608044,
+   "status": "posted",
+   "label": "Crowdsourced Data Boosts Physics Problem",
+   "title": "Airplane Turbulence Is Extremely Hard to Predict, but Maybe Not for Long"
   }
  }
 }
