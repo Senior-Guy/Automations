@@ -3077,6 +3077,18 @@
    "status": "posted",
    "label": "Company Tests Founder Absence",
    "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy"
+  },
+  "www.wired.com/story/jensen-huang-nvidia-us-national-security-risks": {
+   "ts": 1795564844,
+   "status": "posted",
+   "label": "Nvidia CEO Ties Downplayed",
+   "title": "Jensen Huang’s Return Shows Nvidia Is Too Big to Police"
+  },
+  "www.marktechpost.com/2026/11/24/meta-facebook-your-algorithm-llm-recommendations": {
+   "ts": 1795564850,
+   "status": "posted",
+   "label": "Meta Launches Your Algorithm",
+   "title": "Meet Facebook’s Your Algorithm: How Meta Turns Plain-Language Preferences Into Ranking"
   }
  }
 }
