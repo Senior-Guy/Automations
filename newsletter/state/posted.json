@@ -3161,6 +3161,24 @@
    "status": "posted",
    "label": "Laminar RL Post-Training Framework",
    "title": "ByteDance Researchers Open-Sources Laminar, an Async Reinforcement Learning RL Post-Training Framework"
+  },
+  "the-decoder.com/mit-team-discovers-that-unrealistic-training-data-makes-ai-climate-predictions-more-reliable": {
+   "ts": 1795604435,
+   "status": "posted",
+   "label": "MIT Reduces AI Climate Model Training",
+   "title": "MIT team discovers that unrealistic training data makes AI climate predictions more reliable"
+  },
+  "www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems": {
+   "ts": 1795604442,
+   "status": "posted",
+   "label": "AI‑Driven FOIA Surge Strains Town Halls",
+   "title": "AI is straining America’s open records systems"
+  },
+  "huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga": {
+   "ts": 1795604448,
+   "status": "posted",
+   "label": "Recent AI News Highlights",
+   "title": "An Indic Voice Agent with CUGA"
   }
  }
 }
