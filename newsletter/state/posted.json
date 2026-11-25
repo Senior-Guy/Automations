@@ -3227,6 +3227,18 @@
    "status": "posted",
    "label": "Huang Faces Congressional Scrutiny",
    "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed"
+  },
+  "www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions": {
+   "ts": 1795618834,
+   "status": "posted",
+   "label": "Amazon Mulls Muse AI Integration",
+   "title": "Amazon is reportedly in talks to end Muse AI shopping block"
+  },
+  "techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse": {
+   "ts": 1795618840,
+   "status": "posted",
+   "label": "Amazon Meta Muse Deal Talks",
+   "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse"
   }
  }
 }
