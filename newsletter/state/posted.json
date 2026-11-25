@@ -3089,6 +3089,72 @@
    "status": "posted",
    "label": "Meta Launches Your Algorithm",
    "title": "Meet Facebook’s Your Algorithm: How Meta Turns Plain-Language Preferences Into Ranking"
+  },
+  "techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion": {
+   "ts": 1795568435,
+   "status": "posted",
+   "label": "Sonnenfeld Warns Nvidia CEO Return Risks",
+   "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to U.S. industrial might — not a champion"
+  },
+  "github.com/v-mysusanja-j58/comfyui-0-46-invokeai-6-14-local-ai-studio-ko": {
+   "ts": 1795568442,
+   "status": "posted",
+   "label": "ComfyUI Portable Integrates InvokeAI",
+   "title": "v-mysusanja-j58/comfyui-0-46-invokeai-6-14-local-ai-studio-ko - ComfyUI 0.46.2 포터블 에디션과 InvokeAI v6.14.4 통합 캔버스를 위한 저용량 VRAM 최적화 설정, 커스텀 노드 "
+  },
+  "github.com/denizmiyazaki/ollama-anythingllm-lokalne-studio-ai-konfiguracja-pl": {
+   "ts": 1795568448,
+   "status": "posted",
+   "label": "Local AI Environment Release",
+   "title": "denizmiyazaki/ollama-anythingllm-lokalne-studio-ai-konfiguracja-pl - Gotowe środowisko lokalnej sztucznej inteligencji łączące AnythingLLM v"
+  },
+  "github.com/gregoryperry76835/koboldcpp-lm-studio-local-llm-japanese-suite-ja": {
+   "ts": 1795568455,
+   "status": "posted",
+   "label": "Local Japanese AI Desktop",
+   "title": "GregoryPerry76835/koboldcpp-lm-studio-local-llm-japanese-suite-ja - 日本語特化GGUFモデルの高速GPU推論、Qwen3ASR音声文字起こし、Kokoro TTS音声合成、およびMCPツール連携を統合したローカル"
+  },
+  "github.com/rebecca26040/autopilotpm-polymarket-kalshi-ai-terminal": {
+   "ts": 1795568462,
+   "status": "posted",
+   "label": "Autopilotpm AI Terminal Release",
+   "title": "Rebecca26040/autopilotpm-polymarket-kalshi-ai-terminal - Autopilotpm Polymarket Kalshi AI Terminal [2026] — Standalone Windows 10/11 (x64) R"
+  },
+  "github.com/pinargomez/pinokio-ai-browser-portable-installer": {
+   "ts": 1795568469,
+   "status": "posted",
+   "label": "Pinokio AI Browser Portable Release",
+   "title": "pinargomez/pinokio-ai-browser-portable-installer - Pinokio AI Browser Portable Installer [2026] — Standalone Windows 10/11 (x64) Release, Se"
+  },
+  "github.com/kcosta0362/krita-ai-diffusion-comfyui-portable-pack": {
+   "ts": 1795568476,
+   "status": "posted",
+   "label": "Krita AI Diffusion Portable Release",
+   "title": "kCosta0362/krita-ai-diffusion-comfyui-portable-pack - Krita AI Diffusion Comfyui Portable Pack [2026] — Standalone Windows 10/11 (x64) Relea"
+  },
+  "github.com/stephaniei047/keyshot-studio-2026-ai-shots-headless": {
+   "ts": 1795568482,
+   "status": "posted",
+   "label": "Keyshot Studio 2026 Release",
+   "title": "Stephaniei047/keyshot-studio-2026-ai-shots-headless - Keyshot Studio 2026 AI Shots Headless [2026] — Standalone Windows 10/11 (x64) Release,"
+  },
+  "github.com/pedrolong1343/d5-render-3-ai-archviz-asset-manager": {
+   "ts": 1795568495,
+   "status": "posted",
+   "label": "D5 Render 3 Release",
+   "title": "pedrolong1343/d5-render-3-ai-archviz-asset-manager - D5 Render 3 AI Archviz Asset Manager [2026] — Standalone Windows 10/11 (x64) Release, S"
+  },
+  "github.com/robertmar-work47/davinci-resolve-studio-21-premiere-2026-video-suite-ko": {
+   "ts": 1795568507,
+   "status": "posted",
+   "label": "DaVinci Resolve 21 Workstation",
+   "title": "robertmar-work47/davinci-resolve-studio-21-premiere-2026-video-suite-ko - DaVinci Resolve Studio 21의 AI 뉴럴 엔진 트래킹, HDR10+ 색보정 노드 트리 및 멀티 GPU"
+  },
+  "github.com/patriciaj372/comfyui-0-46-portable-edition-local-ai-studio-ja": {
+   "ts": 1795568524,
+   "status": "posted",
+   "label": "ComfyUI 0.46.2 Portable Kit",
+   "title": "patriciaj372/comfyui-0-46-portable-edition-local-ai-studio-ja - ComfyUI 0.46.2のスタンドアロン・ポータブル環境構築キット。動画デフリッカーノード、FP8/GGUF量子化モデルローダー、日本語UIカスタム"
   }
  }
 }
