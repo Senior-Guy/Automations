@@ -3299,6 +3299,24 @@
    "status": "posted",
    "label": "NY Bans AI Chatbot Toys",
    "title": "Want to buy your kid an AI toy this Christmas? Not in New York"
+  },
+  "techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd": {
+   "ts": 1795636833,
+   "status": "posted",
+   "label": "Anthropic CEO Rejects AI Agency Claims",
+   "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’"
+  },
+  "techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it": {
+   "ts": 1795636839,
+   "status": "posted",
+   "label": "Nvidia Code of Conduct Consequences",
+   "title": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it"
+  },
+  "developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling": {
+   "ts": 1795636845,
+   "status": "posted",
+   "label": "FlashAttention Boosts Data Center GPUs",
+   "title": "How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling"
   }
  }
 }
