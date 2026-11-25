@@ -3263,6 +3263,24 @@
    "status": "posted",
    "label": "Drone Strikes Target Data Centers",
    "title": "Ars Live recap: Don’t expect military attacks on data centers to stop"
+  },
+  "research.google/blog/verifiable-social-reasoning-for-llm-assistants": {
+   "ts": 1795629640,
+   "status": "posted",
+   "label": "Google Research Generative AI",
+   "title": "Verifiable Social Reasoning for LLM Assistants"
+  },
+  "techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats": {
+   "ts": 1795629646,
+   "status": "posted",
+   "label": "Character.ai Bankruptcy Data Sale",
+   "title": "State AGs fight Character AI’s plan to auction off users’ private chats"
+  },
+  "www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers": {
+   "ts": 1795629654,
+   "status": "posted",
+   "label": "FCC Approves SpaceX AI Satellite Constellation",
+   "title": "FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space"
   }
  }
 }
