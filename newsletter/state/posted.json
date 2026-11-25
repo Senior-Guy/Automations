@@ -3317,6 +3317,24 @@
    "status": "posted",
    "label": "FlashAttention Boosts Data Center GPUs",
    "title": "How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling"
+  },
+  "the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs": {
+   "ts": 1795640432,
+   "status": "posted",
+   "label": "China AI Labs Face Chip Restrictions",
+   "title": "US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs"
+  },
+  "the-decoder.com/anthropic-ceo-dario-amodei-says-letting-ai-govern-society-would-be-a-bad-idea": {
+   "ts": 1795640439,
+   "status": "posted",
+   "label": "Anthropic CEO Rejects AI Governance",
+   "title": "Anthropic CEO Dario Amodei says letting AI govern society would be \"a bad idea\""
+  },
+  "techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work": {
+   "ts": 1795640445,
+   "status": "posted",
+   "label": "OpenAI Unifies ChatGPT Usage Meter",
+   "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work"
   }
  }
 }
