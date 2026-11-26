@@ -3347,6 +3347,12 @@
    "status": "posted",
    "label": "Nvidia Credit Rating Downgrade",
    "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks"
+  },
+  "huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin": {
+   "ts": 1795672834,
+   "status": "posted",
+   "label": "No Article Content",
+   "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference"
   }
  }
 }
