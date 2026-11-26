@@ -3407,6 +3407,12 @@
    "status": "posted",
    "label": "OpenAI Fixes GPT-6.2 Billing Bug",
    "title": "GPT-6.2 Astra users now hit limits 40% faster after OpenAI patched a pricing error"
+  },
+  "the-decoder.com/former-openai-researcher-says-the-riemann-proof-matters-less-than-the-fact-that-an-ai-system-can-produce-it": {
+   "ts": 1795723230,
+   "status": "posted",
+   "label": "Aaronson Warns AI Math Impact",
+   "title": "Former OpenAI researcher says the Riemann proof matters less than the fact that an AI system can produce it"
   }
  }
 }
