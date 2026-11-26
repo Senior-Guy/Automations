@@ -3401,6 +3401,12 @@
    "status": "posted",
    "label": "Anthropic IPO and Game Launch",
    "title": "As Anthropic IPOs, Grand Theft Auto VI proves why efficiency isn’t a virtue"
+  },
+  "the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error": {
+   "ts": 1795716031,
+   "status": "posted",
+   "label": "OpenAI Fixes GPT-6.2 Billing Bug",
+   "title": "GPT-6.2 Astra users now hit limits 40% faster after OpenAI patched a pricing error"
   }
  }
 }
