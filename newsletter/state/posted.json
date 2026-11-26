@@ -3365,6 +3365,24 @@
    "status": "posted",
    "label": "FCA Warns Against Agent Attack",
    "title": "Meta Refused to Share Muse for Testing, UK Financial Watchdog Complains"
+  },
+  "the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks": {
+   "ts": 1795694439,
+   "status": "posted",
+   "label": "Microsoft Reveals ARTEX Architecture",
+   "title": "Microsoft details how state-backed hackers use the ARTEX AI framework to automate cyberattacks"
+  },
+  "the-decoder.com/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-after-tighter-us-export-controls": {
+   "ts": 1795694446,
+   "status": "posted",
+   "label": "Nvidia Halts SE Asia Server Shipments",
+   "title": "Nvidia halts server shipments to Malaysia, Singapore, Thailand, and Indonesia after tighter US export controls"
+  },
+  "huggingface.co/blog/ggml-org/llamacpp-amd-bench": {
+   "ts": 1795694452,
+   "status": "posted",
+   "label": "AI News Roundup",
+   "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon"
   }
  }
 }
