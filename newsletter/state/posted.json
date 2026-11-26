@@ -3353,6 +3353,12 @@
    "status": "posted",
    "label": "No Article Content",
    "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference"
+  },
+  "www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats": {
+   "ts": 1795687228,
+   "status": "posted",
+   "label": "AGs Block Character.AI Data Sale",
+   "title": "42 state AGs are trying to stop Character.AI from selling users’ chats"
   }
  }
 }
