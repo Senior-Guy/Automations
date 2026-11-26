@@ -3383,6 +3383,12 @@
    "status": "posted",
    "label": "AI News Roundup",
    "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon"
+  },
+  "the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040": {
+   "ts": 1795701632,
+   "status": "posted",
+   "label": "FCC Clears SpaceX Satellite AI Network",
+   "title": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040"
   }
  }
 }
