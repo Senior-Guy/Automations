@@ -3419,6 +3419,18 @@
    "status": "posted",
    "label": "Nvidia Pauses SE Asia Server Shipments",
    "title": "Nvidia hits pause on chip shipments to Southeast Asia"
+  },
+  "www.marktechpost.com/2026/11/26/nexos-ai-ai-gateway-200-models-governance": {
+   "ts": 1795752026,
+   "status": "posted",
+   "label": "nexos.ai AI Governance Platform",
+   "title": "nexos.ai AI Adoption Platform puts 200+ models behind one AI Gateway, with budget limits and governance built in"
+  },
+  "www.marktechpost.com/2026/11/26/tencent-dfly2-speculative-decoding-sparse-models": {
+   "ts": 1795752033,
+   "status": "posted",
+   "label": "Tencent Releases DFly2 Speculative Decoder",
+   "title": "Tencent Open-Sources DFly2: Speculative Decoding That Reuses the Target’s Sparse KV Cache"
   }
  }
 }
