@@ -3431,6 +3431,12 @@
    "status": "posted",
    "label": "Tencent Releases DFly2 Speculative Decoder",
    "title": "Tencent Open-Sources DFly2: Speculative Decoding That Reuses the Target’s Sparse KV Cache"
+  },
+  "www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light": {
+   "ts": 1795766428,
+   "status": "posted",
+   "label": "Q.ANT Pursues Light‑Based AI Efficiency",
+   "title": "A New Breed of Chip Runs AI Models Using Waves of Light"
   }
  }
 }
